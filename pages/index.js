@@ -124,7 +124,7 @@ export default function Home() {
             <a
               href="https://tr.ee/vx87XEdgfh"
               target="_blank"
-              className="px-[32px] py-[16px] rounded-[16px] text-white bg-pink cursor-pointer font-semibold transition-all duration-200 ease-out bg-pink hover:bg-dark-pink whitespace-nowrap"
+              className="px-[32px] py-[16px] rounded-[16px] text-white bg-pink cursor-pointer font-semibold transition-all duration-200 ease-out hover:bg-dark-pink whitespace-nowrap"
             >
               Join our team
             </a>
@@ -132,9 +132,7 @@ export default function Home() {
               // href="https://tr.ee/2SZEApXBIC"
               // target="_blank"
               href="/donate"
-              className="px-[32px] py-[14px] rounded-[16px] text-pink border-2 border-pink cursor-pointer font-semibold ease-out duration-200 hover:bg-[#E5D7DD] whitespace-nowrap
-whitespace-nowrap
-whitespace-nowrap"
+              className="px-[32px] py-[14px] rounded-[16px] text-pink border-2 border-pink cursor-pointer font-semibold ease-out duration-200 hover:bg-[#E5D7DD] whitespace-nowrap"
             >
               Make a donation
             </a>
@@ -176,7 +174,7 @@ whitespace-nowrap"
       <div className=" relative max-w-[90vw] w-[1336px] my-[50px] lg:my-[150px] m-auto flex flex-col lg:flex-row gap-[10px] lg:gap-[150px] lg:items-center justify-between">
         <div className="hidden lg:block -z-50 absolute left-[-200px] top-[-400px] h-[1000px] w-[1000px] rounded-[50%] bg-gradient-to-r from-[#efddfe] from-0% to-[#F7ECFE] to-100% opacity-50 blur-3xl"></div>
         <div>
-          <div className="font-medium text-[32px] lg:text-[42px] lg:text-[56px]">
+          <div className="font-medium text-[32px] md:text-[42px] lg:text-[56px]">
             What we do <br />
             <span className="text-pink font-normal font-shadows">@ Titli</span>
           </div>
@@ -197,7 +195,7 @@ whitespace-nowrap"
 
       <Stats ref3={ref3} ref1={ref1} viewed1={viewed1} viewed3={viewed3} />
       <div className="max-w-[90vw] w-[1336px] m-auto">
-        <div className="font-medium text-[32px] lg:text-[42px] lg:text-[56px]">
+        <div className="font-medium text-[32px] md:text-[42px] lg:text-[56px]">
           Some of our <br />
           <span className="text-pink font-normal font-shadows">
             Recent Work
@@ -217,10 +215,10 @@ whitespace-nowrap"
         className="bg-pink text-[16px] lg:text-[20px] rounded-[16px] text-center font-semibold text-white flex gap-[10px] justify-center items-center py-[16px] w-[90vw] lg:w-[400px] my-[30px] lg:my-[100px] mb-[70px] lg:mb-100px  m-auto cursor-pointer leading-[1.6em]"
       >
         <div>Follow our journey</div>
-        <img src="/svgs/instagram.svg" className="" />
+        <img src="/svgs/instagram-logo.svg" className="" />
       </a>
       <div className="max-w-[90vw] w-[1336px] m-auto lg:my-[150px]">
-        <div className="font-medium text-[32px] lg:text-[42px] lg:text-[56px]">
+        <div className="font-medium text-[32px] md:text-[42px] lg:text-[56px]">
           Join the{" "}
           <span className="text-pink font-normal font-shadows">fam</span>
         </div>
@@ -244,7 +242,7 @@ whitespace-nowrap"
               <a
                 href="https://tr.ee/vx87XEdgfh"
                 target="_blank"
-                className="px-[32px] py-[16px] rounded-[16px] text-white bg-pink cursor-pointer transition-all duration-200 ease-out bg-pink hover:bg-dark-pink whitespace-nowrap"
+                className="px-[32px] py-[16px] rounded-[16px] text-white bg-pink cursor-pointer transition-all duration-200 ease-out hover:bg-dark-pink whitespace-nowrap"
               >
                 Join our team
               </a>
@@ -252,9 +250,7 @@ whitespace-nowrap"
                 // href="https://tr.ee/2SZEApXBIC"
                 // target="_blank"
                 href="/donate"
-                className="px-[32px] py-[14px] rounded-[16px] text-pink border-2 border-pink cursor-pointer ease-out duration-200 hover:bg-[#E5D7DD] whitespace-nowrap
-whitespace-nowrap
-whitespace-nowrap"
+                className="px-[32px] py-[14px] rounded-[16px] text-pink border-2 border-pink cursor-pointer ease-out duration-200 hover:bg-[#E5D7DD] whitespace-nowrap"
               >
                 Make a donation
               </a>

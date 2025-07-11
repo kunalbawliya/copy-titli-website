@@ -45,16 +45,16 @@ export default function Navbar({ donatePage }) {
         {/* Desktop Buttons */}
         <div className="hidden lg:flex items-center gap-4">
           <a
-            href="https://tr.ee/vx87XEdgfh"
-            target="_blank"
-            rel="noreferrer"
+            href={donatePage ? "https://linktr.ee/Titli" : "/donate"}
+            target={donatePage ? "_blank" : ""}
             className="text-black font-semibold text-sm lg:text-base hover:text-pink"
           >
             Make a donation
           </a>
           <a
-            href={donatePage ? "https://linktr.ee/Titli" : "/donate"}
-            target={donatePage ? "_blank" : ""}
+            href="https://tr.ee/vx87XEdgfh"
+            target="_blank"
+            rel="noreferrer"
             className="text-black font-semibold text-sm lg:text-base hover:text-pink"
           >
             Join the Team
