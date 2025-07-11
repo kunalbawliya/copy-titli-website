@@ -1,79 +1,71 @@
 import Head from "next/head";
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
-import PrimaryButton, { SecondaryButton } from "@/components/Button";
+import PrimaryButton from "@/components/Button";
 import BrandList from "@/components/BrandList";
 import Carousel from "@/components/Carousel";
 import Footer from "@/components/Footer";
 import { ColourTicker } from "@/components/Ticker";
-import { useEffect } from "react";
+
+const razorpayButtons = [
+  {
+    amount: 101100, // in paise
+    amountDisplay: "₹1011",
+    impact: "Help 2 or more menstruators to adopt sustainable menstrual practices.",
+  },
+  {
+    amount: 404400,
+    amountDisplay: "₹4044",
+    impact: "Help 8 or more menstruators to adopt sustainable menstrual practices.",
+    label: "Most Donated",
+  },
+  {
+    amount: 606600,
+    amountDisplay: "₹6066",
+    impact: "Help 13 or more menstruators to adopt sustainable menstrual practices.",
+  },
+];
+
+const razorpayKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
 
 export default function Donate() {
-  const razorpayButtons = [
-    {
-      id: "pl_Lhx38jvW9IlRnt",
-      amount: "₹1011",
-      impact: "Help 2 or more menstruators to adopt sustainable menstrual practices.",
-    },
-    {
-      id: "pl_Lj7k5QOllMbRfn",
-      amount: "₹4044",
-      impact: "Help 8 or more menstruators to adopt sustainable menstrual practices.",
-      label: "Most Donated",
-    },
-    {
-      id: "pl_Lj7lnYrL3czAK7",
-      amount: "₹6066",
-      impact: "Help 13 or more menstruators to adopt sustainable menstrual practices.",
-    },
-  ];
-
   useEffect(() => {
-    razorpayButtons.forEach((btn, index) => {
-      const script = document.createElement("script");
-      script.src = "https://checkout.razorpay.com/v1/payment-button.js";
-      script.setAttribute("data-payment_button_id", btn.id);
-      script.async = true;
-
-      const form = document.getElementById(`donateForm${index + 1}`);
-      if (form && !form.hasChildNodes()) {
-        form.appendChild(script);
-      }
-    });
-
-    const customScript = document.createElement("script");
-    customScript.src = "https://checkout.razorpay.com/v1/payment-button.js";
-    customScript.setAttribute("data-payment_button_id", "pl_LhwnkF5w1i2h9B");
-    customScript.async = true;
-
-    const customForm = document.getElementById("donateForm4");
-    if (customForm && !customForm.hasChildNodes()) {
-      customForm.appendChild(customScript);
-    }
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    document.body.appendChild(script);
   }, []);
+
+  const handlePayment = ({ amount, impact }) => {
+    const options = {
+      key: razorpayKey,
+      amount: amount,
+      currency: "INR",
+      name: "Titli Foundation",
+      description: impact,
+      image: "/favicon.ico",
+      handler: function (response) {
+        alert("Donation successful! Thank you ❤️");
+        console.log("Razorpay Response:", response);
+      },
+      prefill: {
+        name: "",
+        email: "",
+        contact: "",
+      },
+      theme: {
+        color: "#E34F8F",
+      },
+    };
+
+    const razor = new window.Razorpay(options);
+    razor.open();
+  };
 
   return (
     <div className="font-inter overflow-hidden">
       <Head>
         <title>Titli Foundation | Donate</title>
-        <style>{`
-          .razorpay-payment-button {
-            background-color: #e34f8f !important;
-            font-family: 'Inter', sans-serif !important;
-            font-weight: 600 !important;
-            font-size: 16px !important;
-            padding: 12px 20px !important;
-            border-radius: 12px !important;
-            color: white !important;
-            border: none !important;
-            width: 100% !important;
-            text-transform: none !important;
-            transition: background 0.3s ease;
-            box-shadow: 0 2px 10px rgba(227, 79, 143, 0.2);
-          }
-          .razorpay-payment-button:hover {
-            background-color: #c7377b !important;
-          }
-        `}</style>
       </Head>
 
       <div className="relative max-w-[90vw] w-[1336px] m-auto text-[#2F2F2F]">
@@ -121,7 +113,7 @@ export default function Donate() {
           <div className="lg:max-w-[500px]">
             <div className="font-black text-[32px] lg:text-[56px] mb-[30px]">The Problem</div>
             <div className="font-light text-[16px] lg:text-[18px]">
-              Did you know that almost 23 million girls drop out of school every year when they start menstruating? ...
+              Did you know that almost 23 million girls drop out of school every year when they start menstruating?
             </div>
           </div>
         </div>
@@ -129,7 +121,7 @@ export default function Donate() {
           <div className="lg:max-w-[500px]">
             <div className="font-black text-[32px] lg:text-[56px] mb-[30px]">The Solution</div>
             <div className="font-light text-[16px] lg:text-[18px]">
-              At Titli Foundation, we empathize with the challenges faced by underprivileged menstruators ...
+              At Titli Foundation, we empathize with the challenges faced by underprivileged menstruators.
             </div>
           </div>
         </div>
@@ -157,7 +149,7 @@ export default function Donate() {
 
         <div className="relative grid grid-cols-1 lg:grid-cols-4 gap-x-[20px] gap-y-[20px]">
           {razorpayButtons.map((btn, index) => (
-            <div key={btn.id} className="px-[24px] py-[32px] bg-[#FAF5FE] rounded-[16px] relative">
+            <div key={index} className="px-[24px] py-[32px] bg-[#FAF5FE] rounded-[16px] relative">
               {btn.label && (
                 <div className="absolute top-[-8px] right-[10px] flex items-center gap-x-[5px] text-pink w-auto font-[600] text-[14px] border-2 border-pink rounded-[100px] px-[10px] py-[2px]">
                   <div>{btn.label}</div>
@@ -166,10 +158,15 @@ export default function Donate() {
                   </svg>
                 </div>
               )}
-              <div className="text-[32px] font-[700] mb-[20px]">{btn.amount}</div>
+              <div className="text-[32px] font-[700] mb-[20px]">{btn.amountDisplay}</div>
               <div className="font-[300] mb-[30px] h-[3em]">{btn.impact}</div>
               <div className="bg-[#ECCCDA] h-[2px] w-[50px] mb-[30px]"></div>
-              <form id={`donateForm${index + 1}`} className="w-full"></form>
+              <button
+                onClick={() => handlePayment(btn)}
+                className="bg-[#e34f8f] hover:bg-[#c7377b] text-white font-semibold text-[16px] px-[20px] py-[12px] rounded-[12px] w-full transition-all duration-300 shadow-md"
+              >
+                Donate Now
+              </button>
             </div>
           ))}
 
@@ -177,7 +174,17 @@ export default function Donate() {
             <div className="text-[32px] font-[700] mb-[20px]">Custom</div>
             <div className="font-[300] mb-[30px] h-[3em]">Choose your own amount</div>
             <div className="bg-[#ECCCDA] h-[2px] w-[50px] mb-[30px]"></div>
-            <form id="donateForm4" className="w-full"></form>
+            <button
+              onClick={() =>
+                handlePayment({
+                  amount: 0,
+                  impact: "Support menstrual health with a custom donation.",
+                })
+              }
+              className="bg-[#e34f8f] hover:bg-[#c7377b] text-white font-semibold text-[16px] px-[20px] py-[12px] rounded-[12px] w-full transition-all duration-300 shadow-md"
+            >
+              Donate Now
+            </button>
           </div>
         </div>
 
