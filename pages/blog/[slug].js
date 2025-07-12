@@ -34,7 +34,7 @@ export default function Post({ postData, allPostsData }) {
   return (
     <>
       <Navbar />
-      <main className="bg-[#ffffff] text-gray-800 min-h-screen pt-[198px] pb-24 px-4">
+      <main className="bg-[#ffffff] text-gray-800 min-h-screen pt-[160px] md:pt-[180px] lg:pt-[198px] pb-24 px-4">
         <article className="max-w-5xl mx-auto">
           {/* Title */}
           <h1 className="text-5xl font-bold mb-6 font-serif text-pink-700 text-center">
