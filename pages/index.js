@@ -64,7 +64,7 @@ export default function Home() {
           <a
             // href="https://tr.ee/2SZEApXBIC"
             // target="_blank"
-            href="/donate"
+            href="/blog"
             className="mt-[50px] lg:mt-[70px] cursor-pointer pointer-events-none lg:pointer-events-auto"
           >
             <div className="m-auto relative w-[150px] lg:w-[200px] group">
@@ -73,7 +73,7 @@ export default function Home() {
                 className="w-[100%] m-auto transition-all ease-out duration-200 group-hover:rotate-0 lg:group-hover:rotate-12 "
               />
               <div className="hidden lg:block absolute pointer-events-none left-[20px] top-[80px] font-shadows text-6xl">
-                Donate
+                Blog
               </div>
             </div>
           </a>
