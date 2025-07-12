@@ -30,7 +30,6 @@ export default function Navbar({ donatePage }) {
           }
         `}
       >
-  
         {/* Logo + Title */}
         <Link href="/" className="flex items-center gap-3">
           <img
@@ -44,13 +43,23 @@ export default function Navbar({ donatePage }) {
 
         {/* Desktop Buttons */}
         <div className="hidden lg:flex items-center gap-4">
-          <a
-            href={donatePage ? "https://linktr.ee/Titli" : "/donate"}
-            target={donatePage ? "_blank" : ""}
-            className="text-black font-semibold text-sm lg:text-base hover:text-pink"
-          >
-            Make a donation
-          </a>
+          {donatePage ? (
+            <a
+              href="/donate"
+              // target="_blank"
+              rel="noreferrer"
+              className="text-black font-semibold text-sm lg:text-base hover:text-pink"
+            >
+              Make a donation
+            </a>
+          ) : (
+            <Link
+              href="/donate"
+              className="text-black font-semibold text-sm lg:text-base hover:text-pink"
+            >
+              Make a donation
+            </Link>
+          )}
           <a
             href="https://tr.ee/vx87XEdgfh"
             target="_blank"
@@ -84,7 +93,7 @@ export default function Navbar({ donatePage }) {
       {menuOpen && (
         <div className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center text-xl font-semibold space-y-6 transition-all duration-300 lg:hidden">
           <Link href="/" onClick={() => setMenuOpen(false)}>
-            <img src="/titli.png" className="w-[200px]" />
+            <img src="/titli.png" className="w-[150px]" />
           </Link>
           <a
             href="https://tr.ee/vx87XEdgfh"
