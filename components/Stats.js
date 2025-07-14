@@ -1,97 +1,61 @@
-export default function Stats({ ref3, ref1, viewed1, viewed3 }) {
+import React from "react";
+
+const Stats = () => {
   return (
-    <div className="relative">
-      <div ref={ref3}>
-        <div className="hidden lg:block -z-50 absolute right-[-0vw] top-[-100px] h-[800px] w-[800px] rounded-[50%] bg-gradient-to-r from-[#FDEDD8] from-0% to-[#FDEDE0] to-100% opacity-40 blur-3xl"></div>
-        <img
-          className={`hidden lg:block z-10 opacity-0 absolute left-[7vw] top-[15vh] ${
-            viewed3 && "animate-but1"
-          }`}
-          src="/svgs/butterflies/pink.svg"
-        />
-        <img
-          className={`hidden lg:block z-10 opacity-0 absolute right-[9vw] top-[7vh] ${
-            viewed3 && "animate-but2"
-          }`}
-          src="/svgs/butterflies/purple.svg"
-        />
-        <img
-          className={`hidden lg:block z-10 opacity-0 absolute left-[18vw] bottom-[5vh] ${
-            viewed3 && "animate-but3"
-          }`}
-          src="/svgs/butterflies/black.svg"
-        />
-        <img
-          className={`hidden lg:block z-10 opacity-0 absolute right-[25vw] bottom-[10vh] ${
-            viewed3 && "animate-but4"
-          }`}
-          src="/svgs/butterflies/yellow.svg"
-        />
-        <div
-          className={`max-w-[90vw] w-[1336px] m-auto grid grid-cols-2 gap-[20px] lg:gap-[70px]`}
-        >
-          <div
-            className={`bg-white rounded-[16px] lg:shadow-[rgba(227,79,143,0.12)_0px_30px_90px] h-[100px] lg:h-[350px] w-auto lg:w-[650px] lg:max-w-[45vw] flex  flex-col lg:flex-row gap-[25px] gap-y-[5px] lg:justify-center lg:items-center lg:justify-self-end lg:opacity-0 ${
-              viewed3 && "lg:animate-f-up-l"
-            }`}
-          >
-            <div className="font-thin text-[48px] lg:text-[80px] xl:text-[100px]">
-              200+
-            </div>
-            <div className="font-bold text-[16px] lg:text-[32px] text-pink max-w-[200px]">
-              cups donated
-            </div>
+    <section className="px-4 sm:pb-6 pb-[100px] bg-[#ffffff] text-gray-800">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-14 max-w-6xl mx-auto pb-[100px]">
+        
+        {/* LEFT COLUMN */}
+        <div className="flex flex-col gap-10">
+          {/* Box 1 - taller and rounded-md */}
+          <div className="bg-purple-200 p-6 rounded-[10px] h-[418px] flex flex-col justify-center items-center">
+            <p className="text-[25px] font-inter font-medium text-gray-700  text-center leading-none">Held</p>
+            <p className="text-[90px] font-inter font-medium text-black leading-none">20+</p>
+            <p className="text-[25px] font-inter font-medium text-gray-700  text-center leading-none">campaigns</p>
+            <p className="text-[25px] font-inter font-medium text-gray-700  text-center leading-none">across India</p>
           </div>
-          <div
-            className={`bg-white rounded-[16px] lg:shadow-[rgba(227,79,143,0.12)_0px_30px_90px] h-[100px] lg:h-[350px] w-auto lg:w-[650px] lg:max-w-[45vw] flex  flex-col lg:flex-row gap-[25px] gap-y-[5px] lg:justify-center lg:items-center lg:translate-y-[70px] lg:opacity-0 ${
-              viewed3 && "lg:animate-f-up-r"
-            }`}
-          >
-            <div className="font-thin text-[48px] lg:text-[80px] xl:text-[100px]">
-              200+
-            </div>
-            <div className="font-bold text-[16px] lg:text-[32px] text-pink max-w-[200px]">
-              volunteers
-            </div>
+
+          {/* Box 2 - shorter and more rounded */}
+          <div className="bg-purple-100 p-6 rounded-[10px] h-[170px] flex items-center justify-center">
+            <p className="text-[25px] font-inter font-medium text-gray-700 text-center">Every number tells a story</p>
           </div>
-          <div
-            className={`bg-white rounded-[16px] lg:shadow-[rgba(227,79,143,0.12)_0px_30px_90px] h-[100px] lg:h-[350px] w-auto lg:w-[650px] lg:max-w-[45vw] flex  flex-col lg:flex-row gap-[25px] gap-y-[5px] lg:justify-center lg:items-center lg:justify-self-end lg:opacity-0 ${
-              viewed3 && "lg:animate-f-up-l"
-            }`}
-          >
-            <div className="font-thin text-[48px] lg:text-[80px] xl:text-[100px]">
-              2500+
-            </div>
-            <div className="font-bold text-[16px] lg:text-[32px] text-pink max-w-[200px]">
-              sustainable pads donated
-            </div>
-          </div>
-          <div
-            className={`bg-white rounded-[16px] lg:shadow-[rgba(227,79,143,0.12)_0px_30px_90px] h-[100px] lg:h-[350px] w-auto lg:w-[650px] lg:max-w-[45vw] flex  flex-col lg:flex-row gap-[25px] gap-y-[5px] lg:justify-center lg:items-center lg:translate-y-[70px] lg:opacity-0 ${
-              viewed3 && "lg:animate-f-up-r"
-            }`}
-          >
-            <div className="font-thin text-[48px] lg:text-[80px] xl:text-[100px]">
-              20+
-            </div>
-            <div className="font-bold text-[16px] lg:text-[32px] text-pink max-w-[200px]">
-              campaigns
-            </div>
+
+          {/* Box 3 - medium height and rounded-xl */}
+          <div className="bg-purple-200 p-6 rounded-[10px] h-[419px] flex flex-col justify-center items-center">
+            <p className="text-[25px] font-inter font-medium text-gray-700  text-center leading-none">More Than</p>
+            <p className="text-[90px] font-inter font-medium text-black leading-none">2500+</p>
+            <p className="text-[25px] font-inter font-medium text-gray-700  text-center leading-none">sustainable pads donated</p>
           </div>
         </div>
+
+        {/* RIGHT COLUMN */}
+        <div className="flex flex-col gap-10">
+          {/* Box 1 - rounded-full and normal height */}
+          <div className="bg-purple-200 p-6 rounded-[10px] h-[263px] flex items-center justify-center">
+            <p className="text-[25px] font-inter font-medium text-gray-700  text-center max-w-[320px]">
+              Lorem ipsum dolor sit amet consectetur.
+            </p>
+          </div>
+
+          {/* Box 2 - tall with soft corner */}
+          <div className="bg-purple-200 p-6 rounded-[10px] h-[466px] flex flex-col justify-center items-center">
+            <p className="text-[25px] font-inter font-medium text-gray-700  text-center leading-none">More Than</p>
+            <p className="text-[90px] font-inter font-medium text-black leading-none">200+</p>
+            <p className="text-[25px] font-inter font-medium text-gray-700 mt-1 text-center leading-none">Cups donated</p>
+          </div>
+
+          {/* Box 3 - custom pixel height and rounded-md */}
+          <div className="bg-purple-200 p-6 rounded-[10px] h-[278px] flex items-center justify-center">
+            <p className="text-[25px] font-inter font-medium text-gray-700 text-center max-w-[320px] ">
+              Lorem ipsum dolor sit amet consectetur.
+            </p>
+            
+          </div>
+        </div>
+
       </div>
-      <div className="max-w-[90vw] w-[1336px] m-auto text-pink lg:text-[#E68CBA] font-extralight lg:font-bold text-[32px] lg:text-center mt-[50px] lg:mt-[250px] mb-[30px] lg:mb-[150px]">
-        &
-      </div>
-      <div
-        ref={ref1}
-        className={`max-w-[90vw] w-[1336px] m-auto flex lg:opacity-0 lg:justify-center items-center text-pink font-bold text-[16px] lg:text-[64px] gap-[30px] mb-[70px] lg:mb-[200px] ${
-          viewed1 && "lg:animate-f-up-l"
-        }`}
-      >
-        <img className="h-[50px] lg:h-auto" src="/svgs/infinity.svg" />
-        <div>dreams</div>
-      </div>
-    </div>
+    </section>
   );
-}
+};
+
+export default Stats;
