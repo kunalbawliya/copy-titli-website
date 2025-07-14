@@ -5,8 +5,8 @@ description: "Lorem ipsum dolor sit amet consectetur. Enim risus semper sit dolo
 coverImage: "images/blog_img/demo/demo.png"
 mainImage: "images/blog_img/demo/demo.png"
 gridImages:
-  - "images/blog_img/grid1.png"
-  - "images/blog_img/grid2.png"
+  - "images/blog_img/demo/demo.png"
+  - "images/blog_img/demo/demo.png"
 author: "Ritika Jain"
 authorImage: "images/caro1.png"
 tags: ["Awareness", "Education"]

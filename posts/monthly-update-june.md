@@ -4,6 +4,9 @@ date: "2025-06-30"
 description: "Catch up on everything we achieved in June!"
 coverImage: "images/blog_img/demo/demo.png"
 mainImage: "images/blog_img/demo/demo.png"
+gridImages:
+  - "images/blog_img/demo/demo.png"
+  - "images/blog_img/demo/demo.png"
 author: "Titli Foundation"
 tags: ["Update", "June"]
 category: "Monthly Update"
