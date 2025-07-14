@@ -20,6 +20,7 @@ export default function Footer() {
           <a href="/privacy-policy">PRIVACY POLICY</a>
           <a href="/terms-and-conditions">TERMS & CONDITIONS</a>
           <a href="/refund-and-cancellation-policy">REFUND & CANCELLATION POLICY</a>
+          <a href="/aboutus">About Us</a>
         </div>
 
         {/* Right Column - Contact */}
