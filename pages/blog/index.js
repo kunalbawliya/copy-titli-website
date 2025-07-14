@@ -135,9 +135,15 @@ export default function Blog({ allPostsData }) {
             dignity for all. Doesn’t matter who you are - we have a place for
             you.
           </h2>
-          <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[30px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
-            Join the Team
-          </button> 
+          <a
+            href="https://tr.ee/vx87XEdgfh"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[30px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
+              Join the Team
+            </button>
+          </a>
         </section>
 
         {/* 🌸 Break The Taboo Section */}
@@ -147,14 +153,21 @@ export default function Blog({ allPostsData }) {
             <span className="text-pink-600 font-bold">#BreakTheTaboo</span> and
             positively impact the lives everywhere.
           </h2>
-          <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[30px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
-            Change Begins With You
-          </button>
+          <a href="" target="_blank" rel="noopener noreferrer">
+            <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[30px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
+              Change Begins With You
+            </button>
+          </a>
         </section>
 
         {/* 📸 Instagram Hover Section */}
-        <section className="flex justify-center py-4 mt-8">
-          <div className="group relative w-fit flex items-center justify-center">
+        <section className="flex justify-center py-4 pt-7 pb-[95px]">
+          <a
+            href="https://www.instagram.com/titlifoundation"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative w-fit flex items-center justify-center"
+          >
             <div className="relative inline-flex items-center font-[Inter] font-semibold text-[18px] md:text-[20px] tracking-[-0.06em]">
               <img
                 src="/svgs/instagram-logo.svg"
@@ -165,7 +178,7 @@ export default function Blog({ allPostsData }) {
                 Follow our journey
               </span>
             </div>
-          </div>
+          </a>
         </section>
       </main>
       <Footer />

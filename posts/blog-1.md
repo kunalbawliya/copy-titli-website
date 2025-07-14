@@ -2,8 +2,8 @@
 title: "Not now then when."
 date: "2025-07-11"
 description: "Lorem ipsum dolor sit amet consectetur. Enim risus semper sit dolor vestibulum ac sit et."
-coverImage: "images/blog_img/demo.png"
-mainImage: "images/blog_img/cover-demo.png"
+coverImage: "images/blog_img/demo/demo.png"
+mainImage: "images/blog_img/demo/demo.png"
 gridImages:
   - "images/blog_img/grid1.png"
   - "images/blog_img/grid2.png"

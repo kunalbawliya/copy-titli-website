@@ -1,30 +1,35 @@
 export default function BrandList() {
+  const brands = [
+    "/images/brands/mirrorNow.png",
+    "/images/brands/peeSafe.png",
+    "/images/brands/sos.png",
+    "/images/brands/dreamDozen.png",
+    "/images/brands/iit.png",
+    "/images/brands/paralove.png",
+  ];
+
   return (
-    <div className="grid grid-cols-4 md:flex flex-wrap gap-x-[20px] gap-y-[20px] justify-between items-center justify-items-center max-w-[90vw] w-[1336px] m-auto my-[50px] lg:my-[100px]">
-      <img
-        className="h-[40px] lg:h-auto w-[auto] object-contain"
-        src="/images/brands/mirrorNow.png"
-      />
-      <img
-        className="h-[40px] lg:h-auto w-[auto] object-contain"
-        src="/images/brands/peeSafe.png"
-      />
-      <img
-        className="h-[40px] lg:h-auto w-[auto] object-contain row-start-2 col-span-2"
-        src="/images/brands/sos.png"
-      />
-      <img
-        className="h-[40px] lg:h-auto w-[auto] object-contain"
-        src="/images/brands/dreamDozen.png"
-      />
-      <img
-        className="h-[40px] lg:h-auto w-[auto] object-contain"
-        src="/images/brands/iit.png"
-      />
-      <img
-        className="h-[40px] lg:h-auto w-[auto] object-contain row-start-2 col-span-3"
-        src="/images/brands/paralove.png"
-      />
+    <div className="overflow-hidden mt-[50px] lg:mt-[100px]">
+      <div className="flex gap-[60px] whitespace-nowrap animate-scroll">
+        {[...Array(3)].map((_, i) => (
+          <div className="flex gap-[60px] shrink-0" key={i}>
+            {brands.map((src, idx) => (
+              <img
+                key={i + "-" + idx}
+                src={src}
+                alt={`brand-${idx}`}
+                className="h-[40px] lg:h-auto w-auto object-contain shrink-0"
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <div className="text-center text-[16px] text-gray-600 pt-[50px]">
+        Backing our misson, sharing our vision.
+      </div>
     </div>
+
+    
   );
 }

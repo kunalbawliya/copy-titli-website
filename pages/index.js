@@ -1,50 +1,52 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "@/styles/Home.module.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Ticker from "@/components/Ticker";
-import Stats from "@/components/Stats";
 import Carousel from "@/components/Carousel";
-import { useContext, useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import VisionMission from "@/components/VisionMission";
 import BrandList from "@/components/BrandList";
+import Footer from "@/components/Footer";
+import Stats from "@/components/Stats";
+import BlogCarousel from "@/components/BlogCarousel";
+import { getSortedPostsData } from "@/lib/blogs";
 
-export default function Home() {
-  const [ref1, inView1] = useInView({ threshold: 0.8, triggerOnce: false });
-  const [ref2, inView2] = useInView({ threshold: 1, triggerOnce: false });
-  const [ref3, inView3] = useInView({ threshold: 0.8, triggerOnce: false });
-
-  const [viewed1, setViewed1] = useState(false);
-  const [viewed2, setViewed2] = useState(false);
-  const [viewed3, setViewed3] = useState(false);
-
-  useEffect(() => {
-    if (inView1) {
-      setViewed1(true);
-    }
-  }, [inView1]);
-  useEffect(() => {
-    if (inView2) {
-      setViewed2(true);
-    }
-  }, [inView2]);
-  useEffect(() => {
-    if (inView3) {
-      setViewed3(true);
-    }
-  }, [inView3]);
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+export default function Home({ allPostsData }) {
+  console.log("allPostsData on Home page:", allPostsData);
   return (
     <div className="font-inter overflow-hidden">
       <Head>
         <title>Titli Foundation</title>
       </Head>
-      <div className="relative max-w-[90vw] w-[1336px] m-auto text-[#2F2F2F]">
-        <div className="absolute left-[-50px] lg:left-[-200px] top-[-50px] lg:top-[-200px] h-[350px] lg:h-[800px] w-[350px] lg:w-[800px] rounded-[50%] bg-gradient-to-r from-[#FDEDD8] from-0% to-[#FDEDE0] to-100% opacity-30 blur-3xl"></div>
-        <div className="absolute right-[-50px] lg:right-[-100px] top-[400px] lg:top-[300px] h-[300px] lg:h-[600px] w-[300px] lg:w-[600px] rounded-[50%] bg-gradient-to-r from-[#efddfe] from-0% to-[#F7ECFE] to-100% opacity-50 blur-3xl"></div>
-        <Navbar />
-        <div className="relative">
-          <div className="text-center text-[36px] lg:text-[64px] font-medium leading-[1.4em] mt-[30px] lg:mt-[70px]">
+
+      {/* Background Gradient Blobs */}
+      <div className="absolute left-[-50px] lg:left-[-200px] top-[-50px] lg:top-[-200px] h-[350px] lg:h-[800px] w-[350px] lg:w-[800px] rounded-full bg-gradient-to-r from-[#FDEDD8] to-[#FDEDE0] opacity-30 blur-3xl z-[-1]" />
+      <div className="absolute right-[-50px] lg:right-[-100px] top-[400px] lg:top-[300px] h-[300px] lg:h-[600px] w-[300px] lg:w-[600px] rounded-full bg-gradient-to-r from-[#efddfe] to-[#F7ECFE] opacity-50 blur-3xl z-[-1]" />
+
+      {/* Navbar */}
+      <Navbar />
+
+      {/* Hero Section */}
+      <section className="w-full min-h-[80vh] flex flex-col lg:flex-row items-center justify-between py-20 pt-48 max-w-[1336px] m-auto">
+        {/* Left: Hero Image */}
+        <div className="w-full lg:w-1/2 flex justify-center">
+          <div className="bg-gray-200 rounded-[20px] w-full max-w-[500px] h-[400p x] lg:h-[500px] flex items-center justify-center">
+            <img
+              src="/images/cup.png"
+              alt="Cup Image"
+              className="object-contain w-[60%] h-[60%]"
+            />
+          </div>
+        </div>
+
+        {/* Right: Heading, Text, Button */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
+          <div className=" text-[36px] lg:text-[56px] font-bold leading-[1.4em] mt-1 lg:mt-2">
             Make the switch,
             <br />
             one{" "}
@@ -57,213 +59,96 @@ export default function Home() {
             </span>{" "}
             at a time.
           </div>
-          <div className="text-[#2F2F2F] text-center text-[16px] lg:text-[18px] font-light w-auto lg:w-[500px] mt-[30px] lg:mt-[50px] my-[50px] m-auto leading-[1.6em]">
-            At Titli, we aim to tackle period poverty by providing sustainable
-            menstrual care to underprivileged individuals
-          </div>
-          <a
-            // href="https://tr.ee/2SZEApXBIC"
-            // target="_blank"
-            href="/blog"
-            className="mt-[50px] lg:mt-[70px] cursor-pointer pointer-events-none lg:pointer-events-auto"
-          >
-            <div className="m-auto relative w-[150px] lg:w-[200px] group">
-              <img
-                src="/images/cup.png"
-                className="w-[100%] m-auto transition-all ease-out duration-200 group-hover:rotate-0 lg:group-hover:rotate-12 "
-              />
-              <div className="hidden lg:block absolute pointer-events-none left-[20px] top-[80px] font-shadows text-6xl">
-                Blog
-              </div>
-            </div>
-          </a>
-          <div className="flex flex-col text-center gap-y-[20px] mt-[50px] lg:hidden text-[16px] lg:text-[20px] font-medium gap-[30px]">
+          <p className="mt-6 text-[16px] lg:text-[18px] font-medium text-[#2F2F2F] max-w-[500px] mx-auto lg:mx-0">
+            Lorem ipsum dolor sit amet consectetur. Porttitor amet consequat
+            neque sapien lacus at non ridiculus lorem elit libero. Viverra in
+            nunc rutrum fusce sit molestie.
+          </p>
+          <div className="mt-8">
             <a
-              href="https://tr.ee/vx87XEdgfh"
-              target="_blank"
-              className="px-[32px] py-[16px] rounded-[16px] text-white transition-all duration-200 ease-in bg-pink hover:bg-dark-pink whitespace-nowrap"
+              href="/blog"
+              className="inline-block bg-pink hover:bg-dark-pink transition-all duration-200 text-white font-medium py-3 px-8 rounded-[12px]"
             >
-              Join our team
-            </a>
-            <a
-              // href="https://tr.ee/2SZEApXBIC"
-              // target="_blank"
-              href="/donate"
-              className="px-[32px] py-[14px] rounded-[16px] text-pink border-2 border-pink"
-            >
-              Make a donation
+              Explore
             </a>
           </div>
         </div>
-      </div>
-      <BrandList />
-      <Ticker />
-      <div className="max-w-[90vw] w-[1336px] m-auto flex flex-col lg:flex-row gap-x-[150px] gap-y-[30px] my-[50px] lg:my-[100px]">
-        <img
-          src="/images/cupHug.png"
-          className="h-auto lg:h-[20vw] lg:max-h-[400px] object-cover"
-        />
-        <div className="grid align-middle content-center gap-y-[50px]">
-          <div className="font-light text-[16px] lg:text-[18px] leading-[2em] lg:leading-[2em]">
-            We believe that{" "}
-            <span className="text-pink font-bold">
-              menstrual care is a fundamental right for all
-            </span>
-            , regardless of their{" "}
-            <span className="text-pink font-bold">socio-economic status</span>.
-            Menstrual care should no longer be a source of shame or discomfort
-            but be approached with{" "}
-            <span className="text-pink font-bold">
-              knowledge, confidence, and sustainability
-            </span>
-            . Join us in our efforts to{" "}
-            <span className="text-pink font-bold">#BreakTheTaboo</span> and
-            positively impact the lives everywhere.
-          </div>
-          <div className="hidden lg:flex text-[16px] lg:text-[20px] font-medium gap-[30px] leading-[1.6em]">
-            <a
-              href="https://tr.ee/vx87XEdgfh"
-              target="_blank"
-              className="px-[32px] py-[16px] rounded-[16px] text-white bg-pink cursor-pointer font-semibold transition-all duration-200 ease-out hover:bg-dark-pink whitespace-nowrap"
-            >
-              Join our team
-            </a>
-            <a
-              // href="https://tr.ee/2SZEApXBIC"
-              // target="_blank"
-              href="/donate"
-              className="px-[32px] py-[14px] rounded-[16px] text-pink border-2 border-pink cursor-pointer font-semibold ease-out duration-200 hover:bg-[#E5D7DD] whitespace-nowrap"
-            >
-              Make a donation
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="bg-pink  py-[50px] lg:py-[130px] px-[2.5vw] lg:pl-[5vw] lg:pr-[100px] text-white grid justify-end">
-          <div className="lg:max-w-[500px] ">
-            <div className="font-black text-[32px] lg:text-[56px]">
-              Our Vision
-            </div>
-            <div className="lg:h-[60px] font-semibold text-[20px] lg:text-[24px] mt-[15px] lg:mt-[24px] mb-[30px] lg:mb-[48px]">
-              “Make sustainable menstruation products accessible to all”
-            </div>
-            <div className="font-light text-[16px] lg:text-[18px]">
-              At Titli, we envisage a world where menstruation is no longer a
-              taboo and sustainable menstrual products are easily accessible to
-              all and Titli works tirelessly for the same.
-            </div>
-          </div>
-        </div>
-        <div className="bg-[#FAF5FE]  py-[50px] lg:py-[130px] px-[2.5vw] lg:pr-[5vw] lg:pl-[100px] text-pink">
-          <div className="lg:max-w-[500px]">
-            <div className="font-black text-[32px] lg:text-[56px]">
-              Our Mission
-            </div>
-            <div className="lg:h-[60px] font-semibold text-[20px] lg:text-[24px] mt-[15px] lg:mt-[24px] mb-[30px] lg:mb-[48px]">
-              “Break the taboo”
-            </div>
-            <div className="font-light text-[16px] lg:text-[18px]">
-              Create awareness around menstrual hygiene, break generational
-              taboos around it and promote sustainable practices through a
-              change in menstrual habits.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className=" relative max-w-[90vw] w-[1336px] my-[50px] lg:my-[150px] m-auto flex flex-col lg:flex-row gap-[10px] lg:gap-[150px] lg:items-center justify-between">
-        <div className="hidden lg:block -z-50 absolute left-[-200px] top-[-400px] h-[1000px] w-[1000px] rounded-[50%] bg-gradient-to-r from-[#efddfe] from-0% to-[#F7ECFE] to-100% opacity-50 blur-3xl"></div>
-        <div>
-          <div className="font-medium text-[32px] md:text-[42px] lg:text-[56px]">
-            What we do <br />
-            <span className="text-pink font-normal font-shadows">@ Titli</span>
-          </div>
-          <ul className="lg:list-disc lg:pl-[30px] font-extralight lg:font-light text-[16px] lg:text-[18px] leading-[2.5em] my-[15px] lg:my-[50px]">
-            <li>Education on reproductive health 📚</li>
-            <li>Breaking social stigmas 👊</li>
-            <li>Provide a hygienic and economic period solution 🩸</li>
-            <li>Awareness on sustainable menstruation 🍃</li>
-          </ul>
-        </div>
-        <div className="order-1 lg:order-2 lg:border-2 border-pink rounded-[20px] w-[100%] lg:w-auto">
-          <img
-            src="/images/groupCups.png"
-            className="lg:rounded-[16px] lg:scale-105 w-[100%] lg:w-[30vw] lg:max-w-[500px] object-cover ease-out duration-200 lg:translate-x-[30px] lg:translate-y-[-30px] lg:hover:translate-x-[0px] lg:hover:translate-y-[0px] lg:hover:scale-995"
-          />
-        </div>
+      </section>
+
+      {/* Scroll Hint */}
+      <div className="text-center text-[24px] text-gray-600 mb-[30px]">
+        Scroll to see where your donation goes ↓
       </div>
 
-      <Stats ref3={ref3} ref1={ref1} viewed1={viewed1} viewed3={viewed3} />
-      <div className="max-w-[90vw] w-[1336px] m-auto">
-        <div className="font-medium text-[32px] md:text-[42px] lg:text-[56px]">
-          Some of our <br />
-          <span className="text-pink font-normal font-shadows">
-            Recent Work
-          </span>
-        </div>
-      </div>
-      <div className="max-w-[90vw] lg:max-w-[95vw] w-[1700px] m-auto">
-        <div className="lg:hidden grid grid-cols-2 gap-[20px] my-[30px]">
-          <img src="/images/caro4.png" className="w-[100%]" />
-          <img src="/images/caro1.png" className="w-[100%]" />
-        </div>
-        <Carousel />
-      </div>
-      <a
-        href="https://instagram.com/titlifoundation"
-        target="_blank"
-        className="bg-pink text-[16px] lg:text-[20px] rounded-[16px] text-center font-semibold text-white flex gap-[10px] justify-center items-center py-[16px] w-[90vw] lg:w-[400px] my-[30px] lg:my-[100px] mb-[70px] lg:mb-100px  m-auto cursor-pointer leading-[1.6em]"
-      >
-        <div>Follow our journey</div>
-        <img src="/svgs/instagram-logo.svg" className="" />
-      </a>
-      <div className="max-w-[90vw] w-[1336px] m-auto lg:my-[150px]">
-        <div className="font-medium text-[32px] md:text-[42px] lg:text-[56px]">
-          Join the{" "}
-          <span className="text-pink font-normal font-shadows">fam</span>
-        </div>
-        <div className="flex flex-col lg:flex-row gap-[50px] lg:gap-[150px] lg:items-center lg:justify-between my-[30px] lg:my-[50px]">
-          <div className="order-2 lg:order-1 relative w-auto font-light text-[16px] lg:text-[18px] leading-[2em]">
-            <div className="hidden lg:block leading-[2.5em] mb-[50px]">
-              We’ve got some cool roles open across departments such as{" "}
-              <span className="text-pink font-bold">
-                Social Media, Content, Groundwork, Public Relations, Marketing,
-                Finance
-              </span>{" "}
-              and more!
-            </div>
-            <div className="font-semibold mb-[20px]">Help us</div>
-            <ul className="list-disc pl-[30px]">
-              <li>Raise awareness on reproductive health ⛑️</li>
-              <li>Provide a hygienic and economic period solution ✅</li>
-              <li>Break social stigmas 💪🏻</li>
-            </ul>
-            <div className="flex flex-col lg:flex-row text-center text-[16px] lg:text-[20px] font-medium gap-[30px] gap-y-[20px] mt-[30px] lg:mt-[70px] leading-[1.6em]">
-              <a
-                href="https://tr.ee/vx87XEdgfh"
-                target="_blank"
-                className="px-[32px] py-[16px] rounded-[16px] text-white bg-pink cursor-pointer transition-all duration-200 ease-out hover:bg-dark-pink whitespace-nowrap"
-              >
-                Join our team
-              </a>
-              <a
-                // href="https://tr.ee/2SZEApXBIC"
-                // target="_blank"
-                href="/donate"
-                className="px-[32px] py-[14px] rounded-[16px] text-pink border-2 border-pink cursor-pointer ease-out duration-200 hover:bg-[#E5D7DD] whitespace-nowrap"
-              >
-                Make a donation
-              </a>
-            </div>
-          </div>
-          <div className="order-1 lg:order-2 w-[100%] lg:w-auto">
+      <Carousel />
+
+      <VisionMission />
+
+      <BrandList />
+
+      {/* 💌 Join the Team Section */}
+      <section className="text-center px-4 md:px-8 pt-24 pb-24">
+        <h2 className="text-[18px] md:text-[22px] lg:text-[26px] font-inter max-w-4xl mx-auto mb-6 text-black leading-snug">
+          We’re always on the lookout for people that believe in menstrual
+          dignity for all. Doesn’t matter who you are - we have a place for you.
+        </h2>
+        <a
+          href="https://tr.ee/vx87XEdgfh"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[30px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
+            Join the Team
+          </button>
+        </a>
+      </section>
+
+      <Stats />
+
+      <BlogCarousel blogs={allPostsData} />
+
+      {/* 🌸 Break The Taboo Section */}
+      <section className="text-center px-4 md:px-8 pt-20 flex flex-col items-center">
+        <h3 className="font-inter text-[24px] max-w-[1024px] ">
+          We believe that menstrual care is a fundamental right for all,
+          regardless of their socio-economic status. Menstrual care should no
+          longer be a source of shame or discomfort but be approached
+          with knowledge, confidence, and sustainability.{" "}
+        </h3>
+        <br/>
+        <h2 className="text-[18px] md:text-[22px] lg:text-[26px] max-w-4xl mx-auto mb-6 text-black">
+          Join us in our efforts to{" "}
+          <span className="text-pink-600 font-bold">#BreakTheTaboo</span> and
+          positively impact the lives everywhere.
+        </h2>
+        <a href="" target="_blank" rel="noopener noreferrer">
+          <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[30px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
+            Change Begins With You
+          </button>
+        </a>
+      </section>
+
+      {/* 📸 Instagram Hover Section */}
+      <section className="flex justify-center py-4 pt-7 pb-[95px]">
+        <a
+          href="https://www.instagram.com/titlifoundation"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative w-fit flex items-center justify-center"
+        >
+          <div className="relative inline-flex items-center font-[Inter] font-semibold text-[18px] md:text-[20px] tracking-[-0.06em]">
             <img
-              src="/images/fam.png"
-              className="w-[100%] lg:w-[40vw] lg:max-w-[600px] object-cover "
+              src="/svgs/instagram-logo.svg"
+              alt="Instagram"
+              className="w-12 h-12 md:w-14 md:h-14 transition-transform duration-500 ease-in-out group-hover:-translate-x-[6rem]"
             />
+            <span className="absolute left-full ml-0 -translate-x-[6rem] origin-left scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 transition-all duration-300 ease-in-out text-pink-600 px-4 py-1 rounded-full whitespace-nowrap">
+              Follow our journey
+            </span>
           </div>
-        </div>
-      </div>
+        </a>
+      </section>
+
       <Footer />
     </div>
   );
