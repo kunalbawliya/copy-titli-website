@@ -4,6 +4,8 @@ import Link from "next/link";
 export default function Navbar({ donatePage }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [fadeIn, setFadeIn] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,78 +15,152 @@ export default function Navbar({ donatePage }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    let timeout;
+    if (menuOpen) {
+      setDropdownVisible(true);
+      setTimeout(() => setFadeIn(true), 30);
+    } else {
+      setFadeIn(false);
+      timeout = setTimeout(() => setDropdownVisible(false), 300);
+    }
+    return () => clearTimeout(timeout);
+  }, [menuOpen]);
+
   return (
     <>
       {/* Main Nav */}
       <nav
         className={`
           fixed z-50 px-[64px]
-          ${scrolled ? "top-[30px]" : "top-0"}
+          top-0
           flex items-center justify-between shadow-md
           transition-[top,width,height,border-radius,backdrop-filter,background-color] duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)]
           left-1/2 -translate-x-1/2 border backdrop-blur-md
           ${
             scrolled
-              ? "w-[952px] h-[82px] rounded-[100px] bg-[#FDF3F7]/90"
-              : "w-screen h-[120px] rounded-none bg-[#FDF3F7]"
+              ? "lg:w-[952px] lg:h-[82px] lg:rounded-[100px] lg:top-[30px] lg:bg-[#FFD3E5]/90 w-screen h-[120px] rounded-none bg-[#FFD3E5]"
+              : "w-screen h-[120px] rounded-none bg-[#FFD3E5]"
           }
         `}
       >
-        {/* Logo + Title */}
-        <Link href="/" className="flex items-center gap-3">
+        {/* Desktop Logo + Title */}
+        <Link href="/" className="hidden lg:flex items-center gap-3">
           <img
             src="/titli.png"
             alt="Titli Logo"
-            className={`${
+            className={`$${
               scrolled ? "w-[200px] h-[40px]" : "w-[325px] h-[65px]"
             }`}
           />
         </Link>
 
         {/* Desktop Buttons */}
-        <div className="hidden lg:flex items-center gap-4">
-          {donatePage ? (
-            <a
-              href="/donate"
-              // target="_blank"
-              rel="noreferrer"
-              className="text-black font-semibold text-sm lg:text-base hover:text-pink"
-            >
-              Make a donation
-            </a>
-          ) : (
-            <Link
-              href="/donate"
-              className="text-black font-semibold text-sm lg:text-base hover:text-pink"
-            >
-              Make a donation
-            </Link>
-          )}
+        <div className="hidden lg:flex items-center gap-x-8 ml-auto mr-6">
+          <Link
+            href="/donate"
+            className="text-black font-semibold text-[20px] hover:text-pink"
+          >
+            Make a donation
+          </Link>
           <a
             href="https://tr.ee/vx87XEdgfh"
             target="_blank"
             rel="noreferrer"
-            className="text-black font-semibold text-sm lg:text-base hover:text-pink"
+            className="text-black font-semibold text-[20px] hover:text-pink"
           >
             Join the Team
           </a>
         </div>
 
-        {/* Mobile Hamburger */}
-        <div className="lg:hidden">
+        {/* Desktop Hamburger & Dropdown */}
+        <div className="hidden lg:relative lg:flex items-center ml-6 z-50">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="focus:outline-none"
+            className="relative w-12 h-12 flex items-center justify-center focus:outline-none z-50"
+            aria-label="Toggle Menu"
           >
-            {!menuOpen ? (
-              <div className="flex flex-col gap-[4px]">
-                <span className="w-5 h-[2px] bg-black"></span>
-                <span className="w-5 h-[2px] bg-black"></span>
-                <span className="w-5 h-[2px] bg-black"></span>
-              </div>
-            ) : (
-              <div className="text-2xl font-bold">×</div>
+            {dropdownVisible && (
+              <div
+                className={`
+                  absolute inset-0 p-4 bg-pink rounded-t-[10px] rounded-b-none z-[-1]
+                  transition-opacity duration-300
+                  ${fadeIn ? "opacity-100" : "opacity-0"}
+                `}
+              />
             )}
+            <span
+              className={`absolute block h-[3px] w-6 rounded-full transition-all duration-300 ease-in-out
+                ${menuOpen ? "rotate-45 top-1/2 bg-white" : "top-4 bg-black"}
+              `}
+              style={{ transformOrigin: "center" }}
+            ></span>
+            <span
+              className={`absolute block h-[3px] w-4 items-end rounded-full transition-all duration-300 ease-in-out
+                ${menuOpen ? "opacity-0" : "top-[24px] bg-black"}
+              `}
+            ></span>
+            <span
+              className={`absolute block h-[3px] w-6 rounded-full transition-all duration-300 ease-in-out
+                ${menuOpen ? "-rotate-45 top-1/2 bg-white" : "bottom-3 bg-black"}
+              `}
+              style={{ transformOrigin: "center" }}
+            ></span>
+          </button>
+
+          {dropdownVisible && (
+            <div
+              className={`
+                absolute top-full right-0 w-[170px] bg-pink text-white shadow-lg py-6 px-4
+                rounded-tl-[15px] rounded-br-[15px] rounded-bl-[15px]
+                transition-opacity duration-300 ease-in-out
+                ${fadeIn ? "opacity-100" : "opacity-0 pointer-events-none"}
+              `}
+            >
+              <div className="flex flex-col items-center space-y-4">
+                <Link href="/about-us" onClick={() => setMenuOpen(false)} className="hover:text-black">
+                  About Us
+                </Link>
+                <Link href="/careers" onClick={() => setMenuOpen(false)} className="hover:text-black">
+                  Careers
+                </Link>
+                <Link href="/gallery" onClick={() => setMenuOpen(false)} className="hover:text-black">
+                  Gallery
+                </Link>
+                <Link href="/blogs" onClick={() => setMenuOpen(false)} className="hover:text-black">
+                  Blogs
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Mobile Nav */}
+        <div className="flex lg:hidden items-center justify-between w-full ">
+          <Link href="/" className="flex items-center gap-2">
+            <img src="/titli.png" alt="Titli Logo" className="w-[150px] h-auto " />
+          </Link>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="relative w-12 h-12 flex items-center justify-center focus:outline-none z-50"
+            aria-label="Toggle Menu"
+          >
+            {dropdownVisible && (
+              <div
+                className={`absolute inset-0 p-4 bg-pink rounded-t-[10px] rounded-b-none z-[-1] transition-opacity duration-300 ${fadeIn ? "opacity-100" : "opacity-0"}`}
+              />
+            )}
+            <span
+              className={`absolute block h-[3px] w-6 rounded-full transition-all duration-300 ease-in-out ${menuOpen ? "rotate-45 top-1/2 bg-white" : "top-4 bg-black"}`}
+              style={{ transformOrigin: "center" }}
+            />
+            <span
+              className={`absolute block h-[3px] w-4 items-end rounded-full transition-all duration-300 ease-in-out ${menuOpen ? "opacity-0" : "top-[24px] bg-black"}`}
+            />
+            <span
+              className={`absolute block h-[3px] w-6 rounded-full transition-all duration-300 ease-in-out ${menuOpen ? "-rotate-45 top-1/2 bg-white" : "bottom-3 bg-black"}`}
+              style={{ transformOrigin: "center" }}
+            />
           </button>
         </div>
       </nav>
@@ -93,7 +169,19 @@ export default function Navbar({ donatePage }) {
       {menuOpen && (
         <div className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center text-xl font-semibold space-y-6 transition-all duration-300 lg:hidden">
           <Link href="/" onClick={() => setMenuOpen(false)}>
-            <img src="/titli.png" className="w-[150px]" />
+            <img src="/titli.png" className="w-[150px] pt-9" />
+          </Link>
+          <Link href="/about-us" onClick={() => setMenuOpen(false)}>
+            About Us
+          </Link>
+          <Link href="/careers" onClick={() => setMenuOpen(false)}>
+            Careers
+          </Link>
+          <Link href="/gallery" onClick={() => setMenuOpen(false)}>
+            Gallery
+          </Link>
+          <Link href="/blogs" onClick={() => setMenuOpen(false)}>
+            Blogs
           </Link>
           <a
             href="https://tr.ee/vx87XEdgfh"
