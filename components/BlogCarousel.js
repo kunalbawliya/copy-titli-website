@@ -30,18 +30,27 @@ export default function BlogCarousel({ blogs = [] }) {
           {blogs.map(({ slug, title, description, coverImage }, index) => (
             <SwiperSlide key={index}>
               <Link href={`/blog/${slug}`}>
-                <div className=" rounded-[18px] hover:shadow-xl overflow-hidden transition">
+                <div className="rounded-[18px] overflow-hidden transition">
                   <img
                     src={`/${coverImage}`}
                     alt={title}
-                    className="w-full h-[400px] object-cover rounded-[18px]"
+                    className="w-full h-[400px] object-cover rounded-[18px] hover:shadow-xl"
                   />
                   <div className="p-4">
-                    <h3 className="text-[36px] font-semibold line-clamp-2">
+                    <h3 className="text-[36px] font-semibold leading-none line-clamp-2 min-h-[72px]">
                       {title}
                     </h3>
-                    <p className="text-[20px] text-gray-500 line-clamp-2">
-                      {description}
+                    <p className="text-[20px] text-gray-500 line-clamp-2 min-h-[3rem] relative">
+                      {description.length > 100 ? (
+                        <>
+                          {description.slice(0, 100)}...{" "}
+                          <span className="text-pink-600 underline cursor-pointer">
+                            Read More
+                          </span>
+                        </>
+                      ) : (
+                        description
+                      )}
                     </p>
                   </div>
                 </div>
@@ -49,21 +58,20 @@ export default function BlogCarousel({ blogs = [] }) {
             </SwiperSlide>
           ))}
         </Swiper>
-
-        {/* Arrows */}
+        {/* Left Arrow */}
         <button
           onClick={swipePrev}
-          className="absolute left-[-50px] top-1/2 -translate-y-1/2 z-30 text-5xl w-14 h-14 flex items-center justify-center rounded-full "
+          className="absolute left-[-50px] top-[180px] z-30 text-5xl w-14 h-14 flex items-center justify-center rounded-full"
         >
           &#8249;
         </button>
-
+        {/* Right Arrow */}
         <button
           onClick={swipeNext}
-          className="absolute right-[-50px] top-1/2 -translate-y-1/2 z-30 text-5xl w-14 h-14 flex items-center justify-center rounded-full"
+          className="absolute right-[-50px] top-[180px] z-30 text-5xl w-14 h-14 flex items-center justify-center rounded-full"
         >
           &#8250;
-        </button>
+        </button>{" "}
       </div>
     </div>
   );
