@@ -127,7 +127,7 @@ export default function Navbar({ donatePage }) {
                 <Link href="/gallery" onClick={() => setMenuOpen(false)} className="hover:text-black">
                   Gallery
                 </Link>
-                <Link href="/blogs" onClick={() => setMenuOpen(false)} className="hover:text-black">
+                <Link href="/blog" onClick={() => setMenuOpen(false)} className="hover:text-black">
                   Blogs
                 </Link>
               </div>
