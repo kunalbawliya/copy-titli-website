@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FAQ from "@/components/FAQ";
 
 const razorpayButtons = [
   {
@@ -199,6 +200,8 @@ export default function Donate() {
             </div>
           </a>
         </section>
+
+        <FAQ />
       </div>
       <Footer />
     </div>

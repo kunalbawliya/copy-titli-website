@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getSortedPostsData } from "../../lib/blogs";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import React from "react";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -30,7 +31,7 @@ export default function Blog({ allPostsData }) {
       <Navbar />
       <main className="bg-[#ffffff] text-black min-h-screen pt-[160px] md:pt-[180px] lg:pt-[198px] pb-24">
         {/* 🔥 Hero Section */}
-        <section className="max-w-6xl mx-auto px-4 md:px-8 text-center mb-12">
+        <section className="max-w-6xl mx-auto px-4 md:px-8 text-center mb-24">
           <h1 className="text-[40px] md:text-[56px] lg:text-[64px] font-bold text-pink-600 mb-4 font-serif leading-tight">
             From Our World to Yours
           </h1>
@@ -40,7 +41,7 @@ export default function Blog({ allPostsData }) {
           </p>
         </section>
 
-        {/* 🔘 Tag Filters */}
+        {/* 🔘 Tag Filters
         <div className="flex flex-wrap justify-center gap-3 mb-14 px-4 md:px-8 lg:px-28">
           <button
             className={`px-5 py-2 text-sm font-medium rounded-[100px] transition-all duration-300 transform ${
@@ -66,63 +67,62 @@ export default function Blog({ allPostsData }) {
               {tag}
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* 📰 Blog Cards */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-8 md:gap-x-12 px-4 md:px-8">
+        <div className="w-[1123px] mx-auto flex flex-col gap-12">
+          <div className="border-b border-gray-300"></div>
           {filteredPosts.length === 0 ? (
             <p className="text-center text-gray-500 col-span-full">
               No blogs found for this tag.
             </p>
           ) : (
             filteredPosts.map(
-              ({
-                slug,
-                title,
-                date,
-                description,
-                coverImage,
-                tags = [],
-                category,
-              }) => (
-                <Link key={slug} href={`/blog/${slug}`}>
-                  <div className="flex flex-col items-start gap-4 cursor-pointer transition-all duration-300 hover:scale-[1.01]">
-                    {/* 🖼️ Image */}
-                    <div className="bg-black w-full h-[240px] md:h-[280px] lg:h-[320px] overflow-hidden rounded-[24px] flex items-center justify-center">
-                      <img
-                        src={`/${coverImage}`}
-                        alt={title}
-                        className="w-full h-full object-cover rounded-[24px]"
-                      />
-                    </div>
+              (
+                { slug, title, date, description, coverImage, author },
+                index
+              ) => (
+                <React.Fragment key={slug}>
+          
 
-                    {/* 📝 Content */}
-                    <div className="px-2">
-                      {category && (
-                        <p className="text-sm text-pink-500 font-medium uppercase mb-1 tracking-wide">
-                          {category}
-                        </p>
-                      )}
-                      <h2 className="text-[20px] md:text-[22px] lg:text-[24px] font-semibold font-serif mb-2 text-black leading-snug">
-                        {title}
-                      </h2>
-                      <p className="text-gray-600 text-[15px] mb-3">
-                        {description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        {tags.map((tag, i) => (
-                          <span
-                            key={i}
-                            className="text-xs bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full"
-                          >
-                            #{tag}
-                          </span>
-                        ))}
+                  <Link href={`/blog/${slug}`}>
+                    <div
+                      className={`flex flex-col md:flex-row ${
+                        index % 2 === 1 ? "md:flex-row-reverse" : ""
+                      } items-center md:items-center gap-6 md:gap-[48px] cursor-pointer`}
+                    >
+                      {/* 🖼️ Image */}
+                      <div className="w-[542px] h-[434px] rounded-[24px] overflow-hidden flex items-center justify-center flex-shrink-0">
+                        <img
+                          src={`/${coverImage}`}
+                          alt={title}
+                          className="w-full h-full object-cover rounded-[24px]"
+                        />
                       </div>
-                      <p className="text-xs text-gray-400">{date}</p>
+
+                      {/* 📝 Content */}
+                      <div className="w-full md:flex-1">
+                        <p className="text-[20px] font-light font-inter text-black mb-2">
+                          {date}
+                        </p>
+
+                        <h2 className="text-[34px] font-medium font-inter mb-2 text-black leading-snug">
+                          {title}
+                        </h2>
+
+                        <p className="text-[18px] font-light font-inter text-black mb-3">
+                          {description}
+                        </p>
+
+                        <p className="text-[18px] font-inter font-medium mb-1 tracking-wide">
+                          {author}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+
+                  <div className="border-b border-gray-300"></div>
+                </React.Fragment>
               )
             )
           )}
@@ -140,7 +140,7 @@ export default function Blog({ allPostsData }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[30px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
+            <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[20px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
               Join the Team
             </button>
           </a>
@@ -154,7 +154,7 @@ export default function Blog({ allPostsData }) {
             positively impact the lives everywhere.
           </h2>
           <a href="" target="_blank" rel="noopener noreferrer">
-            <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[30px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
+            <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[20px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
               Change Begins With You
             </button>
           </a>
