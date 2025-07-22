@@ -147,7 +147,7 @@ export default function Navbar({ donatePage }) {
           >
             {dropdownVisible && (
               <div
-                className={`absolute inset-0 p-4 bg-pink rounded-t-[10px] rounded-b-none z-[-1] transition-opacity duration-300 ${fadeIn ? "opacity-100" : "opacity-0"}`}
+                className={`absolute inset-0 p-4 bg-[#FFD3E5]/90 rounded-t-[10px] rounded-b-none z-[-1] transition-opacity duration-300 ${fadeIn ? "opacity-100" : "opacity-0"}`}
               />
             )}
             <span
