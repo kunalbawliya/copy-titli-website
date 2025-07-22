@@ -1,14 +1,14 @@
 ---
-title: "Periods with a Purpose: Embracing Sustainable Menstrual Choices"
-date: "July 14, 2025"
+title: "From Bin to Burden: The Waste We Don’t Talk About"
+date: "16th July 2025"
 description: >
-  Periods are a natural part of life, but the way we manage them can have a big impact on our health, our wallets, and the environment. But here’s something most people don’t realize– the way we manage our periods hasn’t really changed in decades. And it’s causing more damage than we think.
-coverImage: "images/blog_img/blog-1/banner.png"
+  Every month, like clockwork, a silent ritual unfolds across millions of homes. A pad is taken out of its plastic wrapper, used for a few hours, then neatly folded, wrapped in old newspaper or another plastic bag, and tossed into the bin. We move on with our day. The moment ends — but the impact doesn’t.
+coverImage: "images/blog_img/blog-3/banner.png"
 mainImage: "images/blog_img/demo/demo.png"
 gridImages:
   - "images/blog_img/demo/demo.png"
   - "images/blog_img/demo/demo.png"
-author: "Dreamy Basumatary"
+author: "Namarta Dutta"
 authorImage: "images/caro1.png"
 tags: ["Awareness", "Education"]
 category: "Impact"
@@ -177,7 +177,7 @@ It’s time to move beyond symbolic gestures and prioritize real needs—because
 ---
 
 <!-- 
-Client Notes:
+Client Notes: 
 - Use **bold** for emphasis
 - Use _italic_ for highlighting ideas/feelings
 - Use > for quotes or impactful lines
