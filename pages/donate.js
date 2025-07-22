@@ -163,7 +163,7 @@ export default function Donate() {
         </div>
 
         {/* 💌 Join the Team Section */}
-        <section className="text-center px-4 md:px-8 mt-20 mb-20">
+        <section className="text-center px-4 md:px-8 mt-20 mb-20 bg-black">
           <h2 className="text-[18px] md:text-[22px] lg:text-[26px] font-inter max-w-4xl mx-auto mb-6 text-black leading-snug">
             We’re always on the lookout for people that believe in menstrual
             dignity for all. Doesn’t matter who you are - we have a place for
@@ -181,7 +181,7 @@ export default function Donate() {
         </section>
 
         {/* 📸 Instagram Hover Section */}
-        <section className="flex justify-center py-4 pt-7 pb-[95px]">
+        <section className="flex justify-center mb-[95px] bg-black">
           <a
             href="https://www.instagram.com/titlifoundation"
             target="_blank"
