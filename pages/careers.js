@@ -62,16 +62,14 @@ export default function Careers() {
         {/* Departments Grid */}
         <section className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {departments.map(({ slug, title, description }) => (
-            <Link href={`/careers/${slug}`} key={slug}>
-              <div className="bg-[#FFDFED] p-6 rounded-[15px] hover:shadow-lg transition cursor-pointer">
-                <h3 className="text-[20px] md:text-[24px] font-semibold mb-2">
-                  {title}
-                </h3>
-                <p className="text-[14px] md:text-[16px] text-gray-700">
-                  {description}
-                </p>
-              </div>
-            </Link>
+            <div className="bg-[#FFDFED] p-6 rounded-[15px] hover:shadow-lg transition cursor-default">
+              <h3 className="text-[20px] md:text-[24px] font-semibold mb-2">
+                {title}
+              </h3>
+              <p className="text-[14px] md:text-[16px] text-gray-700">
+                {description}
+              </p>
+            </div>
           ))}
         </section>
 
