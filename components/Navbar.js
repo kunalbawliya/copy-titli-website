@@ -34,13 +34,13 @@ export default function Navbar({ donatePage }) {
         className={`
           fixed z-50 px-[64px]
           top-0
-          flex items-center justify-between shadow-md
+          flex items-center justify-between
           transition-[top,width,height,border-radius,backdrop-filter,background-color] duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)]
-          left-1/2 -translate-x-1/2 border backdrop-blur-md
+          left-1/2 -translate-x-1/2 backdrop-blur-md
           ${
             scrolled
               ? "lg:w-[952px] lg:h-[82px] lg:rounded-[100px] lg:top-[30px] lg:bg-[#FFD3E5]/90 w-screen h-[120px] rounded-none bg-[#FFD3E5]"
-              : "w-screen h-[120px] rounded-none bg-[#FFD3E5]"
+              : "w-screen h-[120px] rounded-none bg-[#ffffff]"
           }
         `}
       >
@@ -55,7 +55,7 @@ export default function Navbar({ donatePage }) {
           />
         </Link>
 
-        {/* Desktop Buttons */}
+        {/* Desktop Buttons
         <div className="hidden lg:flex items-center gap-x-8 ml-auto mr-6">
           <Link
             href="/donate"
@@ -71,7 +71,7 @@ export default function Navbar({ donatePage }) {
           >
             Join the Team
           </a>
-        </div>
+        </div> */}
 
         {/* Desktop Hamburger & Dropdown */}
         <div className="hidden lg:relative lg:flex items-center ml-6 z-50">
@@ -118,7 +118,7 @@ export default function Navbar({ donatePage }) {
               `}
             >
               <div className="flex flex-col items-center space-y-4">
-                <Link href="/about-us" onClick={() => setMenuOpen(false)} className="hover:text-black">
+                <Link href="/aboutus" onClick={() => setMenuOpen(false)} className="hover:text-black">
                   About Us
                 </Link>
                 <Link href="/careers" onClick={() => setMenuOpen(false)} className="hover:text-black">
@@ -129,6 +129,9 @@ export default function Navbar({ donatePage }) {
                 </Link>
                 <Link href="/blog" onClick={() => setMenuOpen(false)} className="hover:text-black">
                   Blogs
+                </Link>
+                <Link href="/donate" onClick={() => setMenuOpen(false)} className="hover:text-black">
+                  Donate
                 </Link>
               </div>
             </div>

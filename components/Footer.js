@@ -1,9 +1,24 @@
+import { useState, useRef, useEffect } from "react";
+
 export default function Footer() {
+  const [showMap, setShowMap] = useState(false);
+  const footerRef = useRef(null);
+  const [footerHeight, setFooterHeight] = useState(0);
+
+  useEffect(() => {
+    if (footerRef.current) {
+      setFooterHeight(footerRef.current.offsetHeight);
+    }
+  }, [showMap]);
+
   return (
     <footer className="w-full bg-pink text-white font-inter text-[13px] overflow-hidden">
-      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-[6vw] py-[60px]">
+      <div
+        ref={footerRef}
+        className="relative w-full max-w-[1440px] mx-auto px-6 md:px-[6vw] py-[60px]"
+      >
         {/* Desktop Layout */}
-        <div className="hidden md:grid md:grid-cols-4 md:gap-[60px]">
+        <div className="hidden md:grid md:grid-cols-4 gap-[50px]">
           {/* Left: Logo + © */}
           <div className="flex flex-col justify-between">
             <img
@@ -16,10 +31,10 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Center: Quick Links */}
-          <div className="flex flex-col gap-3 ">
-            <div className="grid text-[16px] gap-y-[38px] leading-[22px]">
-              <p className="font-light text-[#FFC5DE]">QUICK LINKS</p>
+          {/* Quick Links Group 1 */}
+          <div className="flex flex-col gap-3">
+            <div className="grid text-[16px] font-inter font-medium gap-y-[49px] leading-[22px]">
+              <p className="font-normal text-[#FFC5DE]">QUICK LINKS</p>
               <a
                 href="https://linktr.ee/Titli"
                 target="_blank"
@@ -35,19 +50,20 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Quick Links Group 2 */}
           <div className="flex flex-col gap-3 pl-[80px]">
-            <div className="grid text-[16px] gap-y-[38px] leading-[22px]">
+            <div className="grid text-[16px] font-inter font-medium gap-y-[49px] leading-[22px]">
               <a href="/donate">DONATE</a>
-              <a href="/about-us">ABOUT US</a>
+              <a href="/aboutus">ABOUT US</a>
               <a href="/careers">CAREERS</a>
               <a href="/gallery">GALLERY</a>
               <a href="/blog">BLOGS</a>
             </div>
           </div>
 
-          {/* Right: Contact Info + Address + Socials */}
-          <div className="flex flex-col gap-3 text-[16px]">
-            <h3 className="uppercase mb-2 font-light text-[#FFC5DE]">
+          {/* Contact Info + Address + Socials */}
+          <div className="flex flex-col gap-3 text-[16px] font-inter font-medium">
+            <h3 className="uppercase mb-2 font-normal text-[#FFC5DE]">
               Get in Touch
             </h3>
             <a
@@ -61,13 +77,16 @@ export default function Footer() {
             <h3 className="font-light text-[#FFC5DE] uppercase mt-6">
               Find Us
             </h3>
-            <p className="text-[12px] leading-[20px]">
+            <button
+              onClick={() => setShowMap(true)}
+              className="text-left underline text-[12px] leading-[20px] hover:text-[#ffc5de] transition-all duration-200"
+            >
               Pandey Krishi Kendra, Nirala Nagar, Khojanpur,
               <br />
               Faizabad, Uttar Pradesh - 224001
-            </p>
+            </button>
 
-            <div className="flex gap-16 mt-12">
+            <div className="flex gap-16 mt-[50px]">
               <a
                 href="https://www.linkedin.com"
                 target="_blank"
@@ -135,7 +154,7 @@ export default function Footer() {
               </a>
             </div>
 
-            {/* Get in Touch + Address + Socials */}
+            {/* Contact & Address */}
             <div className="flex flex-col gap-y-2">
               <h3 className="text-[13px] font-semibold uppercase mb-2">
                 Get in Touch
@@ -193,6 +212,7 @@ export default function Footer() {
               </p>
             </div>
           </div>
+
           {/* Bottom Logo Centered */}
           <div className="flex justify-center mt-8 mb-8">
             <img
@@ -209,6 +229,37 @@ export default function Footer() {
             © Titli Foundation. All Rights Reserved 2025.
           </div>
         </div>
+
+        {/* Embedded Map Popup */}
+        {showMap && (
+          <div
+            className="absolute bottom-0 right-0 z-50 border border-white bg-white shadow-lg animate-slideInFade rounded-[20px] "
+            style={{
+              width: `${footerHeight}px`,
+              height: `${footerHeight }px`,
+            }}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setShowMap(false)}
+              className="absolute top-2 right-2 text-black text-lg font-bold z-10"
+            >
+              ✖
+            </button>
+
+            {/* Google Map Iframe */}
+            <iframe
+              title="Titli Foundation Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.4638840717394!2d82.13223717449924!3d26.76147926657518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a08a92d8ac1f5%3A0xb7dc749c5bb70578!2sPandey%20krishi%20kendra!5e0!3m2!1sen!2sin!4v1753286557978!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-[20px]"
+            />
+          </div>
+        )}
       </div>
     </footer>
   );

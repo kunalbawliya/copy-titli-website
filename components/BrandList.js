@@ -1,11 +1,16 @@
 export default function BrandList() {
   const brands = [
-    "/images/brands/mirrorNow.png",
-    "/images/brands/peeSafe.png",
-    "/images/brands/sos.png",
-    "/images/brands/dreamDozen.png",
-    "/images/brands/iit.png",
-    "/images/brands/paralove.png",
+    "/images/brands/Delhi police.png",
+    "/images/brands/Dream a dozen_.png",
+    "/images/brands/gaims-logo-1.png",
+    "/images/brands/IIT Kanpur Logo_.png",
+    "/images/brands/mid-day logo.png",
+    "/images/brands/pee-safe.png",
+    "/images/brands/Rajdhani college.png",
+    "/images/brands/Sirona.png",
+    "/images/brands/SK Children foundation_.png",
+    "/images/brands/SOS Children_s Village.png",
+    "/images/brands/Sudha Rani foundation_.png",
   ];
 
   return (

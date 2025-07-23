@@ -25,7 +25,7 @@ export default function Home({ allPostsData }) {
       </Head>
 
       {/* Background Gradient Blobs */}
-      <div className="absolute left-[-50px] lg:left-[-200px] top-[-50px] lg:top-[-200px] h-[350px] lg:h-[800px] w-[350px] lg:w-[800px] rounded-full bg-gradient-to-r from-[#FDEDD8] to-[#FDEDE0] opacity-30 blur-3xl z-[-1]" />
+      <div className="absolute left-[-50px] lg:left-[-200px] top-[-50px] lg:top-[-200px] h-[350px] lg:h-[800px] w-[350px] lg:w-[800px] rounded-full" />
       <div className="absolute right-[-50px] lg:right-[-100px] top-[400px] lg:top-[300px] h-[300px] lg:h-[600px] w-[300px] lg:w-[600px] rounded-full bg-gradient-to-r from-[#efddfe] to-[#F7ECFE] opacity-50 blur-3xl z-[-1]" />
 
       {/* Navbar */}
