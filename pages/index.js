@@ -19,14 +19,14 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }) {
   console.log("allPostsData on Home page:", allPostsData);
   return (
-    <div className="font-inter overflow-hidden">
+    <div className="font-inter overflow-hidden bg-[#FFFBF7]">
       <Head>
         <title>Titli Foundation</title>
       </Head>
 
       {/* Background Gradient Blobs */}
-      <div className="absolute left-[-50px] lg:left-[-200px] top-[-50px] lg:top-[-200px] h-[350px] lg:h-[800px] w-[350px] lg:w-[800px] rounded-full" />
-      <div className="absolute right-[-50px] lg:right-[-100px] top-[400px] lg:top-[300px] h-[300px] lg:h-[600px] w-[300px] lg:w-[600px] rounded-full bg-gradient-to-r from-[#efddfe] to-[#F7ECFE] opacity-50 blur-3xl z-[-1]" />
+      {/* <div className="absolute left-[-50px] lg:left-[-200px] top-[-50px] lg:top-[-200px] h-[350px] lg:h-[800px] w-[350px] lg:w-[800px] rounded-full" />
+      <div className="absolute right-[-50px] lg:right-[-100px] top-[400px] lg:top-[300px] h-[300px] lg:h-[600px] w-[300px] lg:w-[600px] rounded-full bg-gradient-to-r from-[#efddfe] to-[#F7ECFE] opacity-50 blur-3xl z-[-1]" /> */}
 
       {/* Navbar */}
       <Navbar />

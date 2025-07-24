@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 export default function VisionMission() {
   return (
-    <section className="px-4 sm:px-6 lg:px-20 py-4 bg-[#ffffff] text-gray-800">
+    <section className="px-4 sm:px-6 lg:px-20 py-4 bg-[#FFFBF7] text-gray-800">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-24 max-w-6xl mx-auto">
         {/* Vision */}
         <HoverCard

@@ -6,7 +6,7 @@ export default function Careers() {
   return (
     <>
       <Navbar />
-      <main className="pt-[140px] pb-20 bg-white min-h-screen text-black font-inter">
+      <main className="pt-[140px] pb-20 bg-[#FFFBF7] min-h-screen text-black font-inter">
         {/* Hero Section */}
         <section className="max-w-[1024px] mx-auto text-center mb-16 px-4">
           <h1 className="text-[40px] md:text-[56px] font-semibold mb-6">
