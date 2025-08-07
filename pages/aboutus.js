@@ -3,6 +3,8 @@ import Footer from "../components/Footer";
 import Head from "next/head";
 import TeamSection from "@/components/Team";
 import Stats from "@/components/Stats";
+import BTT from "@/components/BTT"; // Imported BTT component
+import Insta from "@/components/Insta"; // Imported Insta component
 
 export default function AboutUs() {
   return (
@@ -17,44 +19,50 @@ export default function AboutUs() {
 
       <Navbar />
 
-      {/* 🎯 Mission Statement Section */}
-      <section className="text-center px-4 md:px-8 lg:pt-[170px]  py-20 bg-white">
-        <h1 className="text-[28px] md:text-[36px] lg:text-[64px] font-semibold font-inter leading-tight text-black max-w-4xl mx-auto mb-6">
-          From awareness to action,
-          <br className="hidden md:block" />
-          redefining menstrual health
-        </h1>
+      {/* --- REVERSED HERO SECTION (REPLACES MISSION STATEMENT) --- */}
+      <main className="w-full max-w-[1222px] mx-auto px-4 md:px-8 lg:pt-[170px] py-20">
+        <section className="w-full flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between">
+          {/* Left: Heading, Text, Button */}
+          <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left lg:pr-10 mt-8 lg:mt-0 font-inter">
+            <div className="text-[63px] font-semibold leading-tight">
+              From awareness to action, redefining menstrual health
+            </div>
+            <p className="mt-6 text-[16px] lg:text-[18px] font-medium text-[#2F2F2F] max-w-[520px] leading-tight mx-auto lg:mx-0">
+              At Titli Foundation, we empathize with the challenges faced by
+              underprivileged menstruators when it comes to having a safe and
+              hygienic period. We aim to provide them with sustainable menstrual
+              products and raise awareness about menstrual hygiene and its safe
+              practices.
+            </p>
+            <div className="mt-8">
+              <a
+                href="https://tr.ee/vx87XEdgfh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-pink hover:bg-dark-pink transition-all duration-200 text-white font-medium py-3 px-8 rounded-[12px]"
+              >
+                Join the Team
+              </a>
+            </div>
+          </div>
 
-        <p className="text-[20px] font-inter font-light md:text-base text-[#000] max-w-[900px] max-h-[168px] mx-auto mb-[50px]">
-          At Titli Foundation, we empathize with the challenges faced by
-          underprivileged menstruators when it comes to having a safe and
-          hygienic period. We aim to provide them with sustainable menstrual
-          products and raise awareness about menstrual hygiene and its safe
-          practices. <br />
-          To achieve our goal, we conduct donation drives and awareness
-          workshops in different sectors of Delhi, Mumbai, Bangalore, Ayodhya,
-          Lucknow, Dehradun, Pune, Chandigarh and many such cities, reaching out
-          to 2500+ menstruators. While covering topics from puberty and
-          reproductive health to menstrual health and safe menstruation
-          practices, along with the usage of sustainable menstrual products. We
-          hope to bring in a wave of change and break the taboo!
-        </p>
+          {/* Right: Hero Image */}
+          <div className="w-[532px] flex justify-center lg:justify-end">
+            <div className="bg-gray-200 rounded-[20px] w-full h-[552px] flex items-center justify-center">
+              <img
+                src="/images/cup.png" // You can change this image to something relevant for the about page
+                alt="Titli Foundation providing menstrual products"
+                className="object-contain w-[60%] h-[60%]"
+              />
+            </div>
+          </div>
+        </section>
+      </main>
 
-        <a
-          href="https://tr.ee/vx87XEdgfh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[20px] text-base md:text-lg font-semibold border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink transition duration-300">
-            Join the team
-          </button>
-        </a>
-
-        <p className="text-[24px] text-black mt-[123px]">
-          Scroll to see what our founder wants to tell you{" "}
-          <span className="inline-block animate-bounce">▼</span>
-        </p>
-      </section>
+      <div className="text-center text-[24px]  text-black mt-[10px] mb-[125px]">
+        Scroll to see what Founder wants to tell you{" "}
+        <span className="inline-block animate-bounce">▼</span>
+      </div>
 
       {/* 🌸 Founder’s Message Section */}
       <section className="bg-[#ffffff] py-16 px-4 md:px-10 lg:px-20">
@@ -98,49 +106,39 @@ export default function AboutUs() {
 
       <TeamSection />
 
-      <Stats />
+      <div className="flex justify-center py-12">
+        <div className="max-w-[840px] text-center">
+          {/* The text uses the Inter font, is 24px, and has a normal weight. */}
+          {/* Each paragraph is in its own <p> tag for proper spacing. */}
+          <p className="font-inter text-[24px] font-normal text-black mb-6">
+            To achieve our goal, we conduct donation drives and awareness
+            workshops in different sectors of Delhi, Mumbai, Bangalore, Ayodhya,
+            Lucknow, Dehradun, Pune, Chandigarh and many such cities, reaching
+            out to 2500+ menstruators.
+          </p>
+          <p className="font-inter text-[24px] font-normal text-black">
+            While covering topics from puberty and reproductive health to
+            menstrual health and safe menstruation practices, along with the
+            usage of sustainable menstrual products. We hope to bring in a wave
+            of change and break the taboo!
+          </p>
+        </div>
+      </div>
 
-      {/* 🌸 Break The Taboo Section */}
-      <section className="text-center px-4 md:px-8  flex flex-col items-center">
-        <h3 className="font-inter text-[24px] max-w-[1024px] ">
-          We believe that menstrual care is a fundamental right for all,
-          regardless of their socio-economic status. Menstrual care should no
-          longer be a source of shame or discomfort but be approached
-          with knowledge, confidence, and sustainability.{" "}
-        </h3>
-        <br />
-        <h2 className="text-[18px] md:text-[22px] lg:text-[26px] max-w-4xl mx-auto mb-6 text-black">
+      <section className="text-center px-4 md:px-8 pt-[74px] flex flex-col items-center">
+        <h2 className="text-[18px] md:text-[22px] lg:text-[24px] max-w-4xl mx-auto mb-6 text-black">
           Join us in our efforts to{" "}
           <span className="text-pink-600 font-bold">#BreakTheTaboo</span> and
           positively impact the lives everywhere.
         </h2>
-        <a href="https://tr.ee/vx87XEdgfh" target="_blank" rel="noopener noreferrer">
-          <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[15px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
-            Join the team
+        <a href="" target="_blank" rel="noopener noreferrer">
+          <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[30px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
+            Change Begins With You
           </button>
         </a>
       </section>
 
-      {/* 📸 Instagram Hover Section */}
-      <section className="flex justify-center py-4 pt-7 pb-[95px]">
-        <a
-          href="https://www.instagram.com/titlifoundation"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative w-fit flex items-center justify-center"
-        >
-          <div className="relative inline-flex items-center font-[Inter] font-semibold text-[18px] md:text-[20px] tracking-[-0.06em]">
-            <img
-              src="/svgs/instagram-logo.svg"
-              alt="Instagram"
-              className="w-12 h-12 md:w-14 md:h-14 transition-transform duration-500 ease-in-out group-hover:-translate-x-[6rem]"
-            />
-            <span className="absolute left-full ml-0 -translate-x-[6rem] origin-left scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 transition-all duration-300 ease-in-out text-pink-600 px-4 py-1 rounded-full whitespace-nowrap">
-              Follow our journey
-            </span>
-          </div>
-        </a>
-      </section>
+      <Insta />
 
       <Footer />
     </>
