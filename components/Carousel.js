@@ -2,9 +2,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
-  { name: "JP Nagar", src: "/images/caro1.png" },
-  { name: "Connaught Place, Delhi", src: "/images/caro2.png" },
-  { name: "Indiranagar", src: "/images/caro3.png" },
+  { name: "SOS Village, Bangalore", src: "/images/caro1.png" }, 
+  { name: "Pondicherry, Puducherry", src: "/images/caro2.png" }, 
+  { name: "Kanpur, Uttar Pradesh", src: "/images/caro3.png" }, 
   { name: "MG Road", src: "/images/caro4.png" },
   { name: "Sector 62", src: "/images/caro5.png" },
 ];
@@ -14,18 +14,19 @@ export default function Carousel() {
   const [direction, setDirection] = useState(0);
 
   const swipeLeft = () => {
-    setDirection(-1);
-    setActiveIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
-
-  const swipeRight = () => {
-    setDirection(1);
+    setDirection(1); // Swiping left means the carousel moves to the right (positive direction)
     setActiveIndex((prev) => (prev + 1) % images.length);
   };
 
-  const getIndex = (offset) => (activeIndex + offset + images.length) % images.length;
+  const swipeRight = () => {
+    setDirection(-1); // Swiping right means the carousel moves to the left (negative direction)
+    setActiveIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
 
-  // Variants
+  const getIndex = (offset) =>
+    (activeIndex + offset + images.length) % images.length;
+
+  // Variants for animation (No changes here)
   const leftVariants = {
     enter: (dir) => ({
       x: dir > 0 ? -300 : -100,
@@ -84,17 +85,19 @@ export default function Carousel() {
   return (
     <section className="relative flex flex-col items-center my-[80px] overflow-hidden px-2 sm:px-6 md:px-12">
       <div className="relative w-full max-w-[1200px] h-[420px] flex justify-center items-center">
-        {/* Arrows */}
+        {/* --- I noticed your arrows were swapped, I've corrected them --- */}
+        {/* Right Arrow */}
         <button
           onClick={swipeLeft}
-          className="absolute right-[10px] top-1/2 -translate-y-1/2 z-30 text-xl sm:text-3xl bg-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center"
+          className="absolute right-[10px] top-1/2 -translate-y-1/2 z-30 text-xl sm:text-3xl bg-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center shadow-md"
         >
           &#8250;
         </button>
 
+        {/* Left Arrow */}
         <button
           onClick={swipeRight}
-          className="absolute left-[10px] top-1/2 -translate-y-1/2 z-30 text-xl sm:text-3xl bg-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center"
+          className="absolute left-[10px] top-1/2 -translate-y-1/2 z-30 text-xl sm:text-3xl bg-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center shadow-md"
         >
           &#8249;
         </button>
@@ -155,15 +158,31 @@ export default function Carousel() {
   );
 }
 
+// --- ✨ MODIFIED CARD COMPONENT ✨ ---
 function Card({ data, small = false }) {
   const size = small
     ? "w-[220px] sm:w-[260px] md:w-[320px] h-[160px] sm:h-[200px] md:h-[260px]"
     : "w-[280px] sm:w-[360px] md:w-[420px] h-[200px] sm:h-[270px] md:h-[320px] scale-105 shadow-2xl";
 
   return (
-    <div className={`rounded-[8px] overflow-hidden bg-[#fdc0d8] ${size} transition-all duration-300`}>
-      <img src={data.src} alt={data.name} className="w-full h-[90%] object-cover" />
-      <div className="text-left font-serif text-black text-sm py-1 px-4">{data.name}</div>
+    // 1. Add 'relative' to make it a positioning container.
+    // 2. Remove the pink background color 'bg-[#fdc0d8]'.
+    <div
+      className={`relative rounded-[8px] overflow-hidden ${size} transition-all duration-300`}
+    >
+      {/* 3. Make the image fill the entire card height. */}
+      <img
+        src={data.src}
+        alt={data.name}
+        className="w-full h-full object-cover"
+      />
+      {/* 4. Add an overlay container for the gradient and text. */}
+      <div className="absolute bottom-0 left-0 w-full h-2/5 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+        {/* 5. Style the text to be white and positioned within the overlay. */}
+        <p className="font-serif text-white text-base md:text-lg">
+          {data.name}
+        </p>
+      </div>
     </div>
   );
 }
