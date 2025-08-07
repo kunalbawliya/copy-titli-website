@@ -27,20 +27,23 @@ export default function BlogCarousel({ blogs = [] }) {
           loopedSlides={blogs.length}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
         >
-          {blogs.map(({ slug, title, description, coverImage }, index) => (
+          {blogs.map(({ slug, title, description, coverImage, author }, index) => (
             <SwiperSlide key={index}>
               <Link href={`/blog/${slug}`}>
                 <div className="rounded-[18px] overflow-hidden transition">
                   <img
                     src={`/${coverImage}`}
                     alt={title}
-                    className="w-full h-[400px] object-cover rounded-[18px] hover:shadow-xl"
+                    className="w-[512px] h-[400px] object-cover rounded-[18px] hover:shadow-xl"
                   />
                   <div className="p-4">
-                    <h3 className="text-[36px] font-semibold leading-none line-clamp-2 min-h-[72px]">
+                    <h3 className="text-[32px] font-inter leading-none line-clamp-2 min-h-[72px]">
                       {title}
                     </h3>
-                    <p className="text-[20px] text-gray-500 line-clamp-2 min-h-[3rem] relative">
+                    <p className="text-[24px] font-inter line-clamp-2 min-h-[72px]">
+                      {author}
+                    </p>
+                    {/* <p className="text-[20px] text-gray-500 line-clamp-2 min-h-[3rem] relative">
                       {description.length > 100 ? (
                         <>
                           {description.slice(0, 100)}...{" "}
@@ -51,7 +54,7 @@ export default function BlogCarousel({ blogs = [] }) {
                       ) : (
                         description
                       )}
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </Link>

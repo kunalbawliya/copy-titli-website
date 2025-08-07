@@ -6,28 +6,42 @@ export default function Careers() {
   return (
     <>
       <Navbar />
-      <main className="pt-[140px] pb-20 bg-[#FFFBF7] min-h-screen text-black font-inter">
-        {/* Hero Section */}
-        <section className="max-w-[1024px] mx-auto text-center mb-16 px-4">
-          <h1 className="text-[40px] md:text-[56px] font-semibold mb-6">
-            Why Volunteer with Titli?
-          </h1>
-          <p className="text-[16px] md:text-[20px] font-light mb-4 leading-[1.6em]">
-            Titli Foundation is a registered NGO that stands as a catalyst for
-            change, with a clear focus on eradicating period poverty. Our
-            approach is simple yet profound: we aim to replace the shadows of
-            shame and discomfort with the enlightenment of knowledge, the boost
-            of confidence, and the promise of sustainability.
-          </p>
-          <p className="text-[16px] md:text-[20px] font-light leading-[1.6em]">
-            Lorem ipsum dolor sit amet consectetur. Quam sed vitae sit justo
-            gravida mi diam nunc. Nisl et id faucibus condimentum diam ipsum
-            interdum. Sit cras nisi massa dolor sem nunc viverra scelerisque.
-            Quis tortor mollis mattis ultricies velit neque neque nisi mi.
-            Libero dictum non pellentesque porta montes. Ac morbi pellentesque
-            vivamus gravida fermentum.
-          </p>
-        </section>
+      <main className=" pb-20 bg-[#FFFBF7] min-h-screen text-black font-inter">
+        {/* --- REVERSED HERO SECTION (REPLACES MISSION STATEMENT) --- */}
+        <main className="w-full max-w-[1222px] mx-auto px-4 md:px-8 lg:pt-[170px] py-20">
+          <section className="w-full flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between">
+            {/* Left: Heading, Text, Button */}
+            <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left lg:pr-10 mt-8 lg:mt-0 font-inter">
+              <div className="text-[60px] font-semibold leading-tight">
+                Why Volunteer with Titli Foundation?
+              </div>
+              <p className="mt-6 text-[16px] lg:text-[18px] font-medium text-[#2F2F2F] max-w-[520px] leading-tight mx-auto lg:mx-0">
+                At Titli Foundation, we empathize with the challenges faced by
+                underprivileged menstruators when it comes to having a safe and
+                hygienic period. We aim to provide them with sustainable
+                menstrual products and raise awareness about menstrual hygiene
+                and its safe practices.
+              </p>
+            </div>
+
+            {/* Right: Hero Image */}
+            <div className="w-[532px] flex justify-center lg:justify-end">
+              <div className="bg-gray-200 rounded-[20px] w-full h-[552px] flex items-center justify-center">
+                <img
+                  src="/images/cup.png" // You can change this image to something relevant for the about page
+                  alt="Titli Foundation providing menstrual products"
+                  className="object-contain w-[60%] h-[60%]"
+                />
+              </div>
+            </div>
+            {/* Scroll Hint */}
+          </section>
+        </main>
+
+        <div className="text-center text-[24px]  text-black mt-[10px] mb-[125px]">
+          Scroll to find out what role you can play{" "}
+          <span className="inline-block animate-bounce">▼</span>
+        </div>
 
         {/* Stats Section */}
         <section className="flex flex-col md:flex-row gap-6 justify-center items-center mb-16 px-4">
@@ -36,6 +50,9 @@ export default function Careers() {
           </div>
           <div className="bg-[#D3BEDF] text-center p-6 rounded-[10px] w-full md:w-[384px] text-lg md:text-2xl font-medium">
             Over 200+ volunteers engaged to lead & support
+          </div>
+          <div className="bg-[#D3BEDF] text-center p-6 rounded-[10px] w-full md:w-[384px] text-lg md:text-2xl font-medium">
+            Conducted 20+ awareness campaigns across India
           </div>
           <div className="bg-[#D3BEDF] text-center p-6 rounded-[10px] w-full md:w-[384px] text-lg md:text-2xl font-medium">
             Conducted 20+ awareness campaigns across India
@@ -88,27 +105,6 @@ export default function Careers() {
             <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[20px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink transition">
               Join the Team
             </button>
-          </a>
-        </section>
-
-        {/* Instagram CTA */}
-        <section className="flex justify-center mb-16">
-          <a
-            href="https://www.instagram.com/titlifoundation"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative w-fit flex items-center justify-center"
-          >
-            <div className="relative inline-flex items-center font-semibold text-[18px] md:text-[20px]">
-              <img
-                src="/svgs/instagram-logo.svg"
-                alt="Instagram"
-                className="w-10 h-10 md:w-14 md:h-14 transition-transform duration-500 ease-in-out group-hover:-translate-x-[6rem]"
-              />
-              <span className="absolute left-full ml-0 -translate-x-[6rem] origin-left scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 transition-all duration-300 ease-in-out text-pink-600 px-4 py-1 rounded-full whitespace-nowrap">
-                Follow our journey
-              </span>
-            </div>
           </a>
         </section>
       </main>
