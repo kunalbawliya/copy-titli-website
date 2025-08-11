@@ -63,54 +63,54 @@ export default function Donate() {
         <title>Titli Foundation | Donate</title>
       </Head>
 
-      <div className="relative max-w-[90vw] w-full m-auto text-[#2F2F2F]">
+      <div className="relative max-w-[90vw] w-full m-auto text-[#000000]">
         <Navbar donatePage={true} />
 
         {/* Hero Section */}
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-[40px] lg:gap-[80px] pt-[100px] lg:pt-[160px] px-4">
-          <div className="w-full lg:w-[50%]">
-            <h2 className="text-[28px] lg:text-[48px] font-[700] leading-tight text-black">
-              Small steps towards <br />
-              <span className="text-black">Breaking the Taboo</span>
-            </h2>
-            <p className="mt-[20px] text-[16px] lg:text-[18px] text-[#2F2F2F] leading-[1.7em]">
-              By donating to our cause, you are directly contributing towards
-              providing underprivileged menstruators across the country with
-              essential and sustainable menstrual hygiene products. Rest assured
-              that every penny of your donation will go towards this noble
-              cause, ensuring that no one has to compromise on their health and
-              dignity during their periods. Join us in our mission to create a
-              more inclusive and equitable society for all.
-            </p>
-            <button
-              onClick={() => {
-                const offset = -170; // adjust based on your navbar height
-                const element = donationRef.current;
-                const top =
-                  element?.getBoundingClientRect().top +
-                  window.scrollY +
-                  offset;
-                if (top) window.scrollTo({ top, behavior: "smooth" });
-              }}
-              className="mt-[30px] bg-[#E34F8F] hover:bg-[#c7377b] text-white font-semibold text-[16px] px-[36px] py-[14px] rounded-[16px] transition-all duration-300"
-            >
-              Make a donation
-            </button>
-          </div>
-          <div className="w-full lg:w-[45%]">
-            <div className="aspect-square rounded-[16px] flex items-center justify-center">
-              <img
-                src="/images/donate/hero.png"
-                className="object-cover rounded-[16px] w-full h-full"
-                alt="Donate visual"
-              />
+        {/* --- REVERSED HERO SECTION (REPLACES MISSION STATEMENT) --- */}
+        <main className="w-full max-w-[1222px] mx-auto px-4 md:px-8 lg:pt-[170px] py-20">
+          <section className="w-full flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between">
+            {/* Left: Heading, Text, Button */}
+            <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left lg:pr-10 mt-8 lg:mt-0 font-inter">
+              <div className="text-[60px] font-semibold leading-tight">
+                Small steps towards Breaking the Taboo
+              </div>
+              <p className="mt-6 text-[16px] lg:text-[18px] font-medium text-black max-w-[520px] leading-tight mx-auto lg:mx-0">
+                By donating to our cause, you are directly contributing towards providing underprivileged menstruators across the country with essential and sustainable menstrual hygiene products. Rest assured that every penny of your donation will go towards this noble cause, ensuring that no one has to compromise on their health and dignity during their periods. Join us in our mission to create a more inclusive and equitable society for all.
+              </p>
+              <div className="mt-8">
+                <a
+                  href="https://tr.ee/vx87XEdgfh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-pink hover:bg-dark-pink transition-all duration-200 text-white font-medium py-3 px-8 rounded-[12px]"
+                >
+                  Join the Team
+                </a>
+              </div>
             </div>
-          </div>
-        </div>
+
+            {/* Right: Hero Image */}
+            <div className="w-[532px] flex justify-center lg:justify-end">
+              <div className="bg-gray-200 rounded-[20px] w-full h-[552px] flex items-center justify-center">
+                <img
+                  src="/images/cup.png" // You can change this image to something relevant for the about page
+                  alt="Titli Foundation providing menstrual products"
+                  className="object-contain w-[60%] h-[60%]"
+                />
+              </div>
+            </div>
+          </section>
+        </main>
 
         {/* Scroll Indicator */}
-        <div className="mt-[60px] text-center text-[14px] text-[#333] font-medium">
-          Scroll to get one step closer to the solution ▼
+        <div className="text-center text-[24px] text-black mt-[10px] mb-[72px]">
+          Scroll to see what Founder wants to tell you{" "}
+          <span className="inline-block animate-bounce">▼</span>
+        </div>
+
+        <div className="text-center font-inter font-semibold text-[48px]  text-black mt-[100px] mb-[70px]">
+          Select Your Donation
         </div>
 
         {/* Donation Cards */}
@@ -163,7 +163,7 @@ export default function Donate() {
         </div>
 
         {/* 💌 Join the Team Section */}
-        <section className="text-center px-4 md:px-8 mt-20 mb-20 bg-black">
+        <section className="text-center px-4 md:px-8 mt-20 mb-20">
           <h2 className="text-[18px] md:text-[22px] lg:text-[26px] font-inter max-w-4xl mx-auto mb-6 text-black leading-snug">
             We’re always on the lookout for people that believe in menstrual
             dignity for all. Doesn’t matter who you are - we have a place for
@@ -174,30 +174,9 @@ export default function Donate() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[30px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
+            <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[10px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
               Join the Team
             </button>
-          </a>
-        </section>
-
-        {/* 📸 Instagram Hover Section */}
-        <section className="flex justify-center mb-[95px] bg-black">
-          <a
-            href="https://www.instagram.com/titlifoundation"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative w-fit flex items-center justify-center"
-          >
-            <div className="relative inline-flex items-center font-[Inter] font-semibold text-[18px] md:text-[20px] tracking-[-0.06em]">
-              <img
-                src="/svgs/instagram-logo.svg"
-                alt="Instagram"
-                className="w-12 h-12 md:w-14 md:h-14 transition-transform duration-500 ease-in-out group-hover:-translate-x-[6rem]"
-              />
-              <span className="absolute left-full ml-0 -translate-x-[6rem] origin-left scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 transition-all duration-300 ease-in-out text-pink-600 px-4 py-1 rounded-full whitespace-nowrap">
-                Follow our journey
-              </span>
-            </div>
           </a>
         </section>
 
