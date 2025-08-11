@@ -89,7 +89,7 @@ export default function Carousel() {
         {/* Right Arrow */}
         <button
           onClick={swipeLeft}
-          className="absolute right-[10px] top-1/2 -translate-y-1/2 z-30 text-xl sm:text-3xl bg-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center shadow-md"
+          className="absolute right-[-1px] top-[180px] z-30 text-5xl w-14 h-14 flex items-center justify-center rounded-[20px]"
         >
           &#8250;
         </button>
@@ -97,7 +97,7 @@ export default function Carousel() {
         {/* Left Arrow */}
         <button
           onClick={swipeRight}
-          className="absolute left-[10px] top-1/2 -translate-y-1/2 z-30 text-xl sm:text-3xl bg-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center shadow-md"
+          className="absolute left-[-1px] top-[180px] z-30 text-5xl w-14 h-14 flex items-center justify-center rounded-[20px]"
         >
           &#8249;
         </button>
@@ -162,7 +162,7 @@ export default function Carousel() {
 function Card({ data, small = false }) {
   const size = small
     ? "w-[220px] sm:w-[260px] md:w-[320px] h-[160px] sm:h-[200px] md:h-[260px]"
-    : "w-[280px] sm:w-[360px] md:w-[420px] h-[200px] sm:h-[270px] md:h-[320px] scale-105 shadow-2xl";
+    : "w-[280px] sm:w-[360px] md:w-[420px] h-[200px] sm:h-[270px] md:h-[320px] scale-105 shadow-xl";
 
   return (
     // 1. Add 'relative' to make it a positioning container.
