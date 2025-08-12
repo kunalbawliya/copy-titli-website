@@ -131,11 +131,6 @@ export default function AboutUs() {
           <span className="text-pink-600 font-bold">#BreakTheTaboo</span> and
           positively impact the lives everywhere.
         </h2>
-        <a href="" target="_blank" rel="noopener noreferrer">
-          <button className="bg-pink text-white px-8 md:px-12 py-3 rounded-[30px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
-            Change Begins With You
-          </button>
-        </a>
       </section>
 
       <Insta />
