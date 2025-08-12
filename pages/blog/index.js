@@ -32,7 +32,7 @@ export default function Blog({ allPostsData }) {
       <main className="bg-[#ffffff] text-black min-h-screen pt-[160px] md:pt-[180px] lg:pt-[198px] pb-24">
         {/* 🔥 Hero Section */}
         <section className="max-w-6xl mx-auto px-4 md:px-8 text-center mb-24">
-          <h1 className="text-[40px] md:text-[56px] lg:text-[64px] font-bold text-pink-600 mb-4 font-serif leading-tight">
+          <h1 className="text-[40px] md:text-[56px] lg:text-[64px] font-bold text-pink-600 mb-[35px] font-inter leading-tight">
             From Our World to Yours
           </h1>
           <p className="text-black text-[16px] md:text-[20px] lg:text-[24px] max-w-xl mx-auto">

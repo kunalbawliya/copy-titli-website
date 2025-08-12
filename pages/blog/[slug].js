@@ -1,14 +1,15 @@
-import {
-  getAllPostSlugs,
-  getPostData,
-  getSortedPostsData,
-} from "../../lib/blogs";
+import { getSortedPostsData, getPostData } from "../../lib/blogs";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Link from "next/link";
 
 export async function getStaticPaths() {
-  const paths = getAllPostSlugs();
+  const allPosts = getSortedPostsData();
+  const paths = allPosts.map((post) => ({
+    params: {
+      slug: post.slug,
+    },
+  }));
   return {
     paths,
     fallback: false,
@@ -17,146 +18,160 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.slug);
-  const allPostsData = getSortedPostsData(); // <-- ADD THIS
+  const allPosts = getSortedPostsData();
+
+  const otherPosts = allPosts
+    .filter((post) => post.slug !== params.slug)
+    .slice(0, 2);
+
   return {
     props: {
       postData,
-      allPostsData, // <-- AND THIS
+      otherPosts,
     },
   };
 }
 
-export default function Post({ postData, allPostsData }) {
-  const moreArticles = allPostsData
-    .filter((post) => post.slug !== postData.slug)
-    .slice(0, 4);
-
+export default function Post({ postData, otherPosts }) {
   return (
     <>
       <Navbar />
-      <main className="bg-[#ffffff] text-gray-800 min-h-screen pt-[160px] md:pt-[180px] lg:pt-[198px] pb-24 px-4">
-        <article className="max-w-5xl mx-auto">
-          {/* Title */}
-          <h1 className="text-5xl font-bold mb-6 font-serif text-pink-700 text-center">
-            {postData.title}
-          </h1>
+      <main className="bg-white text-black pt-[192px]">
+        <div className="max-w-[1100px] mx-auto px-[16px]">
+          {/* Blog Header */}
+          <header className="text-center mb-[48px]">
+            <h1 className="text-[64px] font-bold mb-[50px] leading-tight">
+              {postData.title}
+            </h1>
+            <p className="text-[24px] text-black mb-[15px]">
+              {postData.author}
+            </p>
+            <p className="text-[16px] text-black mb-[50px]">
+              {postData.date}
+            </p>
+          </header>
 
-          {/* Author Block */}
-          <div className="flex justify-center mb-10">
-            <div className="flex items-center gap-4 text-sm text-gray-600">
-              <img
-                src="/icons/profile-placeholder.png"
-                alt="Author"
-                className="w-10 h-10 rounded-full object-cover"
+          {/* Banner Image Container */}
+          <div className="mb-[90px] rounded-[16px] overflow-hidden max-w-[1024px] mx-auto ">
+            <img
+              src={`/${postData.coverImage}`}
+              alt={postData.title}
+              className="w-full h-full object-cover"
+              style={{ aspectRatio: "1024 / 768" }}
+            />
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-[48px]">
+            {/* Left Column: Blog Content */}
+            <div className="w-full lg:w-3/4">
+              <article
+                className="blog-content"
+                dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
               />
-              <div>
-                <p className="text-black font-medium">
-                  {postData.author || "Titli Team"}
-                </p>
-                <p className="text-xs text-gray-500">{postData.date}</p>
-              </div>
             </div>
+
+            {/* Right Column: Table of Contents */}
+            <aside className="w-full lg:w-1/4">
+              <div className="lg:sticky lg:top-[128px]">
+                <div>
+                  <h3 className="text-[20px] font-bold mb-[16px] pt-[16px] border-t border-gray-300">
+                    Table of Contents
+                  </h3>
+                  <ul className="space-y-[12px] pb-[16px] border-b border-gray-300 leading-normal">
+                    {postData.headings?.map((heading) => (
+                      <li key={heading.slug}>
+                        <a
+                          href={`#${heading.slug}`}
+                          className="text-gray-700 hover:text-pink-600 transition"
+                        >
+                          {heading.text}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </aside>
           </div>
+        </div>
 
-          {/* H2 + Paragraph */}
-          <h2 className="text-2xl font-bold mb-4">
-            {postData.subheading1 || "Lorem ipsum dolor sit amet consectetur."}
-          </h2>
-          <p className="mb-10 text-[16px] text-gray-700 leading-relaxed">
-            {postData.subtext1 ||
-              "Lorem ipsum dolor sit amet consectetur. Enim risus semper sit dolor vestibulum ac sit et."}
-          </p>
-
-          {/* 2 Grid Placeholder Boxes */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="h-64 bg-gray-300 rounded-[24px]"></div>
-            <div className="h-64 bg-gray-300 rounded-[24px]"></div>
-          </div>
-
-          {/* H2 + Paragraph Again */}
-          <h2 className="text-2xl font-bold mb-4">
-            {postData.subheading2 || "Lorem ipsum dolor sit amet consectetur."}
-          </h2>
-          <p className="mb-10 text-[16px] text-gray-700 leading-relaxed">
-            {postData.subtext2 ||
-              "Enim risus semper sit dolor vestibulum ac sit et."}
-          </p>
-
-          {/* Cover Image */}
-          <img
-            src={`/${postData.coverImage}`}
-            alt={postData.title}
-            className="w-full h-[480px] object-cover rounded-[24px] mb-12 shadow-sm"
-          />
-
-          {/* Blog Content */}
-          <div
-            className="prose prose-lg prose-p:text-gray-800 prose-headings:font-serif prose-a:text-pink-600 max-w-none mb-20"
-            dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
-          />
-
-          {/* Related Articles (More Articles) */}
-          <section className="mb-16">
-            <h2 className="text-2xl font-bold text-center mb-8">
-              More articles
+        {/* "More Articles" Section */}
+        <section className="mt-[96px] pb-[90px]">
+          <div className="max-w-[817px] mx-auto px-[16px]">
+            <h2 className="text-[30px] font-bold text-center mb-[48px]">
+              More Articles
             </h2>
-            <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4">
-              {moreArticles.map(({ slug, title, coverImage }) => (
-                <Link key={slug} href={`/blog/${slug}`}>
-                  <div className="cursor-pointer">
-                    <div className="w-full h-40 rounded-xl mb-2 overflow-hidden">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[50px]">
+              {otherPosts.map(({ slug, title, coverImage }) => (
+                <Link key={slug} href={`/blog/${slug}`} passHref>
+                  <div className="group cursor-pointer">
+                    <div className="rounded-[15px] overflow-hidden">
                       <img
                         src={`/${coverImage}`}
-                        alt={title}
-                        className="w-full h-full object-cover rounded-[24px]"
+                         alt={title}
+                        className="w-full h-[289px] object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
-                    <p className="text-xs text-center text-gray-800 line-clamp-2">
+                    <h3 className="text-[16px] font-medium mt-[16px] text-black items-center text-center ">
                       {title}
-                    </p>
+                    </h3>
                   </div>
                 </Link>
               ))}
             </div>
-          </section>
 
-          {/* Go Back Link */}
-          <div className="text-center mb-12">
-            <Link href="/blog" className="text-xl text-black hover:text-pink ">
-              Go back to the article page
-            </Link>
-          </div>
-
-          {/* 🌸 Break The Taboo Section */}
-          <section className="text-center py-0 px-4 bg-white">
-            <h2 className="text-[24px] font-inter font-semibold max-w-2xl mx-auto mb-6 text-[#000000] md:text-2xl">
-              Join us in our efforts to{" "}
-              <span className="text-pink-600 font-bold">#BreakTheTaboo</span>{" "}
-              and positively impact the lives everywhere.
-            </h2>
-            <button className="bg-pink text-white px-12 py-3 rounded-[30px] text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
-              Change Begins With You
-            </button>
-          </section>
-
-          {/* 📸 Instagram Hover Section */}
-          <section className="flex justify-center py-1 mt-8">
-            <div className="group relative w-fit flex items-center justify-center">
-              <div className="relative inline-flex items-center font-[Inter] font-semibold text-[20px] tracking-[-0.06em]">
-                <img
-                  src="/svgs/instagram-logo.svg"
-                  alt="Instagram"
-                  className="w-14 h-14 transition-transform duration-500 ease-in-out group-hover:-translate-x-[5.5rem]"
-                />
-                <span className="absolute left-full ml-0 -translate-x-[5.5rem] origin-left scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 transition-all duration-300 ease-in-out text-pink-600 px-4 py-1 rounded-full whitespace-nowrap">
-                  Follow our journey
-                </span>
-              </div>
+            {/* FIXED "Go back" link */}
+            <div className="text-center mt-[50px]">
+              {/* The <a> tag has been removed and its className moved here */}
+              <Link
+                href="/blog"
+                className="text-[24px] text-black hover:text-black transition"
+              >
+                Go back to the article page
+              </Link>
             </div>
-          </section>
-        </article>
+          </div>
+        </section>
       </main>
       <Footer />
+      {/* CSS for styling the blog content */}
+      <style jsx global>{`
+        .blog-content p,
+        .blog-content li {
+          font-size: 20px;
+          line-height: 28px;
+          margin-bottom: 24px;
+        }
+        .blog-content h2 {
+          font-size: 30px;
+          font-weight: 500;
+          margin-top: 50px;
+          margin-bottom: 24px;
+          scroll-margin-top: 125px; 
+        }
+        .blog-content h3 {
+          font-size: 22px;
+          font-weight: 700;
+          margin-top: 32px;
+          margin-bottom: 16px;
+          scroll-margin-top: 198px; 
+        }
+        .blog-content ul {
+          list-style-type: disc;
+          padding-left: 30px;
+        }
+        .blog-content a {
+          color: #db2777;
+          text-decoration: underline;
+        }
+        .blog-content a:hover {
+          color: #9d174d;
+        }
+        .blog-content strong {
+          font-weight: 700;
+        }
+      `}</style>
     </>
   );
 }
