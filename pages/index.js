@@ -50,7 +50,19 @@ export default function Home({ allPostsData }) {
       <BlogCarousel blogs={allPostsData} />
 
       {/* 🌸 Break The Taboo Section */}
-      <BTT />
+      <section className="text-center px-4 md:px-8 mt-20 flex flex-col items-center">
+        <h3 className="font-inter text-[24px] max-w-[1024px] ">
+          We believe that menstrual care is a fundamental right for all,
+          regardless of their socio-economic status. Menstrual care should no
+          longer be a source of shame or discomfort but be approached with
+          knowledge, confidence, and sustainability.{" "}
+        </h3>
+        <h2 className="text-[18px] md:text-[22px] lg:text-[26px] max-w-4xl mx-auto text-black mt-[50px]">
+          Join us in our efforts to{" "}
+          <span className="text-pink-600 font-bold">#BreakTheTaboo</span> and
+          positively impact the lives everywhere.
+        </h2>
+      </section>
 
       {/* 📸 Instagram Hover Section */}
       <Insta />
