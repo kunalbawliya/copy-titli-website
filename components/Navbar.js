@@ -40,7 +40,7 @@ export default function Navbar({ donatePage }) {
           ${
             scrolled
               ? "lg:w-[952px] lg:h-[82px] lg:rounded-[100px] lg:top-[30px] lg:bg-[#FFD3E5]/90 w-screen h-[120px] rounded-none bg-[#FFD3E5]"
-              : "w-screen h-[120px] rounded-none bg-[#ffffff]" //debug- bg-[#FFFBF7]
+              : "w-screen h-[120px] rounded-none" //debug- bg-[#FFFBF7]
           }
         `}
       >

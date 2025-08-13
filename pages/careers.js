@@ -29,9 +29,9 @@ export default function Careers() {
             <div className="w-full max-w-[532px] flex justify-center lg:justify-end">
               <div className="bg-gray-200 rounded-[20px] w-full h-[552px] flex items-center justify-center">
                 <img
-                  src="/images/cup.png"
+                  src="/images/career and donate-hero.png"
                   alt="Titli Foundation providing menstrual products"
-                  className="object-contain w-[60%] h-[60%]"
+                  className="object-contain w-auto h-[552px] rounded-[20px]"
                 />
               </div>
             </div>

@@ -100,7 +100,7 @@ export default function GalleryPage() {
         <div className="container mx-auto px-4">
           {/* Header */}
           <header className="text-center mb-[105px]">
-            <h1 className="text-[64px] font-bold font-inter text-black dark:text-white">
+            <h1 className="text-[64px] font-bold font-inter text-black">
               The Work. The Progress. The People.
             </h1>
             <p className="text-[24px] text-gray-600 dark:text-black mt-[35px] max-w-xl mx-auto">
@@ -114,61 +114,61 @@ export default function GalleryPage() {
             {/* Remember to replace placeholder images with your actual image paths, e.g., '/images/team-photo.jpg' */}
             <div className="grid-item item-1">
               <img
-                src="https://placehold.co/600x300/3498db/ffffff?text=Officials"
+                src="images/gallery/gal1.png"
                 alt="Officials"
               />
             </div>
             <div className="grid-item item-2">
               <img
-                src="https://placehold.co/300x300/3498db/ffffff?text=Team"
+                src="images/gallery/gal2.png"
                 alt="Team"
               />
             </div>
             <div className="grid-item item-3">
               <img
-                src="https://placehold.co/300x300/2ecc71/ffffff?text=Workshop"
+                src="images/gallery/gal3.png"
                 alt="Workshop"
               />
             </div>
             <div className="grid-item item-4">
               <img
-                src="https://placehold.co/300x300/f1c40f/ffffff?text=Learning"
+                src="images/gallery/gal5.png"
                 alt="Learning"
               />
             </div>
             <div className="grid-item item-5">
               <img
-                src="https://placehold.co/600x600/9b59b6/ffffff?text=Community+Classroom"
+                src="images/gallery/gal4.png"
                 alt="Community Classroom"
               />
             </div>
             <div className="grid-item item-6">
               <img
-                src="https://placehold.co/300x300/1abc9c/ffffff?text=Awareness"
+                src="images/gallery/gal6.png"
                 alt="Awareness"
               />
             </div>
             <div className="grid-item item-7">
               <img
-                src="https://placehold.co/300x300/e67e22/ffffff?text=Group+Activity"
+                src="images/gallery/gal7.png"
                 alt="Group Activity"
               />
             </div>
             <div className="grid-item item-8">
               <img
-                src="https://placehold.co/300x300/34495e/ffffff?text=Students"
+                src="images/gallery/gal8.png"
                 alt="Students"
               />
             </div>
             <div className="grid-item item-9">
               <img
-                src="https://placehold.co/600x300/7f8c8d/ffffff?text=Empowerment"
+                src="images/gallery/gal9.png"
                 alt="Empowerment"
               />
             </div>
             <div className="grid-item item-10">
               <img
-                src="https://placehold.co/300x300/7f8c8d/ffffff?text=Session"
+                src="images/gallery/gal10.png"
                 alt="Session"
               />
             </div>

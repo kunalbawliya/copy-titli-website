@@ -1,15 +1,20 @@
 import Image from 'next/image';
 
 const teamMembers = [
-  { name: 'Alice Doe', title: 'Founder', image: '/images/team/alice.jpg' },
-  { name: 'John Smith', title: 'Operations Head', image: '/images/team/john.jpg' },
-  { name: 'Sara Lee', title: 'Program Manager', image: '/images/team/sara.jpg' },
+  { name: 'Aditi Yadav', title: 'Supervisor - Human Resource', image: '/images/team/Aditi Yadav.jpg' },
+  { name: 'Krusha Shah', title: 'Supervisor - Groundwork', image: '/images/team/Krusha Shah.jpg' },
+  { name: 'Shiksha Verma', title: 'Supervisor - Social Media', image: '/images/team/Shiksha Verma.jpg' },
+  { name: 'Ayuushi Barsaley', title: 'Head - Content Writer', image: '/images/team/Head - Content Writer.jpg' },
+  { name: 'Meenakshi Jain', title: 'Head - Human Resource', image: '/images/team/Meenakshi Jain.PNG' },
+  { name: 'Samiksha Jayashankar', title: 'Head - Groundwork', image: '/images/team/Samiksha Jayashankar .jpg' },
+  { name: 'Aliza Khan', title: 'Head - Social Media', image: '/images/team/Aliza Khan.jpg' },
+  { name: 'Akanksha Pathak', title: 'Trustee.', image: '/images/team/Akanksha Pathak.jpeg' },
   // Add more members as needed
 ];
 
 export default function Team() {
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className="mt-[90px] mb-[107px] bg-white relative overflow-hidden">
       <div className="text-center mb-10 px-4">
         <h2 className="text-[64px] md:text-4xl font-inter font-semibold">Meet our beautiful team</h2>
         <p className="text-black text-[20px] font-inter mt-4 max-w-2xl mx-auto">
@@ -46,7 +51,7 @@ export default function Team() {
 
       <style jsx>{`
         .animate-scroll {
-          animation: scroll-left 40s linear infinite;
+          animation: scroll-left 20s linear infinite;
         }
 
         @keyframes scroll-left {

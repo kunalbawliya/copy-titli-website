@@ -2,6 +2,7 @@ import { getSortedPostsData, getPostData } from "../../lib/blogs";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Link from "next/link";
+import MoreArticles from "../../components/MoreArticles"; // 1. Import the new component
 
 export async function getStaticPaths() {
   const allPosts = getSortedPostsData();
@@ -95,44 +96,9 @@ export default function Post({ postData, otherPosts }) {
           </div>
         </div>
 
-        {/* "More Articles" Section */}
-        <section className="mt-[96px] pb-[90px]">
-          <div className="max-w-[817px] mx-auto px-[16px]">
-            <h2 className="text-[30px] font-bold text-center mb-[48px]">
-              More Articles
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-[50px]">
-              {otherPosts.map(({ slug, title, coverImage }) => (
-                <Link key={slug} href={`/blog/${slug}`} passHref>
-                  <div className="group cursor-pointer">
-                    <div className="rounded-[15px] overflow-hidden">
-                      <img
-                        src={`/${coverImage}`}
-                         alt={title}
-                        className="w-full h-[289px] object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                    <h3 className="text-[16px] font-medium mt-[16px] text-black items-center text-center ">
-                      {title}
-                    </h3>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            {/* FIXED "Go back" link */}
-            <div className="text-center mt-[50px]">
-              {/* The <a> tag has been removed and its className moved here */}
-              <Link
-                href="/blog"
-                className="text-[24px] text-black hover:text-black transition"
-              >
-                Go back to the article page
-              </Link>
-            </div>
-          </div>
-        </section>
+        {/* 2. Replace the entire section with the new component */}
+        <MoreArticles posts={otherPosts} showGoBackButton={true} />
+        
       </main>
       <Footer />
       {/* CSS for styling the blog content */}

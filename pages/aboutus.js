@@ -39,7 +39,7 @@ export default function AboutUs() {
                 href="https://tr.ee/vx87XEdgfh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-pink hover:bg-dark-pink transition-all duration-200 text-white font-medium py-3 px-8 rounded-[12px]"
+                className="bg-pink text-white px-8 md:px-12 py-3 rounded-[10px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition"
               >
                 Join the Team
               </a>
@@ -50,9 +50,9 @@ export default function AboutUs() {
           <div className="w-[532px] flex justify-center lg:justify-end">
             <div className="bg-gray-200 rounded-[20px] w-full h-[552px] flex items-center justify-center">
               <img
-                src="/images/cup.png" // You can change this image to something relevant for the about page
+                src="/images/about-hero.png" // You can change this image to something relevant for the about page
                 alt="Titli Foundation providing menstrual products"
-                className="object-contain w-[60%] h-[60%]"
+                className="object-contain w-auto h-[552px] rounded-[20px]"
               />
             </div>
           </div>
@@ -65,12 +65,12 @@ export default function AboutUs() {
       </div>
 
       {/* 🌸 Founder’s Message Section */}
-      <section className="bg-[#ffffff] py-16 px-4 md:px-10 lg:px-20">
+      <section className="bg-[#ffffff] mt-16 px-4  mb-[107px] md:px-10 lg:px-20">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
           {/* Founder Image */}
           <div className="w-[465px] h-[500px] md:h-1/2 md:w-1/2 flex justify-center">
             <img
-              src="/images/founder.jpg" // Make sure to add image in public/images/
+              src="/images/team/founder.png" // Make sure to add image in public/images/
               alt="Alankrita Pandey - Founder Titli Foundation"
               className="rounded-[20px] w-[465px] h-[500px] max-w-[400px] object-cover shadow-lg"
             />
@@ -106,7 +106,7 @@ export default function AboutUs() {
 
       <TeamSection />
 
-      <div className="flex justify-center py-12">
+      <div className="flex justify-center mb-[73px]">
         <div className="max-w-[840px] text-center">
           {/* The text uses the Inter font, is 24px, and has a normal weight. */}
           {/* Each paragraph is in its own <p> tag for proper spacing. */}
@@ -125,7 +125,7 @@ export default function AboutUs() {
         </div>
       </div>
 
-      <section className="text-center px-4 md:px-8 pt-[74px] flex flex-col items-center">
+      <section className="text-center px-4 mb-[50px] md:px-8 flex flex-col items-center">
         <h2 className="text-[18px] md:text-[22px] lg:text-[24px] max-w-4xl mx-auto mb-6 text-black">
           Join us in our efforts to{" "}
           <span className="text-pink-600 font-bold">#BreakTheTaboo</span> and
