@@ -2,11 +2,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
-  { name: "SOS Village, Bangalore", src: "/images/caro1.png" }, 
-  { name: "Pondicherry, Puducherry", src: "/images/caro2.png" }, 
-  { name: "Kanpur, Uttar Pradesh", src: "/images/caro3.png" }, 
-  { name: "MG Road", src: "/images/caro4.png" },
-  { name: "Sector 62", src: "/images/caro5.png" },
+  { name: "Pondicherry, Puducherry", src: "/images/caro 1.png" },
+  { name: "Kanpur, Uttar Pradesh", src: "/images/caro 4.png" },
+  { name: "MG Road", src: "/images/caro 3.png" },
+  { name: "SOS Village, Bangalore", src: "/images/caro 2.png" },
 ];
 
 export default function Carousel() {
@@ -34,7 +33,7 @@ export default function Carousel() {
       opacity: 0,
     }),
     center: {
-      x: -400,
+      x: -500,
       scale: 1.2,
       opacity: 0.7,
     },
@@ -53,7 +52,7 @@ export default function Carousel() {
     }),
 
     center: {
-      x: 80,
+      x: 180,
       scale: 1.2,
       opacity: 0.7,
     },
@@ -151,8 +150,14 @@ export default function Carousel() {
         </AnimatePresence>
       </div>
 
-      <div className="text-center mt-[30px] text-sm text-gray-500">
-        Lorem ipsum dolor sit amet consectetur.
+      <div className="text-center font-inter text-lg mt-[46px] mb-[10px] text-black">
+        Want to see bigger picture? <br />
+        <a
+          href="/gallery"
+          className="hover:text-pink-700"
+        >
+          Head to our gallery here
+        </a>
       </div>
     </section>
   );

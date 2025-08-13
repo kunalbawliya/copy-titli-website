@@ -17,7 +17,7 @@ export default function BlogCarousel({ blogs = [] }) {
   };
 
   return (
-    <div className="bg-[#f4eef5] pt-12 pb-2">
+    <div className="bg-[#f4eef5] mt-[90px] pt-12 pb-2">
       <div className="relative max-w-[1074px] mx-auto px-4 align-middle ">
         <Swiper
           modules={[Navigation]}

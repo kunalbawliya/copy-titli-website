@@ -76,28 +76,28 @@ const Stats = () => {
   // All image URLs have been updated as requested.
   const statsData = [
     {
-      imageUrl: "https://placehold.co/826x340/e2e8f0/334155?text=Donation+Image+1",
+      imageUrl: "images/stats1.png",
       statNumber: "4600+",
       statText1: "Pads donated",
       statText2: "and counting...",
       imagePosition: "left",
     },
     {
-      imageUrl: "https://placehold.co/826x340/e2e8f0/334155?text=Donation+Image+2",
+      imageUrl: "images/stats2.png",
       statNumber: "200+",
       statText1: "Cups donated",
       statText2: "and counting...",
       imagePosition: "right",
     },
     {
-      imageUrl: "https://placehold.co/826x340/e2e8f0/334155?text=Volunteer+Image",
+      imageUrl: "images/stats3.png",
       statNumber: "200+",
       statText1: "Contributing volunteers",
       statText2: "and counting...",
       imagePosition: "left",
     },
     {
-      imageUrl: "https://placehold.co/826x340/e2e8f0/334155?text=Campaign+Image",
+      imageUrl: "images/stats4.png",
       statNumber: "60+",
       statText1: "Campaigns conducted",
       statText2: "and counting...",
@@ -108,7 +108,7 @@ const Stats = () => {
   return (
     // Applied the 43px horizontal padding for mobile view.
     // The existing sm: and lg: classes will override this on larger screens.
-    <section className="px-[43px] py-16 sm:px-6 lg:px-8 bg-gray-50">
+    <section className="px-[43px] sm:px-6 lg:px-8 ">
       <div className="max-w-6xl mx-auto flex flex-col gap-12">
         {statsData.map((stat, index) => (
           <StatRow

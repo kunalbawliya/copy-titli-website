@@ -3,38 +3,40 @@ export default function BrandList() {
     "/images/brands/Delhi police.png",
     "/images/brands/Dream a dozen_.png",
     "/images/brands/mid-day logo.png",
+    "/images/brands/Sudha Rani foundation_.jpg",
+    "/images/brands/pee-safe.png",
+    "/images/brands/Sirona.png",
+    "/images/brands/SOS Children_s Village.png",
     "/images/brands/gaims-logo.jpeg",
     "/images/brands/IIT Kanpur Logo_.png",
-    "/images/brands/pee-safe.png",
     "/images/brands/Rajdhani college.png",
-    "/images/brands/Sirona.png",
     "/images/brands/SK Children foundation_.jpg",
-    "/images/brands/SOS Children_s Village.png",
-    "/images/brands/Sudha Rani foundation_.jpg",
   ];
 
   return (
-    <div className="my-10 h- flex flex-col items-center bg-slate-300">
-      {/* Marquee container with fixed height and shadow */}
-      <div className="w-full h-[200px] overflow-hidden bg-slate-200 shadow-lg rounded-md relative py-12">
-        <div className="marquee flex absolute left-0 top-0 h-full items-center">
+    <div className="w-full flex flex-col items-center py-12">
+      {/* Marquee container matching Figma specs */}
+      <div class="w-full h-[200px] overflow-hidden bg-white relative 
+     shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),0_4px_6px_-1px_rgba(0,0,0,0.1)]">
+        <div className="marquee flex absolute left-0 h-full items-center">
+          {/* Duplicate brands array for a seamless loop */}
           {[...brands, ...brands].map((src, idx) => (
             <div
               key={idx}
-              className="w-[180px] h-auto flex items-center justify-center px-[30px]"
+              className="w-[200px] flex-shrink-0 flex items-center justify-center px-8"
             >
               <img
                 src={src}
                 alt={`brand-${idx}`}
-                className="max-h-[80px] object-contain"
+                className="max-h-[100px] w-auto object-contain"
               />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Caption */}
-      <div className="mt-12 text-center text-[16px] text-gray-600">
+      {/* Caption matching Figma specs */}
+      <div className="mt-[50px] text-center text-[20px] text-black">
         Backing our mission, sharing our vision.
       </div>
     </div>

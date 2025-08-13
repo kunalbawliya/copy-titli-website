@@ -6,7 +6,7 @@ import React from 'react';
  */
 const Insta = () => {
   return (
-    <section className="flex justify-center py-4 pt-7 pb-[95px]">
+    <section className="flex justify-center mt-[50px] mb-[95px]">
       <a
         href="https://www.instagram.com/titlifoundation"
         target="_blank"
