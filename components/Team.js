@@ -16,7 +16,7 @@ const teamMembers = [
 ];
 
 export default function Team() {
-  const animationDuration = `${teamMembers.length * 2}s`;
+  const animationDuration = `${teamMembers.length * 4}s`; //to change speed
 
   return (
     <section className="mt-[90px] mb-[107px] bg-white">
