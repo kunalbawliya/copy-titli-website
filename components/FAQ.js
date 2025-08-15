@@ -46,7 +46,7 @@ export default function FAQ() {
 
   return (
     // The class on this section has been changed to use drop-shadow-lg
-    <section className="px-4 max-w-[836px] mx-auto mb-24 drop-shadow-lg">
+    <section className="px-4 pt-2 max-w-[836px] mx-auto mb-24  ">
       <h2 className="text-4xl font-semibold text-center mb-20">
         Frequently Asked Questions
       </h2>
