@@ -11,7 +11,7 @@ const teamMembers = [
   { name: 'Samiksha Jayashankar', title: 'Head - Groundwork', image: '/images/team/Samiksha-Jayashankar.png' },
   { name: 'Vaani Garg', title: 'Head - Public Relation', image: '/images/team/Vaani-Garg.png' },
   { name: 'Aliza Khan', title: 'Head - Social Media', image: '/images/team/Aliza-Khan.png' },
-  { name: 'Akanksha Pathak', title: 'Trustee.', image: '/images/team/Akanksha.png' },
+  { name: 'Akanksha Pathak', title: 'Trustee.', image: '/images/team/Akanksha-Pathak.png' },
   // Add more members as needed
 ];
 
