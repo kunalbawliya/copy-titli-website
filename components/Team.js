@@ -11,12 +11,12 @@ const teamMembers = [
   { name: 'Samiksha Jayashankar', title: 'Head - Groundwork', image: '/images/team/Samiksha-Jayashankar.png' },
   { name: 'Vaani Garg', title: 'Head - Public Relation', image: '/images/team/Vaani-Garg.png' },
   { name: 'Aliza Khan', title: 'Head - Social Media', image: '/images/team/Aliza-Khan.png' },
-  { name: 'Akanksha Pathak', title: 'Trustee.', image: '/images/team/Akanksha-Pathak.png' },
+  { name: 'Akanksha Pathak', title: 'Trustee', image: '/images/team/Akanksha-Pathak.png' },
   // Add more members as needed
 ];
 
 export default function Team() {
-  const animationDuration = `${teamMembers.length * 4}s`; //to change speed
+  const animationDuration = `${teamMembers.length * 5}s`; //to change speed
 
   return (
     <section className="mt-[90px] mb-[107px] bg-white">
