@@ -1,14 +1,14 @@
 import Image from 'next/image';
 
 const teamMembers = [
-  { name: 'Aditi Yadav', title: 'Supervisor - Human Resource', image: '/images/team/Aditi Yadav.jpg' },
-  { name: 'Krusha Shah', title: 'Supervisor - Groundwork', image: '/images/team/Krusha Shah.jpg' },
-  { name: 'Shiksha Verma', title: 'Supervisor - Social Media', image: '/images/team/Shiksha Verma.jpg' },
-  { name: 'Ayuushi Barsaley', title: 'Head - Content Writer', image: '/images/team/Head - Content Writer.jpg' },
-  { name: 'Meenakshi Jain', title: 'Head - Human Resource', image: '/images/team/Meenakshi Jain.PNG' },
-  { name: 'Samiksha Jayashankar', title: 'Head - Groundwork', image: '/images/team/Samiksha Jayashankar .jpg' },
-  { name: 'Aliza Khan', title: 'Head - Social Media', image: '/images/team/Aliza Khan.jpg' },
-  { name: 'Akanksha Pathak', title: 'Trustee.', image: '/images/team/Akanksha Pathak.jpeg' },
+  { name: 'Aditi Yadav', title: 'Supervisor - Human Resource', image: '/images/team/Aditi-Yadav.jpg' },
+  { name: 'Krusha Shah', title: 'Supervisor - Groundwork', image: '/images/team/Krusha-Shah.jpg' },
+  { name: 'Shiksha Verma', title: 'Supervisor - Social Media', image: '/images/team/Shiksha-Verma.jpg' },
+  { name: 'Ayuushi Barsaley', title: 'Head - Content Writer', image: '/images/team/Head-Content Writer.jpg' },
+  { name: 'Meenakshi Jain', title: 'Head - Human Resource', image: '/images/team/Meenakshi-Jain.jpg' },
+  { name: 'Samiksha Jayashankar', title: 'Head - Groundwork', image: '/images/team/Samiksha-Jayashankar.jpg' },
+  { name: 'Aliza Khan', title: 'Head - Social Media', image: '/images/team/Aliza-Khan.jpg' },
+  { name: 'Akanksha Pathak', title: 'Trustee.', image: '/images/team/Akanksha-Pathak.jpg' },
   // Add more members as needed
 ];
 
