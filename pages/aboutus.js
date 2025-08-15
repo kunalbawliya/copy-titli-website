@@ -70,7 +70,7 @@ export default function AboutUs() {
           {/* Founder Image */}
           <div className="w-[465px] h-[500px] md:h-1/2 md:w-1/2 flex justify-center">
             <img
-              src="/images/team/founder.png" // Make sure to add image in public/images/
+              src="/images/team/Alankrita-Pandey.png" // Make sure to add image in public/images/
               alt="Alankrita Pandey - Founder Titli Foundation"
               className="rounded-[20px] w-[465px] h-[500px] max-w-[400px] object-cover shadow-lg"
             />
