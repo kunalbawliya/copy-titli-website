@@ -1,20 +1,26 @@
 import Image from 'next/image';
 
 const teamMembers = [
-  { name: 'Aditi Yadav', title: 'Supervisor - Human Resource', image: '/images/team/Aditi-Yadav.jpg' },
-  { name: 'Krusha Shah', title: 'Supervisor - Groundwork', image: '/images/team/Krusha-Shah.jpg' },
+  { name: 'Aditi Yadav', title: 'Supervisor - Human Resource', image: '/images/team/Aditi.png' },
+  { name: 'Akrisht', title: 'Supervisor - Human Resource', image: '/images/team/Akrisht.png' },
+  { name: 'Krusha Shah', title: 'Supervisor - Groundwork', image: '/images/team/Krusha-Shah.png' },
   { name: 'Shiksha Verma', title: 'Supervisor - Social Media', image: '/images/team/Shiksha-Verma.jpg' },
-  { name: 'Ayuushi Barsaley', title: 'Head - Content Writer', image: '/images/team/Head-Content Writer.jpg' },
+  { name: 'Ayuushi Barsaley', title: 'Head - Content Writer', image: '/images/team/head-content-writer.jpg' },
   { name: 'Meenakshi Jain', title: 'Head - Human Resource', image: '/images/team/Meenakshi-Jain.jpg' },
+  { name: 'Yasho', title: 'Head - Human Resource', image: '/images/team/Meenakshi-Jain.jpg' },
   { name: 'Samiksha Jayashankar', title: 'Head - Groundwork', image: '/images/team/Samiksha-Jayashankar.jpg' },
-  { name: 'Aliza Khan', title: 'Head - Social Media', image: '/images/team/Aliza-Khan.jpg' },
-  { name: 'Akanksha Pathak', title: 'Trustee.', image: '/images/team/Akanksha-Pathak.jpg' },
+  { name: 'Vaani Garg', title: 'Head - Public Relation', image: '/images/team/Vaani-Garg.png' },
+  { name: 'Aliza Khan', title: 'Head - Social Media', image: '/images/team/Aliza-Khan.png' },
+  { name: 'Akanksha Pathak', title: 'Trustee.', image: '/images/team/Akanksha.png' },
   // Add more members as needed
 ];
 
 export default function Team() {
+  // CHANGE 1: Made the animation faster for debugging by changing the multiplier from 5 to 2.
+  const animationDuration = `${teamMembers.length * 2}s`;
+
   return (
-    <section className="mt-[90px] mb-[107px] bg-white relative overflow-hidden">
+    <section className="mt-[90px] mb-[107px] bg-white">
       <div className="text-center mb-10 px-4">
         <h2 className="text-[64px] md:text-4xl font-inter font-semibold">Meet our beautiful team</h2>
         <p className="text-black text-[20px] font-inter mt-4 max-w-2xl mx-auto">
@@ -22,12 +28,19 @@ export default function Team() {
         </p>
       </div>
 
-      <div className="relative overflow-hidden">
-        {/* Blur overlays */}
-        <div className="absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute top-0 right-0 h-full w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-        <div className="flex animate-scroll whitespace-nowrap gap-20 px-4">
+      <div
+        className="group w-full overflow-hidden relative"
+        style={{ maskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)" }}
+      >
+        <div 
+          className="flex gap-20 px-4 whitespace-nowrap group-hover:[animation-play-state:paused]"
+          style={{
+            // CHANGE 2: Added 'width: "max-content"' - This is the key fix for the endless loop.
+            width: "max-content",
+            animation: `scroll-left ${animationDuration} linear infinite`,
+          }}
+        >
+          {/* Render the team members twice for the seamless loop */}
           {[...teamMembers, ...teamMembers].map((member, index) => (
             <div
               key={index}
@@ -39,24 +52,20 @@ export default function Team() {
                   alt={member.name}
                   width={345}
                   height={400}
-                  className="object-cover"
+                  className="object-cover w-full h-full"
                 />
               </div>
               <h3 className="text-left font-medium font-inter text-[32px] mt-4">{member.name}</h3>
-              <p className="text-left text-[20px] font-normal font-inter  text-black">{member.title}</p>
+              <p className="text-left text-[20px] font-normal font-inter text-black">{member.title}</p>
             </div>
           ))}
         </div>
       </div>
 
       <style jsx>{`
-        .animate-scroll {
-          animation: scroll-left 20s linear infinite;
-        }
-
         @keyframes scroll-left {
           0% {
-            transform: translateX(0%);
+            transform: translateX(0);
           }
           100% {
             transform: translateX(-50%);
