@@ -1,4 +1,4 @@
-import Image from 'next/image';
+// 1. Removed the 'next/image' import since it's no longer needed.
 
 const teamMembers = [
   { name: 'Aditi Yadav', title: 'Supervisor - Human Resource', image: '/images/team/Aditi.png' },
@@ -16,7 +16,6 @@ const teamMembers = [
 ];
 
 export default function Team() {
-  // CHANGE 1: Made the animation faster for debugging by changing the multiplier from 5 to 2.
   const animationDuration = `${teamMembers.length * 2}s`;
 
   return (
@@ -35,23 +34,20 @@ export default function Team() {
         <div 
           className="flex gap-20 px-4 whitespace-nowrap group-hover:[animation-play-state:paused]"
           style={{
-            // CHANGE 2: Added 'width: "max-content"' - This is the key fix for the endless loop.
             width: "max-content",
             animation: `scroll-left ${animationDuration} linear infinite`,
           }}
         >
-          {/* Render the team members twice for the seamless loop */}
           {[...teamMembers, ...teamMembers].map((member, index) => (
             <div
               key={index}
               className="w-[345px] flex-shrink-0 bg-white rounded-[10px] text-center pb-4"
             >
               <div className="w-[345px] h-[400px] bg-black rounded-[10px] overflow-hidden flex items-center justify-center">
-                <Image
+                {/* 2. Replaced the <Image> component with a standard <img> tag, just like in your BrandList. */}
+                <img
                   src={member.image}
                   alt={member.name}
-                  width={345}
-                  height={400}
                   className="object-cover w-full h-full"
                 />
               </div>
