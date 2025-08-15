@@ -1,14 +1,14 @@
 // 1. Removed the 'next/image' import since it's no longer needed.
 
 const teamMembers = [
-  { name: 'Aditi Yadav', title: 'Supervisor - Human Resource', image: '/images/team/Aditi.png' },
-  { name: 'Akrisht', title: 'Supervisor - Human Resource', image: '/images/team/Akrisht.png' },
+  { name: 'Aditi Yadav', title: 'Supervisor - Human Resource', image: '/images/team/Aditi-Yadav.png' },
+  { name: 'Akrisht Singh', title: 'Supervisor - Human Resource', image: '/images/team/Akrisht-Singh.png' },
   { name: 'Krusha Shah', title: 'Supervisor - Groundwork', image: '/images/team/Krusha-Shah.png' },
-  { name: 'Shiksha Verma', title: 'Supervisor - Social Media', image: '/images/team/Shiksha-Verma.jpg' },
-  { name: 'Ayuushi Barsaley', title: 'Head - Content Writer', image: '/images/team/head-content-writer.jpg' },
-  { name: 'Meenakshi Jain', title: 'Head - Human Resource', image: '/images/team/Meenakshi-Jain.jpg' },
-  { name: 'Yasho', title: 'Head - Human Resource', image: '/images/team/Meenakshi-Jain.jpg' },
-  { name: 'Samiksha Jayashankar', title: 'Head - Groundwork', image: '/images/team/Samiksha-Jayashankar.jpg' },
+  { name: 'Shiksha Verma', title: 'Supervisor - Social Media', image: '/images/team/Shiksha-Verma.png' },
+  { name: 'Ayuushi Barsaley', title: 'Head - Content Writer', image: '/images/team/Ayuushi-Barsaley.png' },
+  { name: 'Meenakshi Jain', title: 'Head - Human Resource', image: '/images/team/Meenakshi-Jain.png' },
+  { name: 'Yashodhara Bhagawati', title: 'Head - Human Resource', image: '/images/team/Yashodhara-Bhagawati.png' },
+  { name: 'Samiksha Jayashankar', title: 'Head - Groundwork', image: '/images/team/Samiksha-Jayashankar.png' },
   { name: 'Vaani Garg', title: 'Head - Public Relation', image: '/images/team/Vaani-Garg.png' },
   { name: 'Aliza Khan', title: 'Head - Social Media', image: '/images/team/Aliza-Khan.png' },
   { name: 'Akanksha Pathak', title: 'Trustee.', image: '/images/team/Akanksha.png' },
