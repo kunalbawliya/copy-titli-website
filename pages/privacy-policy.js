@@ -5,14 +5,14 @@ import { Heading, Subheading, Paragraph } from "@/components/Text";
 
 export default function Privacy() {
   return (
-    <div className="pt-[108px] overflow-hidden">
+    <div className="pt-[108px] font-inter overflow-hidden">
       <Head>
         <title>Titli Foundation | Privacy Policy</title>
       </Head>
-      <div className="relative max-w-[90vw] w-[1336px] m-auto text-black">
+      <div className="relative max-w-[1224px] m-auto mb-[92px] text-black">
         <Navbar donatePage={true} />
         <div className="py-[50px]">
-          <Heading>Privacy Policy</Heading>
+          <p className="font-semibold text-[64px] mb-[30px]">Privacy Policy</p>
           <Subheading>Introduction</Subheading>
           <Paragraph>
             We at Titli Foundation are committed to protecting the privacy and

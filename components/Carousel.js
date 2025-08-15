@@ -154,7 +154,7 @@ export default function Carousel() {
         Want to see bigger picture? <br />
         <a
           href="/gallery"
-          className="hover:text-pink-700"
+          className="hover:text-pink"
         >
           Head to our gallery here
         </a>

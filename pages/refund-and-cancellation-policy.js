@@ -10,10 +10,10 @@ export default function Refund() {
       <Head>
         <title>Titli Foundation | Refund & Calcellation Policy</title>
       </Head>
-      <div className="relative max-w-[90vw] w-[1336px] m-auto text-[#2F2F2F]">
+      <div className="relative max-w-[1224px] m-auto mb-[292px] text-[#000000]">
         <Navbar donatePage={true} />
         <div className="py-[50px]">
-          <Heading>Refund & Calcellation Policy</Heading>
+          <p className="font-semibold text-[64px] mb-[30px]">Refund & Calcellation Policy</p>
           <Paragraph>
             Donations made to Titli Foundation are final and non-refundable.
             Once a donation has been processed, it cannot be cancelled or

@@ -16,11 +16,11 @@ export default function MoreArticles({ posts, showGoBackButton = false }) {
           {posts.map(({ slug, title, coverImage }) => (
             <Link key={slug} href={`/blog/${slug}`} passHref>
               <div className="group cursor-pointer">
-                <div className="rounded-[15px] overflow-hidden">
+                <div className="rounded-[15px] overflow-hidden hover:shadow-lg">
                   <img
                     src={`/${coverImage}`}
                     alt={title}
-                    className="w-full h-[289px] object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-[289px] object-cover transition-transform duration-300"
                   />
                 </div>
                 <h3 className="text-[16px] font-medium mt-[16px] text-black items-center text-center ">

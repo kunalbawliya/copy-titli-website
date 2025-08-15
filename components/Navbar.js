@@ -39,7 +39,7 @@ export default function Navbar({ donatePage }) {
           left-1/2 -translate-x-1/2 backdrop-blur-md
           ${
             scrolled
-              ? "lg:w-[952px] lg:h-[82px] lg:rounded-[100px] lg:top-[30px] lg:bg-[#FFD3E5]/90 w-screen h-[120px] rounded-none bg-[#FFD3E5]"
+              ? "lg:w-[952px] lg:h-[82px] lg:rounded-[100px] lg:top-[30px] lg:bg-white/90 w-screen h-[120px] rounded-none bg-[#ffffff] shadow-lg"
               : "w-screen h-[120px] rounded-none" //debug- bg-[#FFFBF7]
           }
         `}
@@ -90,18 +90,18 @@ export default function Navbar({ donatePage }) {
               />
             )}
             <span
-              className={`absolute block h-[3px] w-6 rounded-[100px] transition-all duration-300 ease-in-out
+              className={`absolute block h-[3px] w-6 rounded-[30px] transition-all duration-300 ease-in-out
                 ${menuOpen ? "rotate-45 top-1/2 bg-white" : "top-4 bg-black"}
               `}
               style={{ transformOrigin: "center" }}
             ></span>
             <span
-              className={`absolute block h-[3px] w-4 items-end rounded-[100px] transition-all duration-300 ease-in-out
+              className={`absolute block h-[3px] w-4 items-end rounded-[30px] transition-all duration-300 ease-in-out
                 ${menuOpen ? "opacity-0" : "top-[24px] bg-black"}
               `}
             ></span>
             <span
-              className={`absolute block h-[3px] w-6 rounded-[100px] transition-all duration-300 ease-in-out
+              className={`absolute block h-[3px] w-6 rounded-[30px] transition-all duration-300 ease-in-out
                 ${menuOpen ? "-rotate-45 top-1/2 bg-white" : "bottom-3 bg-black"}
               `}
               style={{ transformOrigin: "center" }}

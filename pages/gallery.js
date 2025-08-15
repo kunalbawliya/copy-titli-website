@@ -177,8 +177,9 @@ export default function GalleryPage() {
         {/* --- Gallery Section Ends Here --- */}
         <div>
           <p className="text-[24px] text-black mt-[75px] mb-[22px] max-w-[840px] mx-auto">
-            Join us in our efforts to #BreakTheTaboo and positively impact the
-            lives everywhere.
+            Join us in our efforts to{" "}
+          <span className="text-pink-600 font-bold">#BreakTheTaboo</span> and
+          positively impact the lives everywhere.
           </p>
         </div>
         {/* The Instagram section follows the gallery */}

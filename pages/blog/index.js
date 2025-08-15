@@ -27,7 +27,7 @@ export default function Blog({ allPostsData }) {
   const handleGridLoadMore = () => {
     setGridVisibleCount((prevCount) => prevCount + POSTS_PER_GRID);
   };
-  
+
   // Create the sliced array for the grid
   const gridPostsToShow = remainingPosts.slice(0, gridVisibleCount);
 
@@ -50,10 +50,7 @@ export default function Blog({ allPostsData }) {
         <div className="w-[1123px] mx-auto flex flex-col gap-12">
           <div className="border-b border-gray-300"></div>
           {featuredPosts.map(
-            (
-              { slug, title, date, description, coverImage, author },
-              index
-            ) => (
+            ({ slug, title, date, description, coverImage, author }, index) => (
               <React.Fragment key={slug}>
                 <Link href={`/blog/${slug}`}>
                   <div
@@ -65,14 +62,22 @@ export default function Blog({ allPostsData }) {
                       <img
                         src={`/${coverImage}`}
                         alt={title}
-                        className="w-full h-full object-cover rounded-[24px]"
+                        className="w-full h-full object-cover" // Corrected classes
                       />
                     </div>
                     <div className="w-full md:flex-1">
-                      <p className="text-[20px] font-light font-inter text-black mb-2">{date}</p>
-                      <h2 className="text-[34px] font-medium font-inter mb-2 text-black leading-snug">{title}</h2>
-                      <p className="text-[18px] font-light font-inter text-black mb-3">{description}</p>
-                      <p className="text-[18px] font-inter font-medium mb-1 tracking-wide">{author}</p>
+                      <p className="text-[20px] font-light font-inter text-black mb-2">
+                        {date}
+                      </p>
+                      <h2 className="text-[34px] font-medium font-inter mb-2 text-black leading-snug">
+                        {title}
+                      </h2>
+                      <p className="text-[18px] font-light font-inter text-black mb-3">
+                        {description}
+                      </p>
+                      <p className="text-[18px] font-inter font-medium mb-1 tracking-wide">
+                        {author}
+                      </p>
                     </div>
                   </div>
                 </Link>
@@ -86,12 +91,12 @@ export default function Blog({ allPostsData }) {
         {remainingPosts.length > 0 && (
           <>
             <MoreArticles posts={gridPostsToShow} />
-            
+
             {gridVisibleCount < remainingPosts.length && (
               <div className="text-center mt-[-40px]">
                 <button
                   onClick={handleGridLoadMore}
-                  className="text-gray-700 font-semibold tracking-wider text-lg hover:text-pink-600 transition underline"
+                  className="text-[24px] text-black underline hover:text-black transition"
                 >
                   Load more +
                 </button>

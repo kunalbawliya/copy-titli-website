@@ -15,7 +15,7 @@ const Insta = () => {
       >
         <div className="relative inline-flex items-center font-[Inter] font-semibold text-[18px] md:text-[20px] tracking-[-0.06em]">
           <img
-            src="/svgs/instagram-logo.svg"
+            src="/svgs/Instagram Button.png"
             alt="Instagram"
             className="w-12 h-12 md:w-14 md:h-14 transition-transform duration-500 ease-in-out group-hover:-translate-x-[6rem]"
           />

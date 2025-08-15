@@ -10,10 +10,10 @@ export default function Terms() {
       <Head>
         <title>Titli Foundation | Terms and Conditions</title>
       </Head>
-      <div className="relative max-w-[90vw] w-[1336px] m-auto text-[#2F2F2F]">
+      <div className="relative max-w-[1224px] m-auto text-[#000000] mb-[92px]">
         <Navbar donatePage={true} />
         <div className="py-[50px]">
-          <Heading>Terms and Conditions</Heading>
+          <p className="font-semibold text-[64px] mb-[30px]">Terms and Conditions</p>
           <Paragraph>
             Welcome to our website, operated by Titli Foundation, a non-profit
             organization dedicated to providing menstrual cups to

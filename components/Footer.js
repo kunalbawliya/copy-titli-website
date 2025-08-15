@@ -68,7 +68,7 @@ export default function Footer() {
             </h3>
             <a
               href="mailto:contact@titlifoundation.in"
-              className="underline text-[12px]"
+              className=" text-[12px]"
             >
               contact@titlifoundation.in
             </a>
@@ -79,23 +79,23 @@ export default function Footer() {
             </h3>
             <button
               onClick={() => setShowMap(true)}
-              className="text-left underline text-[12px] leading-[20px] hover:text-[#ffc5de] transition-all duration-200"
+              className="text-left text-[12px] leading-[20px] hover:text-[#ffc5de] transition-all duration-200"
             >
               Pandey Krishi Kendra, Nirala Nagar, Khojanpur,
               <br />
               Faizabad, Uttar Pradesh - 224001
             </button>
 
-            <div className="flex gap-16 mt-[50px]">
+            <div className="flex gap-8 mt-[50px] justify-start">
               <a
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noreferrer"
               >
                 <img
-                  src="/svgs/linkedin.png"
+                  src="/svgs/Linkedin Logo.png"
                   alt="LinkedIn"
-                  className="w-auto h-auto"
+                  className="w-[48px] h-[48px]"
                 />
               </a>
               <a
@@ -104,16 +104,16 @@ export default function Footer() {
                 rel="noreferrer"
               >
                 <img
-                  src="/svgs/ig-white.png"
+                  src="/svgs/Instagram Logo.png"
                   alt="Instagram"
-                  className="w-auto h-auto"
+                  className="w-[48px] h-[48px]"
                 />
               </a>
               <a href="https://twitter.com" target="_blank" rel="noreferrer">
                 <img
-                  src="/svgs/x.png"
+                  src="/svgs/X Logo.png"
                   alt="Twitter/X"
-                  className="w-auto h-auto"
+                  className="w-[48px] h-[48px]"
                 />
               </a>
             </div>
