@@ -33,7 +33,7 @@ const Hero = () => {
     <>
       {/* --- THIS IS THE CORRECTED LINE --- */}
       {/* Replaced lg:mx-[108px] with mx-auto to center the component */}
-      <main className="w-full max-w-[1222px] mx-auto mt-[192px] pb-16 rounded-[20px]">
+      <main className="w-full max-w-[1222px] mx-auto mt-[192px] pb-16 rounded-[20px] font-inter">
         {/* The main container for the slider. overflow-hidden hides the other slides. */}
         <div className="relative overflow-hidden ">
           {/* This inner div acts as a track for the slides. */}
