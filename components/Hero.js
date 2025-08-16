@@ -20,35 +20,32 @@ const Hero = () => {
   };
 
   // --- AUTO-SLIDE LOGIC ---
-  // This useEffect hook sets up an interval to change the slide every 3 seconds.
   useEffect(() => {
-    // Set up the interval.
     const interval = setInterval(() => {
-      // Calculate the next index, looping back to the start if at the end.
       const nextIndex = (activeIndex + 1) % numSlides;
       setActiveIndex(nextIndex);
-    }, 3000); // 3000 milliseconds = 3 seconds
+    }, 10000); // 10 seconds
 
-    // Cleanup function: This will clear the interval when the component unmounts
-    // or when the activeIndex changes, preventing memory leaks and resetting the timer.
     return () => clearInterval(interval);
-  }, [activeIndex]); // The effect re-runs whenever activeIndex changes.
+  }, [activeIndex]);
 
   return (
     <>
-      <main className="w-full max-w-[1222px] mx-auto lg:mx-[108px] mt-[192px] pb-16 rounded-[20px]">
+      {/* --- THIS IS THE CORRECTED LINE --- */}
+      {/* Replaced lg:mx-[108px] with mx-auto to center the component */}
+      <main className="w-full max-w-[1222px] mx-auto mt-[192px] pb-16 rounded-[20px]">
         {/* The main container for the slider. overflow-hidden hides the other slides. */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden ">
           {/* This inner div acts as a track for the slides. */}
           <div
-            className="flex transition-transform duration-500 ease-in-out"
+            className="flex transition-transform duration-1000 ease-in-out"
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
           >
             {/* --- SLIDE 1 --- */}
             <div className="w-full flex-shrink-0">
               <section className="w-full flex flex-col lg:flex-row items-center justify-center lg:justify-between">
                 {/* Left: Hero Image */}
-                <div className="w-full lg:w-1/2 flex justify-center lg:justify-start mb-8 lg:mb-0">
+                <div className="w-full lg:w-1/2 flex justify-center mb-0">
                   <div className="bg-gray-200 rounded-[20px] w-full max-w-[532px] h-[552px] flex items-center justify-center">
                     <img
                       src="/images/main-hero-1.png"
@@ -58,7 +55,7 @@ const Hero = () => {
                   </div>
                 </div>
                 {/* Right: Heading, Text, Button */}
-                <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left lg:pl-10">
+                <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left lg:pl-24">
                   <div className="text-[36px] lg:text-[56px] font-bold leading-tight">
                     Make the switch,
                     <br />
@@ -94,7 +91,7 @@ const Hero = () => {
             <div className="w-full flex-shrink-0">
               <section className="w-full flex flex-col lg:flex-row items-center justify-center lg:justify-between">
                 {/* Left: Hero Image (Same as Slide 1 for now) */}
-                <div className="w-full lg:w-1/2 flex justify-center lg:justify-start mb-8 lg:mb-0">
+                <div className="w-full lg:w-1/2 flex justify-center mb-0">
                   <div className="bg-gray-200 rounded-[20px] w-full max-w-[532px] h-[552px] flex items-center justify-center">
                     <img
                       src="/images/main-hero-1.png"
@@ -104,7 +101,7 @@ const Hero = () => {
                   </div>
                 </div>
                 {/* Right: Heading, Text, Button (Same as Slide 1 for now) */}
-                <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left lg:pl-10">
+                <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left lg:pl-24">
                   <div className="text-[36px] lg:text-[56px] font-bold leading-tight">
                     This is Slide 2
                     <br />
