@@ -184,7 +184,7 @@ function Card({ data, small = false }) {
       {/* 4. Add an overlay container for the gradient and text. */}
       <div className="absolute bottom-0 left-0 w-full h-2/5 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
         {/* 5. Style the text to be white and positioned within the overlay. */}
-        <p className="font-serif text-white text-base md:text-lg">
+        <p className="font-inter text-white text-base md:text-lg">
           {data.name}
         </p>
       </div>
