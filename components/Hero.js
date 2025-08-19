@@ -1,162 +1,254 @@
 import React, { useState, useEffect } from 'react';
 
-/**
- * A reusable Hero component that functions as an auto-playing slider.
- * It displays slides with static content, navigation dots, and a scroll hint.
- */
-const Hero = () => {
-  // State to track the currently active slide index.
-  const [activeIndex, setActiveIndex] = useState(0);
-  
-  // The number of slides. We'll have 2 static slides.
-  const numSlides = 2;
+// --- Custom Hook to Detect Window Size ---
+// This hook listens to the browser window's size and returns the current width.
+function useWindowSize() {
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 0
+  );
 
-  /**
-   * Handles changing the active slide when a dot is clicked.
-   * @param {number} newIndex - The index of the slide to navigate to.
-   */
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Set initial size
+
+    // Cleanup listener on unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowWidth;
+}
+
+
+// --- Main Hero Component ---
+const Hero = () => {
+  // --- SLIDER LOGIC ---
+  const [activeIndex, setActiveIndex] = useState(0);
+  const numSlides = 2;
+  const slideInterval = 10000;
+
   const handleDotClick = (newIndex) => {
     setActiveIndex(newIndex);
   };
 
-  // --- AUTO-SLIDE LOGIC ---
   useEffect(() => {
     const interval = setInterval(() => {
-      const nextIndex = (activeIndex + 1) % numSlides;
-      setActiveIndex(nextIndex);
-    }, 10000); // 10 seconds
-
+      setActiveIndex((current) => (current + 1) % numSlides);
+    }, slideInterval);
     return () => clearInterval(interval);
   }, [activeIndex]);
 
-  return (
-    <>
-      {/* --- THIS IS THE CORRECTED LINE --- */}
-      {/* Replaced lg:mx-[108px] with mx-auto to center the component */}
-      <main className="w-full max-w-[1222px] mx-auto mt-[192px] pb-16 rounded-[20px] font-inter">
-        {/* The main container for the slider. overflow-hidden hides the other slides. */}
-        <div className="relative overflow-hidden ">
-          {/* This inner div acts as a track for the slides. */}
-          <div
-            className="flex transition-transform duration-1000 ease-in-out"
-            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-          >
-            {/* --- SLIDE 1 --- */}
-            <div className="w-full flex-shrink-0">
-              <section className="w-full flex flex-col lg:flex-row items-center justify-center lg:justify-between">
-                {/* Left: Hero Image */}
-                <div className="w-full lg:w-1/2 flex justify-center mb-0">
-                  <div className="bg-gray-200 rounded-[20px] w-full max-w-[532px] h-[552px] flex items-center justify-center">
-                    <img
-                      src="/images/main-hero-1.png"
-                      alt="Cup Image"
-                      className="object-contain w-auto h-[552px] rounded-[20px]"
-                    />
+  // Get window width from the hook
+  const width = useWindowSize();
+
+  // Define breakpoints
+  const tabletBreakpoint = 768;
+  const desktopBreakpoint = 1200;
+
+  // --- RENDER LOGIC ---
+
+  // Mobile Layout (< 768px)
+  if (width > 0 && width < tabletBreakpoint) {
+    return (
+      <>
+        <main className="w-full max-w-[308px] mx-auto mt-24 px-4 pb-12 font-inter">
+          <div className="relative overflow-hidden">
+            <div
+              className="flex transition-transform duration-1000 ease-in-out"
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+            >
+              {/* Slide 1 Mobile */}
+              <div className="w-full flex-shrink-0">
+                <section className="flex flex-col items-center text-center">
+                  <div className="mt-8 w-full max-w-[301px]">
+                    <div className="text-[34px] font-bold leading-tight mb-4">
+                      Make the switch,<br />one {" "}
+                      <span className="font-shadows text-pink relative px-2">
+                        <img className="absolute left-0 top-1 scale-125" src="/svgs/cupCircle.svg" alt="" />
+                        cup
+                      </span>{" "}
+                       at a time.
+                    </div>
+                    <p className="text-[12px] text-[#000000]">Lorem ipsum dolor sit amet consectetur. Porttitor amet consequat neque sapien lacus at non ridiculus lorem elit libero. Viverra in nunc rutrum </p>
                   </div>
-                </div>
-                {/* Right: Heading, Text, Button */}
-                <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left lg:pl-24">
-                  <div className="text-[36px] lg:text-[56px] font-bold leading-tight">
-                    Make the switch,
-                    <br />
-                    one{" "}
-                    <span className="font-shadows text-pink relative px-[10px]">
-                      <img
-                        className="absolute left-0 top-[5px] lg:top-[15px] scale-125 lg:scale-145"
-                        src="/svgs/cupCircle.svg"
-                        alt=""
-                      />
-                      cup
-                    </span>{" "}
-                    at a time.
+                  <div className="rounded-[10px] w-full max-w-sm flex items-center justify-center mt-6">
+                    <img src="/images/main-hero-1.png" alt="Cup Image" className="object-contain w-full h-auto rounded-[10px]" />
                   </div>
-                  <p className="mt-6 text-[16px] lg:text-[18px] font-medium text-[#2F2F2F] max-w-[500px] mx-auto lg:mx-0">
-                    Lorem ipsum dolor sit amet consectetur. Porttitor amet consequat
-                    neque sapien lacus at non ridiculus lorem elit libero. Viverra in
-                    nunc rutrum fusce sit molestie.
-                  </p>
-                  <div className="mt-8">
-                    <a
-                      href="/donate"
-                      className="bg-pink text-white px-8 md:px-12 py-3 rounded-[10px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition"
-                    >
-                      Make a Donation
-                    </a>
+                </section>
+              </div>
+              {/* Slide 2 Mobile */}
+              <div className="w-full flex-shrink-0">
+                 <section className="flex flex-col items-center text-center">
+                  <div className="mt-8 w-full max-w-[301px]">
+                    <div className="text-[34px] font-bold leading-tight mb-4">
+                      Make the switch,<br />one {" "}
+                      <span className="font-shadows text-pink relative px-2">
+                        <img className="absolute left-0 top-1 scale-125" src="/svgs/cupCircle.svg" alt="" />
+                        cup
+                      </span>{" "}
+                       at a time.
+                    </div>
+                    <p className="text-[12px] text-[#000000]">This is the second slide's content. You can change this text and the image source to make it different from the first slide.</p>
                   </div>
-                </div>
-              </section>
+                  <div className="rounded-[10px] w-full max-w-sm flex items-center justify-center mt-6">
+                    <img src="/images/main-hero-1.png" alt="Cup Image" className="object-contain w-full h-auto rounded-[10px]" />
+                  </div>
+                </section>
+              </div>
             </div>
+          </div>
+        </main>
+        <div className="text-center text-[12px] text-black"><p>Scroll to see where your donation goes{" "}<span className="inline-block animate-bounce">▼</span></p></div>
+      </>
+    );
+  }
 
-            {/* --- SLIDE 2 --- */}
-            <div className="w-full flex-shrink-0">
-              <section className="w-full flex flex-col lg:flex-row items-center justify-center lg:justify-between">
-                {/* Left: Hero Image (Same as Slide 1 for now) */}
-                <div className="w-full lg:w-1/2 flex justify-center mb-0">
-                  <div className="bg-gray-200 rounded-[20px] w-full max-w-[532px] h-[552px] flex items-center justify-center">
-                    <img
-                      src="/images/main-hero-1.png"
-                      alt="Cup Image"
-                      className="object-contain w-auto h-[552px] rounded-[20px]"
-                    />
+  // Tablet / Small Laptop Layout (768px - 1199px)
+  else if (width >= tabletBreakpoint && width < desktopBreakpoint) {
+    return (
+      <>
+        <main className="w-full max-w-[1024px] mx-auto mt-32 px-6 pb-16 font-inter">
+           <div className="relative overflow-hidden">
+             <div
+              className="flex transition-transform duration-1000 ease-in-out"
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+            >
+              {/* Slide 1 Tablet */}
+              <div className="w-full flex-shrink-0">
+                <section className="flex flex-row items-center justify-between">
+                  <div className="w-1/2 flex justify-start">
+                     <div className=" rounded-[20px] w-full max-w-[450px] h-full flex items-center justify-center">
+                        {/* --- EDITED LINE --- */}
+                        <img src="/images/main-hero-1.png" alt="Cup Image" className="object-contain w-auto h-full rounded-[20px]" />
+                     </div>
                   </div>
-                </div>
-                {/* Right: Heading, Text, Button (Same as Slide 1 for now) */}
-                <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left lg:pl-24">
-                  <div className="text-[36px] lg:text-[56px] font-bold leading-tight">
-                    This is Slide 2
-                    <br />
-                    one{" "}
-                    <span className="font-shadows text-pink relative px-[10px]">
-                      <img
-                        className="absolute left-0 top-[5px] lg:top-[15px] scale-125 lg:scale-145"
-                        src="/svgs/cupCircle.svg"
-                        alt=""
-                      />
-                      cup
-                    </span>{" "}
-                    at a time.
+                  <div className="w-1/2 text-left pl-10">
+                    <div className="text-4xl font-bold leading-tight">
+                      Make the switch,<br />one{" "}
+                      <span className="font-shadows text-pink relative px-2">
+                        <img className="absolute left-0 top-1 scale-125" src="/svgs/cupCircle.svg" alt="" />
+                        cup
+                      </span>{" "}
+                      at a time.
+                    </div>
+                    <p className="mt-5 text-lg text-[#2F2F2F] max-w-md">Lorem ipsum dolor sit amet consectetur. Porttitor amet consequat neque sapien lacus at non ridiculus lorem elit libero.</p>
+                    <a href="/donate" className="mt-8 inline-block bg-pink text-white px-10 py-3 rounded-[10px]">Make a Donation</a>
                   </div>
-                  <p className="mt-6 text-[16px] lg:text-[18px] font-medium text-[#2F2F2F] max-w-[500px] mx-auto lg:mx-0">
-                    This is the second slide's content. You can change this text
-                    and the image source to make it different from the first slide.
-                  </p>
-                  <div className="mt-8">
-                    <a
-                      href="/donate"
-                      className="bg-pink text-white px-8 md:px-12 py-3 rounded-[10px] text-base md:text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition"
-                    >
-                      Make a Donation
-                    </a>
+                </section>
+              </div>
+              {/* Slide 2 Tablet */}
+              <div className="w-full flex-shrink-0">
+                <section className="flex flex-row items-center justify-between">
+                  <div className="w-1/2 flex justify-start">
+                     <div className="rounded-[20px] w-full max-w-[450px] h-full flex items-center justify-center">
+                        {/* --- EDITED LINE --- */}
+                        <img src="/images/main-hero-1.png" alt="Cup Image" className="object-contain w-full h-full rounded-[20px]" />
+                     </div>
                   </div>
-                </div>
-              </section>
+                  <div className="w-1/2 text-left pl-10">
+                    <div className="text-4xl font-bold leading-tight">
+                      This is Slide 2<br />one{" "}
+                      <span className="font-shadows text-pink relative px-2">
+                        <img className="absolute left-0 top-1 scale-125" src="/svgs/cupCircle.svg" alt="" />
+                        cup
+                      </span>{" "}
+                      at a time.
+                    </div>
+                    <p className="mt-5 text-lg text-[#2F2F2F] max-w-md">This is the second slide's content. You can change this text and the image source to make it different from the first slide.</p>
+                    <a href="/donate" className="mt-8 inline-block bg-pink text-white px-10 py-3 rounded-[10px]">Make a Donation</a>
+                  </div>
+                </section>
+              </div>
             </div>
-
           </div>
+        </main>
+        <div className="text-center text-xl text-black mt-20"><p>Scroll to see where your donation goes{" "}<span className="inline-block animate-bounce">▼</span></p></div>
+      </>
+    );
+  }
 
-          {/* Navigation Dots */}
-          <div className="absolute bottom-[1px] right-28 flex space-x-3">
-            {[...Array(numSlides)].map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleDotClick(index)}
-                className={`w-3 h-3 rounded-[100px] transition-colors duration-300 ${
-                  activeIndex === index ? 'bg-pink' : 'bg-[#FFC5DE]'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
+  // Large Desktop Layout (>= 1200px)
+  else {
+    return (
+      <>
+        <main className="w-full max-w-[1222px] mx-auto mt-[192px] pb-16 rounded-[20px] font-inter">
+          <div className="relative overflow-hidden ">
+            <div
+              className="flex transition-transform duration-1000 ease-in-out"
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+            >
+              {/* Slide 1 Desktop */}
+              <div className="w-full flex-shrink-0">
+                <section className="w-full flex flex-row items-center justify-between">
+                  <div className="w-1/2 flex justify-center">
+                    <div className="bg-gray-200 rounded-[20px] w-full max-w-[532px] h-[552px] flex items-center justify-center">
+                      <img src="/images/main-hero-1.png" alt="Cup Image" className="object-contain w-auto h-[552px] rounded-[20px]" />
+                    </div>
+                  </div>
+                  <div className="w-1/2 flex flex-col justify-center text-left pl-24">
+                    <div className="text-[56px] font-bold leading-tight">
+                      Make the switch,<br />one{" "}
+                      <span className="font-shadows text-pink relative px-[10px]">
+                        <img className="absolute left-0 top-[15px] scale-145" src="/svgs/cupCircle.svg" alt="" />
+                        cup
+                      </span>{" "}
+                      at a time.
+                    </div>
+                    <p className="mt-6 text-[18px] font-medium text-[#2F2F2F] max-w-[500px]">
+                      Lorem ipsum dolor sit amet consectetur. Porttitor amet consequat neque sapien lacus at non ridiculus lorem elit libero. Viverra in nunc rutrum fusce sit molestie.
+                    </p>
+                    <div className="mt-8">
+                      <a href="/donate" className="bg-pink text-white px-12 py-3 rounded-[10px] text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
+                        Make a Donation
+                      </a>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              {/* Slide 2 Desktop */}
+              <div className="w-full flex-shrink-0">
+                <section className="w-full flex flex-row items-center justify-between">
+                  <div className="w-1/2 flex justify-center">
+                     <div className="bg-gray-200 rounded-[20px] w-full max-w-[532px] h-[552px] flex items-center justify-center">
+                      <img src="/images/main-hero-1.png" alt="Cup Image" className="object-contain w-auto h-[552px] rounded-[20px]" />
+                    </div>
+                  </div>
+                  <div className="w-1/2 flex flex-col justify-center text-left pl-24">
+                    <div className="text-[56px] font-bold leading-tight">
+                      This is Slide 2<br />one{" "}
+                      <span className="font-shadows text-pink relative px-[10px]">
+                        <img className="absolute left-0 top-[15px] scale-145" src="/svgs/cupCircle.svg" alt="" />
+                        cup
+                      </span>{" "}
+                      at a time.
+                    </div>
+                    <p className="mt-6 text-[18px] font-medium text-[#2F2F2F] max-w-[500px]">
+                      This is the second slide's content. You can change this text and the image source to make it different from the first slide.
+                    </p>
+                    <div className="mt-8">
+                      <a href="/donate" className="bg-pink text-white px-12 py-3 rounded-[10px] text-lg border-2 border-transparent hover:bg-white hover:text-pink hover:border-pink duration-300 transition">
+                        Make a Donation
+                      </a>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+            {/* Navigation Dots */}
+            <div className="absolute bottom-[1px] right-28 flex space-x-3">
+              {[...Array(numSlides)].map((_, index) => (
+                <button key={index} onClick={() => handleDotClick(index)} className={`w-3 h-3 rounded-[100px] transition-colors duration-300 ${activeIndex === index ? 'bg-pink' : 'bg-[#FFC5DE]'}`} />
+              ))}
+            </div>
           </div>
-        </div>
-      </main>
-
-      {/* Scroll Hint */}
-      <div className="text-center text-[24px]  text-black mt-16 lg:mt-24">
-        Scroll to see where your donation goes{" "}
-        <span className="inline-block animate-bounce">▼</span>
-      </div>
-    </>
-  );
+        </main>
+        <div className="text-center text-[24px] text-black mt-24"><p>Scroll to see where your donation goes{" "}<span className="inline-block animate-bounce">▼</span></p></div>
+      </>
+    );
+  }
 };
 
 export default Hero;
