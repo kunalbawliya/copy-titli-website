@@ -27,6 +27,21 @@ export default function Carousel() {
     setActiveIndex(slideIndex);
   };
 
+  // --- ✨ NEW: SWIPE HANDLER FUNCTION ✨ ---
+  // This function will be called when a user finishes dragging the card.
+  const handleDragEnd = (event, info) => {
+    const swipeThreshold = 50; // Min drag distance to trigger a swipe
+    const swipePower = Math.abs(info.velocity.x) * info.offset.x;
+
+    if (swipePower < -swipeThreshold) {
+      // Swiped left (next image)
+      swipeLeft();
+    } else if (swipePower > swipeThreshold) {
+      // Swiped right (previous image)
+      swipeRight();
+    }
+  };
+
   const getIndex = (offset) =>
     (activeIndex + offset + images.length) % images.length;
 
@@ -49,23 +64,21 @@ export default function Carousel() {
   };
 
   return (
-    <section className="relative flex flex-col items-center my-[80px] overflow-hidden px-2 sm:px-6 md:px-12">
-      <div className="relative w-full max-w-xs md:max-w-md lg:max-w-[1200px] h-[420px] flex justify-center items-center">
-        {/* Arrows are hidden until lg screens */}
+    <section className="relative flex flex-col items-center my-[80px] overflow-hidden px-6">
+      <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-[1200px] h-[300px] sm:h-[350px] md:h-[420px] flex justify-center items-center">
         <button
           onClick={swipeLeft}
-          className="absolute right-[-1px] top-[180px] z-30 text-5xl w-14 h-14 hidden lg:flex items-center justify-center rounded-[20px]"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-30 text-5xl w-14 h-14 hidden xl:flex items-center justify-center rounded-[20px]"
         >
           &#8250;
         </button>
         <button
           onClick={swipeRight}
-          className="absolute left-[-1px] top-[180px] z-30 text-5xl w-14 h-14 hidden lg:flex items-center justify-center rounded-[20px]"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-30 text-5xl w-14 h-14 hidden xl:flex items-center justify-center rounded-[20px]"
         >
           &#8249;
         </button>
 
-        {/* Left Card is hidden until lg screens */}
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={`left-${getIndex(-1)}-${direction}`}
@@ -75,13 +88,12 @@ export default function Carousel() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.3 }}
-            className="hidden lg:block absolute top-15 left-1/2 -translate-x-1/2 z-5"
+            className="hidden xl:block absolute top-15 left-1/2 -translate-x-1/2 z-5"
           >
             <Card data={images[getIndex(-1)]} small />
           </motion.div>
         </AnimatePresence>
 
-        {/* Center Card */}
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={`center-${activeIndex}-${direction}`}
@@ -92,12 +104,16 @@ export default function Carousel() {
             exit="exit"
             transition={{ duration: 0.3 }}
             className="absolute z-20"
+            // --- ✨ NEW: DRAG & SWIPE PROPS ADDED HERE ✨ ---
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={handleDragEnd}
           >
             <Card data={images[activeIndex]} />
           </motion.div>
         </AnimatePresence>
 
-        {/* Right Card is hidden until lg screens */}
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={`right-${getIndex(1)}-${direction}`}
@@ -107,21 +123,20 @@ export default function Carousel() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.3 }}
-            className="hidden lg:block absolute top-15 left-1/2 z-5"
+            className="hidden xl:block absolute top-15 left-1/2 -translate-x-1/2 z-5"
           >
             <Card data={images[getIndex(1)]} small />
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Navigation Dots are visible until lg screens */}
-      <div className="flex justify-center gap-2 mt-4 lg:hidden">
+      <div className="flex justify-center gap-2 mt-4 xl:hidden">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-colors ${
-              activeIndex === index ? "bg-pink-500" : "bg-gray-300"
+            className={`w-3 h-3 rounded-[100px] transition-colors ${
+              activeIndex === index ? "bg-pink" : "bg-gray-300"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -139,12 +154,9 @@ export default function Carousel() {
 }
 
 function Card({ data, small = false }) {
-  // Sizes now defined for mobile/tablet (base, md) and desktop (lg)
   const size = small
-    // Side card sizes (now only visible on lg and up)
-    ? "lg:w-[320px] lg:h-[260px]"
-    // Center card sizes: base for mobile, md for tablet, lg for desktop
-    : "w-[300px] h-[220px] md:w-[360px] md:h-[270px] lg:w-[420px] lg:h-[320px] scale-105 shadow-xl";
+    ? "xl:w-[320px] xl:h-[260px]"
+    : "w-[260px] h-[228px] sm:w-[384px] sm:h-[285px] md:w-[450px] md:h-[335px] lg:w-[440px] lg:h-[320px] xl:w-[420px] xl:h-[300px] scale-105 shadow-xl";
 
   return (
     <div className={`relative rounded-[8px] overflow-hidden ${size} transition-all duration-300`}>
