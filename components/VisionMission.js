@@ -93,7 +93,7 @@ function AccordionItem({ title, headline, body, isOpen, onToggle }) {
             "font-bold flex items-center gap-4", // Base styles
             {
               // When closed: Center the content, make text large and white
-              "justify-center text-white text-[32px] sm:text-4xl": !isOpen,
+              "justify-center text-white text-[24px] sm:text-4xl": !isOpen,
               // When open: the content, make text small and pink
               "justify-center text-white text-xl sm:text-2xl": isOpen,
             }

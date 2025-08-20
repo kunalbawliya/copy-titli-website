@@ -6,10 +6,11 @@ import React from 'react';
  */
 const JTT = () => {
   return (
-    <section className="text-center px-4 md:px-8 mt-12 mb-24">
+    <section className="text-center px-4 md:px-8 mt-12 mb-12 lg:mb-24">
       <h2 className="text-[18px] md:text-[22px] lg:text-[26px] font-inter max-w-4xl mx-auto mb-6 text-black leading-snug">
         We’re always on the lookout for people that believe in menstrual
-        dignity for all. Doesn’t matter who you are - we have a place for you.
+        dignity for all. <br/>
+        Doesn’t matter who you are - we have a place for you.
       </h2>
       <a
         href="https://tr.ee/vx87XEdgfh"
