@@ -49,7 +49,7 @@ const Hero = () => {
 
   // Define breakpoints
   const tabletBreakpoint = 768;
-  const desktopBreakpoint = 1200;
+  const desktopBreakpoint = 1280;
 
   // --- RENDER LOGIC ---
 
