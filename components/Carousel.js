@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Style to remove tap highlight, applied to all clickable elements
+const noTapHighlight = { WebkitTapHighlightColor: "transparent" };
+
 const images = [
   { name: "Pondicherry, Puducherry", src: "/images/caro 1.png" },
   { name: "Kanpur, Uttar Pradesh", src: "/images/caro 4.png" },
@@ -64,7 +67,7 @@ export default function Carousel() {
   };
 
   return (
-    <section className="relative flex flex-col items-center my-[80px] overflow-hidden px-6">
+    <section className="relative flex flex-col items-center my-[80px] overflow-hidden px-6" style={noTapHighlight}>
       <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-[1200px] h-[300px] sm:h-[350px] md:h-[420px] flex justify-center items-center">
         <button
           onClick={swipeLeft}
@@ -130,7 +133,7 @@ export default function Carousel() {
         </AnimatePresence>
       </div>
 
-      <div className="flex justify-center gap-2 mt-4 xl:hidden">
+      <div className="flex justify-center gap-2 mt-4 xl:hidden" style={noTapHighlight}>
         {images.map((_, index) => (
           <button
             key={index}
@@ -145,7 +148,10 @@ export default function Carousel() {
 
       <div className="text-center font-inter text-lg mt-[46px] mb-[10px] text-black">
         Want to see bigger picture? <br />
-        <a href="/gallery" className="text-pink-500 underline hover:text-pink-700">
+        <a
+          href="/gallery"
+          className="text-pink-500 underline hover:text-pink-700" style={noTapHighlight}
+        >
           Head to our gallery here
         </a>
       </div>
@@ -159,7 +165,9 @@ function Card({ data, small = false }) {
     : "w-[260px] h-[228px] sm:w-[384px] sm:h-[285px] md:w-[450px] md:h-[335px] lg:w-[440px] lg:h-[320px] xl:w-[420px] xl:h-[300px] scale-105 shadow-xl";
 
   return (
-    <div className={`relative rounded-[8px] overflow-hidden ${size} transition-all duration-300`}>
+    <div
+      className={`relative rounded-[8px] overflow-hidden ${size} transition-all duration-300` }
+    >
       <img
         src={data.src}
         alt={data.name}

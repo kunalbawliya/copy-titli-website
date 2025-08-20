@@ -84,7 +84,7 @@ function AccordionItem({ title, headline, body, isOpen, onToggle }) {
           "w-full p-6 transition-colors duration-300 focus:outline-none",
           {
             "bg-[#EC5A99] hover:bg-[#d84c8a]": !isOpen,
-            "bg-[#fddded]": isOpen,
+            "bg-[#EC5A99]": isOpen,
           }
         )}
       >
@@ -93,9 +93,9 @@ function AccordionItem({ title, headline, body, isOpen, onToggle }) {
             "font-bold flex items-center gap-4", // Base styles
             {
               // When closed: Center the content, make text large and white
-              "justify-center text-white text-[34px] sm:text-4xl": !isOpen,
-              // When open: Left-align the content, make text small and pink
-              "justify-start text-[#EC5A99] text-xl sm:text-2xl": isOpen,
+              "justify-center text-white text-[32px] sm:text-4xl": !isOpen,
+              // When open: the content, make text small and pink
+              "justify-center text-white text-xl sm:text-2xl": isOpen,
             }
           )}
         >
