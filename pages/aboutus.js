@@ -27,7 +27,6 @@ export default function AboutUs() {
       <AboutHero />
 
       {/* Founder's Message Component */}
-      {/* This replaces the large block of hardcoded JSX */}
       <FoundersMessage />
 
       <TeamSection />
