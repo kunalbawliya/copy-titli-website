@@ -1,5 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 
+// Define the style object to remove tap highlight
+const noTapHighlight = { WebkitTapHighlightColor: "transparent" };
+
 export default function Footer() {
   const [showMap, setShowMap] = useState(false);
   const footerRef = useRef(null);
@@ -39,12 +42,13 @@ export default function Footer() {
                 href="https://linktr.ee/Titli"
                 target="_blank"
                 rel="noreferrer"
+                style={noTapHighlight}
               >
                 LINKTREE
               </a>
-              <a href="/privacy-policy">PRIVACY POLICY</a>
-              <a href="/terms-and-conditions">TERMS & CONDITIONS</a>
-              <a href="/refund-and-cancellation-policy">
+              <a href="/privacy-policy" style={noTapHighlight}>PRIVACY POLICY</a>
+              <a href="/terms-and-conditions" style={noTapHighlight}>TERMS & CONDITIONS</a>
+              <a href="/refund-and-cancellation-policy" style={noTapHighlight}>
                 REFUND & CANCELLATION POLICY
               </a>
             </div>
@@ -53,11 +57,11 @@ export default function Footer() {
           {/* Quick Links Group 2 */}
           <div className="flex flex-col gap-3 pl-[80px]">
             <div className="grid text-[12px] lg:text-[16px] font-inter font-medium gap-y-[52px] lg:gap-y-[51px] leading-[22px]">
-              <a href="/donate">DONATE</a>
-              <a href="/aboutus">ABOUT US</a>
-              <a href="/careers">CAREERS</a>
-              <a href="/gallery">GALLERY</a>
-              <a href="/blog">BLOGS</a>
+              <a href="/donate" style={noTapHighlight}>DONATE</a>
+              <a href="/aboutus" style={noTapHighlight}>ABOUT US</a>
+              <a href="/careers" style={noTapHighlight}>CAREERS</a>
+              <a href="/gallery" style={noTapHighlight}>GALLERY</a>
+              <a href="/blog" style={noTapHighlight}>BLOGS</a>
             </div>
           </div>
 
@@ -69,6 +73,7 @@ export default function Footer() {
             <a
               href="mailto:contact@titlifoundation.in"
               className=" text-[12px]"
+              style={noTapHighlight}
             >
               contact@titlifoundation.in
             </a>
@@ -80,6 +85,7 @@ export default function Footer() {
             <button
               onClick={() => setShowMap(true)}
               className="text-left text-[12px] leading-[20px] hover:text-[#ffc5de] transition-all duration-200"
+              style={noTapHighlight}
             >
               Pandey Krishi Kendra, Nirala Nagar, Khojanpur,
               <br />
@@ -91,6 +97,7 @@ export default function Footer() {
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noreferrer"
+                style={noTapHighlight}
               >
                 <img
                   src="/svgs/Linkedin Logo.png"
@@ -102,6 +109,7 @@ export default function Footer() {
                 href="https://www.instagram.com"
                 target="_blank"
                 rel="noreferrer"
+                style={noTapHighlight}
               >
                 <img
                   src="/svgs/Instagram Logo.png"
@@ -109,7 +117,7 @@ export default function Footer() {
                   className="w-[35px] h-[35px] lg:w-[48px] lg:h-[48px]"
                 />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer">
+              <a href="https://twitter.com" target="_blank" rel="noreferrer" style={noTapHighlight}>
                 <img
                   src="/svgs/X Logo.png"
                   alt="Twitter/X"
@@ -128,28 +136,28 @@ export default function Footer() {
               <h3 className="text-[13px] font-semibold uppercase mb-2">
                 Quick Links
               </h3>
-              <a href="/donate" className="text-[12px] mb-1">
+              <a href="/donate" className="text-[12px] mb-1" style={noTapHighlight}>
                 DONATE
               </a>
-              <a href="/careers" className="text-[12px] mb-1">
+              <a href="/careers" className="text-[12px] mb-1" style={noTapHighlight}>
                 CAREERS
               </a>
-              <a href="/gallery" className="text-[12px] mb-1">
+              <a href="/gallery" className="text-[12px] mb-1" style={noTapHighlight}>
                 GALLERY
               </a>
-              <a href="/blog" className="text-[12px] mb-1">
+              <a href="/blog" className="text-[12px] mb-1" style={noTapHighlight}>
                 BLOGS
               </a>
-              <a href="https://linktr.ee/Titli" className="text-[12px] mb-1">
+              <a href="https://linktr.ee/Titli" className="text-[12px] mb-1" style={noTapHighlight}>
                 LINKTREE
               </a>
-              <a href="/terms-and-conditions" className="text-[12px] mb-1">
+              <a href="/terms-and-conditions" className="text-[12px] mb-1" style={noTapHighlight}>
                 TERMS & CONDITIONS
               </a>
-              <a href="/privacy-policy" className="text-[12px] mb-1">
+              <a href="/privacy-policy" className="text-[12px] mb-1" style={noTapHighlight}>
                 PRIVACY POLICY
               </a>
-              <a href="/refund-and-cancellation-policy" className="text-[12px]">
+              <a href="/refund-and-cancellation-policy" className="text-[12px]" style={noTapHighlight}>
                 REFUND & CANCELLATION POLICY
               </a>
             </div>
@@ -162,6 +170,7 @@ export default function Footer() {
               <a
                 href="mailto:contact@titlifoundation.com"
                 className="underline text-[12px] break-words"
+                style={noTapHighlight}
               >
                 contact@titlifoundation.com
               </a>
@@ -173,6 +182,7 @@ export default function Footer() {
                   href="https://www.linkedin.com"
                   target="_blank"
                   rel="noreferrer"
+                  style={noTapHighlight}
                 >
                   <img
                     src="/svgs/linkedin.png"
@@ -184,6 +194,7 @@ export default function Footer() {
                   href="https://www.instagram.com"
                   target="_blank"
                   rel="noreferrer"
+                  style={noTapHighlight}
                 >
                   <img
                     src="/svgs/ig-white.png"
@@ -191,7 +202,7 @@ export default function Footer() {
                     className="w-auto h-auto"
                   />
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noreferrer">
+                <a href="https://twitter.com" target="_blank" rel="noreferrer" style={noTapHighlight}>
                   <img
                     src="/svgs/x.png"
                     alt="Twitter/X"
@@ -243,6 +254,7 @@ export default function Footer() {
             <button
               onClick={() => setShowMap(false)}
               className="absolute top-2 right-2 text-black text-lg font-bold z-10"
+              style={noTapHighlight}
             >
               ✖
             </button>

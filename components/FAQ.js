@@ -37,6 +37,9 @@ const faqList = [
   },
 ];
 
+// Define the style object to remove tap highlight
+const noTapHighlight = { WebkitTapHighlightColor: "transparent" };
+
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -45,35 +48,44 @@ export default function FAQ() {
   };
 
   return (
-    // The class on this section has been changed to use drop-shadow-lg
-    <section className="px-4 pt-2 max-w-[836px] mx-auto mb-24  ">
-      <h2 className="text-4xl font-semibold text-center mb-20">
+    // CHANGE: Added mt-24 for mobile/md, which is removed on lg screens (lg:mt-0).
+    <section className="px-4 pt-2 max-w-[836px] mx-auto mb-24 mt-24 lg:mt-0">
+      <h2 
+        // CHANGE: Font size is 24px on mobile/md, becomes 4xl on lg screens.
+        className="text-[24px] lg:text-4xl font-semibold text-center mb-12 lg:mb-20"
+      >
         Frequently Asked Questions
       </h2>
 
-      <div className="divide-y divide-gray-300">
+      {/* CHANGE: This container now centers the 307px cards on mobile/md screens. */}
+      <div className="divide-y divide-gray-300 flex flex-col items-center lg:block">
         {faqList.map((faq, index) => (
-          <div key={index} className="py-6">
+          // CHANGE: Card width is 307px on mobile/md, becomes full-width on lg screens.
+          <div key={index} className="py-6 max-w-[307px] md:max-w-[500px] lg:max-w-full">
             <button
               onClick={() => toggleIndex(index)}
               className="w-full flex justify-between items-start text-left"
+              style={noTapHighlight} // Added noTapHighlight
             >
-              <span className="text-2xl md:text-lg font-medium text-black">
+              <span 
+                // CHANGE: Question font size is 15px on mobile/md, becomes 2xl/lg on lg screens.
+                className="text-[15px] lg:text-2xl font-medium text-black pr-2"
+              >
                 {faq.question}
               </span>
-              <span className="text-2xl leading-none text-black ml-4">
+              <span className="text-xl lg:text-2xl leading-none text-black ml-4">
                 {openIndex === index ? "−" : "+"}
               </span>
             </button>
 
             <div
-              className={`transition-all duration-500 overflow-hidden text-[16px] text-gray-700 mt-2 ${
+              // CHANGE: Answer font size is 14px on mobile/md, becomes 16px on lg screens.
+              className={`transition-all duration-500 overflow-hidden text-[14px] lg:text-[16px] text-gray-700 mt-2 ${
                 openIndex === index
                   ? "max-h-[500px] opacity-100"
                   : "max-h-0 opacity-0"
               }`}
             >
-              {/* ✅ This renders HTML inside the answer */}
               <div
                 dangerouslySetInnerHTML={{ __html: faq.answer }}
                 className="leading-relaxed"
