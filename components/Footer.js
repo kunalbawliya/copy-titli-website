@@ -33,7 +33,7 @@ export default function Footer() {
 
           {/* Quick Links Group 1 */}
           <div className="flex flex-col gap-3">
-            <div className="grid text-[16px] font-inter font-medium gap-y-[49px] leading-[22px]">
+            <div className="grid text-[12px] lg:text-[16px] font-inter font-medium gap-y-[52px] lg:gap-y-[51px] leading-[22px]">
               <p className="font-normal text-[#FFC5DE]">QUICK LINKS</p>
               <a
                 href="https://linktr.ee/Titli"
@@ -52,7 +52,7 @@ export default function Footer() {
 
           {/* Quick Links Group 2 */}
           <div className="flex flex-col gap-3 pl-[80px]">
-            <div className="grid text-[16px] font-inter font-medium gap-y-[49px] leading-[22px]">
+            <div className="grid text-[12px] lg:text-[16px] font-inter font-medium gap-y-[52px] lg:gap-y-[51px] leading-[22px]">
               <a href="/donate">DONATE</a>
               <a href="/aboutus">ABOUT US</a>
               <a href="/careers">CAREERS</a>
@@ -86,7 +86,7 @@ export default function Footer() {
               Faizabad, Uttar Pradesh - 224001
             </button>
 
-            <div className="flex gap-8 mt-[50px] justify-start">
+            <div className="flex lg:gap-8 mt-[50px] justify-start">
               <a
                 href="https://www.linkedin.com"
                 target="_blank"
@@ -95,7 +95,7 @@ export default function Footer() {
                 <img
                   src="/svgs/Linkedin Logo.png"
                   alt="LinkedIn"
-                  className="w-[48px] h-[48px]"
+                  className="w-[35px] h-[35px] lg:w-[48px] lg:h-[48px]"
                 />
               </a>
               <a
@@ -106,14 +106,14 @@ export default function Footer() {
                 <img
                   src="/svgs/Instagram Logo.png"
                   alt="Instagram"
-                  className="w-[48px] h-[48px]"
+                  className="w-[35px] h-[35px] lg:w-[48px] lg:h-[48px]"
                 />
               </a>
               <a href="https://twitter.com" target="_blank" rel="noreferrer">
                 <img
                   src="/svgs/X Logo.png"
                   alt="Twitter/X"
-                  className="w-[48px] h-[48px]"
+                  className="w-[35px] h-[35px] lg:w-[48px] lg:h-[48px]"
                 />
               </a>
             </div>
