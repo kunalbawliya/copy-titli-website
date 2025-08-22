@@ -26,16 +26,14 @@ const DonateHero = ({ handleScrollToDonate }) => {
   if (width > 0 && width < tabletBreakpoint) {
     return (
       <>
-        <main className="w-full max-w-[308px] mx-auto mt-24 px-4 pb-12 font-inter">
+        <main className="w-full max-w-[308px] mx-auto mt-24 px-4 pb-[30px] font-inter">
           <section className="flex flex-col items-center text-center">
             <div className="w-full mt-8 max-w-[341px]">
               <h1 className="text-[30px] font-semibold leading-tight mb-4">
                 Small steps towards Breaking the Taboo
               </h1>
-              <p className="text-[12px] max-w-[259px] mx-auto">
-                By donating, you are directly contributing towards providing
-                underprivileged menstruators with essential and sustainable
-                menstrual hygiene products.
+              <p className="text-[12px] max-w-[265px] mx-auto">
+                By donating to our cause, you are directly contributing towards providing underprivileged menstruators across the country with essential and sustainable menstrual hygiene products. Rest assured that every penny of your donation will go towards this noble cause, ensuring that no one has to compromise on their health and dignity during their periods. Join us in our mission to create a more inclusive and equitable society for all.
               </p>
             </div>
             <div className="rounded-[10px] w-full max-w-sm flex items-center justify-center mt-6">

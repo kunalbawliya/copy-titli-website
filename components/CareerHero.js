@@ -31,17 +31,14 @@ const CareerHero = () => {
   if (width > 0 && width < tabletBreakpoint) {
     return (
       <>
-        <main className="w-full max-w-[308px] mx-auto mt-24 px-4 pb-12 font-inter">
+        <main className="w-full max-w-[308px] mx-auto mt-24 px-4 pb-[30px] bg-slate-400 font-inter">
           <section className="flex flex-col items-center text-center">
             <div className="w-full mt-8 max-w-[341px]">
               <h1 className="text-[30px] font-semibold leading-tight mb-4">
                 Why Volunteer with Titli Foundation?
               </h1>
               <p className="text-[12px] max-w-[259px]">
-                At Titli Foundation, we empathize with the challenges faced by
-                underprivileged menstruators. We aim to provide sustainable
-                menstrual products and raise awareness about menstrual hygiene
-                and its safe practices.
+                Titli Foundation is a registered NGO that stands as a catalyst for change, with a clear focus on eradicating period poverty.  Our approach is simple yet profound: we aim to replace the shadows of shame and discomfort with the enlightenment of knowledge, the boost of confidence, and the promise of sustainability.
               </p>
             </div>
             <div className="rounded-[10px] w-full max-w-sm flex items-center justify-center mt-6">
