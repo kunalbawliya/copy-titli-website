@@ -1,4 +1,20 @@
-// 1. Removed the 'next/image' import since it's no longer needed.
+import { useState, useEffect } from "react";
+
+// 1. A custom hook to get the window size, just like in your other components.
+function useWindowSize() {
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowWidth;
+}
 
 const teamMembers = [
   {
@@ -56,11 +72,20 @@ const teamMembers = [
     title: "Trustee",
     image: "/images/team/Akanksha-Pathak.png",
   },
-  // Add more members as needed
 ];
 
 export default function Team() {
-  const animationDuration = `${teamMembers.length * 5}s`; //to change speed
+  const animationDuration = `${teamMembers.length * 5}s`;
+  const width = useWindowSize(); // Get window width
+  const lgBreakpoint = 1024; // Define the large breakpoint
+
+  // 2. Create the style object conditionally based on the width
+  const maskStyle = {
+    maskImage:
+      width >= lgBreakpoint
+        ? "linear-gradient(to right, transparent, black 5%, black 95%, transparent)"
+        : "linear-gradient(to right, transparent, black 3%, black 97%, transparent)",
+  };
 
   return (
     <section className="mt-[90px] mb-[107px] bg-white">
@@ -76,10 +101,8 @@ export default function Team() {
 
       <div
         className="group w-full overflow-hidden relative"
-        style={{
-          maskImage:
-            "lg:linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
-        }}
+        // 3. Apply the conditional style object here
+        style={maskStyle}
       >
         <div
           className="flex gap-20 px-4 whitespace-nowrap group-hover:[animation-play-state:paused]"
@@ -94,17 +117,17 @@ export default function Team() {
               className="md:w-[345px] w-[215px] flex-shrink-0 bg-white rounded-[10px] text-center pb-4"
             >
               <div className="w-[215px] h-[269px] md:w-[345px] md:h-[400px] bg-black rounded-[10px] overflow-hidden flex items-center justify-center">
-                {/* 2. Replaced the <Image> component with a standard <img> tag, just like in your BrandList. */}
                 <img
                   src={member.image}
                   alt={member.name}
                   className="object-cover w-full h-full"
                 />
               </div>
-              <h3 className="text-left font-medium font-inter text-[32px] mt-4">
+              {/* Added responsive font sizes */}
+              <h3 className="text-left font-medium font-inter text-[24px] md:text-[32px] mt-4">
                 {member.name}
               </h3>
-              <p className="text-left text-[20px] font-normal font-inter text-black">
+              <p className="text-left text-[16px] md:text-[20px] font-normal font-inter text-black">
                 {member.title}
               </p>
             </div>
