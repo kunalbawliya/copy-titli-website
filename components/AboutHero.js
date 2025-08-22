@@ -38,7 +38,7 @@ const AboutHero = () => {
               <div className="text-[32px] font-semibold leading-tight mb-4">
                 From awareness to action, redefining menstrual health
               </div>
-              <p className="text-[12px] text-[#2F2F2F]">
+              <p className="text-[12px] text-[#000000]">
                 At Titli Foundation, we empathize with the challenges faced by
                 underprivileged menstruators. We aim to provide sustainable products and
                 raise awareness about menstrual hygiene.
