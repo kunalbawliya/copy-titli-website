@@ -78,7 +78,7 @@ export default function Team() {
         className="group w-full overflow-hidden relative"
         style={{
           maskImage:
-            "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
+            "lg:linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
         }}
       >
         <div

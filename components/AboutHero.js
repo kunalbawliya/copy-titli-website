@@ -31,7 +31,7 @@ const AboutHero = () => {
   if (width > 0 && width < tabletBreakpoint) {
     return (
       <>
-        <main className="w-full max-w-[308px] mx-auto mt-24 px-4 pb-12 font-inter">
+        <main className="w-full max-w-[308px] mx-auto mt-24 px-4 pb-8 font-inter">
           <section className="flex flex-col items-center text-center">
             {/* Text Content Area */}
             <div className="w-full mt-8 max-w-[341px]">
