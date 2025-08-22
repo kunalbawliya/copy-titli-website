@@ -12,8 +12,14 @@ export default function Terms() {
       </Head>
       <div className="relative max-w-[1224px] m-auto text-[#000000] mb-[92px]">
         <Navbar donatePage={true} />
-        <div className="py-[50px]">
-          <p className="font-semibold text-[64px] mb-[30px]">Terms and Conditions</p>
+        {/* CHANGE: Added responsive max-width and mx-auto for centering */}
+        <div className="py-[50px] mx-auto max-w-[307px] md:max-w-[520px] lg:max-w-[916px] xl:max-w-[1223px]">
+          <p 
+            // CHANGE: Added responsive font sizes
+            className="font-semibold text-[30px] md:text-[48px] lg:text-[64px] mb-[30px]"
+          >
+            Terms and Conditions
+          </p>
           <Paragraph>
             Welcome to our website, operated by Titli Foundation, a non-profit
             organization dedicated to providing menstrual cups to

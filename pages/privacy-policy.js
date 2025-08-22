@@ -11,8 +11,8 @@ export default function Privacy() {
       </Head>
       <div className="relative max-w-[1224px] m-auto mb-[92px] text-black">
         <Navbar donatePage={true} />
-        <div className="py-[50px]">
-          <p className="font-semibold text-[64px] mb-[30px]">Privacy Policy</p>
+        <div className="py-[50px] mx-auto max-w-[307px] md:max-w-[520px] lg:max-w-[916px] xl:max-w-[1223px]   ">
+          <p className="font-semibold text-[30px] md:text-[48px] lg:text-[64px] mb-[30px]">Privacy Policy</p>
           <Subheading>Introduction</Subheading>
           <Paragraph>
             We at Titli Foundation are committed to protecting the privacy and
