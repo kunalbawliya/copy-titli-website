@@ -2,7 +2,7 @@ import { getSortedPostsData, getPostData } from "../../lib/blogs";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Link from "next/link";
-import MoreArticles from "../../components/MoreArticles"; // 1. Import the new component
+import MoreArticles from "../../components/MoreArticles";
 
 export async function getStaticPaths() {
   const allPosts = getSortedPostsData();
@@ -33,6 +33,8 @@ export async function getStaticProps({ params }) {
   };
 }
 
+const noTapHighlight = { WebkitTapHighlightColor: "transparent" };
+
 export default function Post({ postData, otherPosts }) {
   return (
     <>
@@ -40,20 +42,20 @@ export default function Post({ postData, otherPosts }) {
       <main className="bg-white text-black pt-[192px]">
         <div className="max-w-[1100px] mx-auto px-[16px]">
           {/* Blog Header */}
-          <header className="text-center mb-[48px]">
-            <h1 className="text-[64px] font-bold mb-[50px] leading-tight">
+          <header className="text-center mb-[30px] lg:mb-[50px]">
+            <h1 className="text-[36px] md:text-[52px] lg:text-[64px] font-bold mb-[30px] lg:mb-[50px] leading-tight">
               {postData.title}
             </h1>
-            <p className="text-[24px] text-black mb-[15px]">
+            <p className="text-[18px] md:text-[24px] text-black mb-[15px]">
               {postData.author}
             </p>
-            <p className="text-[16px] text-black mb-[50px]">
+            <p className="text-[14px] md:text-[16px] text-black mb-[50px]">
               {postData.date}
             </p>
           </header>
 
           {/* Banner Image Container */}
-          <div className="mb-[90px] rounded-[16px] overflow-hidden max-w-[1024px] mx-auto ">
+          <div className="mb-[30px]  lg:mb-[90px] rounded-[16px] overflow-hidden max-w-[307px] md:max-w-[520px] lg:max-w-[1024px] mx-auto ">
             <img
               src={`/${postData.coverImage}`}
               alt={postData.title}
@@ -64,7 +66,7 @@ export default function Post({ postData, otherPosts }) {
 
           <div className="flex flex-col lg:flex-row gap-[48px]">
             {/* Left Column: Blog Content */}
-            <div className="w-full lg:w-3/4">
+            <div className="w-full lg:w-3/4 max-w-[305px] md:max-w-[520px] lg:max-w-none mx-auto ">
               <article
                 className="blog-content"
                 dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
@@ -72,7 +74,8 @@ export default function Post({ postData, otherPosts }) {
             </div>
 
             {/* Right Column: Table of Contents */}
-            <aside className="w-full lg:w-1/4">
+            {/* CHANGE: Added 'hidden' to hide on mobile/tablet. 'lg:block' makes it visible on large screens. */}
+            <aside className="w-full lg:w-1/4 hidden lg:block">
               <div className="lg:sticky lg:top-[128px]">
                 <div>
                   <h3 className="text-[20px] font-bold mb-[16px] pt-[16px] border-t border-gray-300">
@@ -84,6 +87,7 @@ export default function Post({ postData, otherPosts }) {
                         <a
                           href={`#${heading.slug}`}
                           className="text-gray-700 hover:text-pink-600 transition"
+                          style={noTapHighlight}
                         >
                           {heading.text}
                         </a>
@@ -96,7 +100,6 @@ export default function Post({ postData, otherPosts }) {
           </div>
         </div>
 
-        {/* 2. Replace the entire section with the new component */}
         <MoreArticles posts={otherPosts} showGoBackButton={true} />
         
       </main>
