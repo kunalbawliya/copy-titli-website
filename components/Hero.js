@@ -81,7 +81,7 @@ const Hero = () => {
                       </span>{" "}
                       at a time.
                     </div>
-                    <p className="text-[12px] text-[#000000]">
+                    <p className="text-[12px] font-normal text-[#000000]">
                       Lorem ipsum dolor sit amet consectetur. Porttitor amet
                       consequat neque sapien lacus at non ridiculus lorem elit
                       libero. Viverra in nunc rutrum{" "}
@@ -114,7 +114,7 @@ const Hero = () => {
                       </span>{" "}
                       at a time.
                     </div>
-                    <p className="text-[12px] text-[#000000]">
+                    <p className="text-[12px] font-normal text-[#000000]">
                       This is the second slide's content. You can change this
                       text and the image source to make it different from the
                       first slide.
@@ -132,7 +132,7 @@ const Hero = () => {
             </div>
           </div>
         </main>
-        <div className="text-center text-[12px] text-black">
+        <div className="text-center text-[12px] text-[#4A4A4A]">
           <p>
             Scroll to see where your donation goes{" "}
             <span className="inline-block animate-bounce">▼</span>
@@ -142,7 +142,7 @@ const Hero = () => {
     );
   }
 
-  // Tablet / Small Laptop Layout (768px - 1199px)
+  // Tablet / Small Laptop Layout (768px - 1279px)
   else if (width >= tabletBreakpoint && width < desktopBreakpoint) {
     return (
       <>
@@ -179,7 +179,7 @@ const Hero = () => {
                       </span>{" "}
                       at a time.
                     </div>
-                    <p className="mt-5 text-lg text-[#2F2F2F] max-w-md">
+                    <p className="mt-5 text-lg font-normal text-[#000000] max-w-md">
                       Lorem ipsum dolor sit amet consectetur. Porttitor amet
                       consequat neque sapien lacus at non ridiculus lorem elit
                       libero.
@@ -207,7 +207,7 @@ const Hero = () => {
                     </div>
                   </div>
                   <div className="w-1/2 text-left pl-10">
-                    <div className="text-4xl font-bold leading-tight">
+                    <div className="text-4xl font-semibold leading-tight">
                       This is Slide 2<br />
                       one{" "}
                       <span className="font-shadows text-pink relative px-2">
@@ -220,7 +220,7 @@ const Hero = () => {
                       </span>{" "}
                       at a time.
                     </div>
-                    <p className="mt-5 text-lg text-[#2F2F2F] max-w-md">
+                    <p className="mt-5 text-lg font-normal text-[#000000] max-w-md">
                       This is the second slide's content. You can change this
                       text and the image source to make it different from the
                       first slide.
@@ -249,7 +249,7 @@ const Hero = () => {
             </div>
           </div>
         </main>
-        <div className="text-center text-xl text-black mt-20">
+        <div className="text-center text-xl text-[#4A4A4A] mt-20">
           <p>
             Scroll to see where your donation goes{" "}
             <span className="inline-block animate-bounce">▼</span>
@@ -259,7 +259,7 @@ const Hero = () => {
     );
   }
 
-  // Large Desktop Layout (>= 1200px)
+  // Large Desktop Layout (>= 1280px)
   else {
     return (
       <>
@@ -296,7 +296,7 @@ const Hero = () => {
                       </span>{" "}
                       at a time.
                     </div>
-                    <p className="mt-6 text-[18px] font-medium text-[#2F2F2F] max-w-[500px]">
+                    <p className="mt-6 text-[18px] font-normal text-[#000000] max-w-[500px]">
                       Lorem ipsum dolor sit amet consectetur. Porttitor amet
                       consequat neque sapien lacus at non ridiculus lorem elit
                       libero. Viverra in nunc rutrum fusce sit molestie.
@@ -339,7 +339,7 @@ const Hero = () => {
                       </span>{" "}
                       at a time.
                     </div>
-                    <p className="mt-6 text-[18px] font-medium text-[#2F2F2F] max-w-[500px]">
+                    <p className="mt-6 text-[18px] font-normal text-[#000000] max-w-[500px]">
                       This is the second slide's content. You can change this
                       text and the image source to make it different from the
                       first slide.
@@ -372,7 +372,7 @@ const Hero = () => {
             </div>
           </div>
         </main>
-        <div className="text-center text-[24px] text-black mt-24">
+        <div className="text-center text-[24px] text-[#4A4A4A] mt-24">
           <p>
             Scroll to see where your donation goes{" "}
             <span className="inline-block animate-bounce">▼</span>

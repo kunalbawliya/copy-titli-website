@@ -22,7 +22,7 @@ export default function BlogCarousel({ blogs = [] }) {
   };
 
   return (
-    <div className="bg-[#f4eef5] mt-[90px] pt-12 pb-12">
+    <div className="bg-[#FFFBF7] mt-[90px] pt-12 pb-12">
       <div className="relative max-w-[1074px] mx-auto px-4">
         <div className="[&_.swiper-pagination]:xl:hidden">
           <Swiper
@@ -70,12 +70,14 @@ export default function BlogCarousel({ blogs = [] }) {
         <button
           onClick={swipePrev}
           className="absolute left-[-70px] top-[180px] z-30 text-5xl w-14 h-14 hidden lg:flex items-center justify-center rounded-[20px]"
+          style={noTapHighlight}
         >
           &#8249;
         </button>
         <button
           onClick={swipeNext}
-          className="absolute right-[-70px] top-[180px] z-30 text-5xl w-14 h-14 hidden lg:flex items-center justify-center rounded-[20px]"
+          className="absolute right-[-70px] top-[180px] z-30 text-5xl w-14 h-14 hidden lg:flex items-center justify-center rounded-[20px] "
+          style={noTapHighlight}
         >
           &#8250;
         </button>

@@ -45,7 +45,7 @@ const DonateHero = ({ handleScrollToDonate }) => {
             </div>
           </section>
         </main>
-        <div className="text-center text-sm text-black mb-16">
+        <div className="text-center text-sm text-[#4A4A4A] mb-16">
           <p>
             Scroll to make a donation{" "}
             <span className="inline-block animate-bounce">▼</span>
@@ -61,16 +61,7 @@ const DonateHero = ({ handleScrollToDonate }) => {
       <>
         <main className="w-full max-w-[1024px] mx-auto mt-32 px-6 pb-16 font-inter">
           <section className="flex flex-row items-center justify-between">
-            <div className="w-1/2 flex justify-start">
-              <div className="rounded-[20px] w-full max-w-[450px] h-full flex items-center justify-center">
-                <img
-                  src="/images/career and donate-hero.png"
-                  alt="Titli Foundation providing menstrual products"
-                  className="object-contain w-auto h-full rounded-[20px]"
-                />
-              </div>
-            </div>
-            <div className="w-1/2 text-left pl-10">
+            <div className="w-1/2 text-left pr-10">
               <h1 className="text-4xl lg:text-5xl font-semibold leading-tight">
                 Small steps towards Breaking the Taboo
               </h1>
@@ -80,9 +71,18 @@ const DonateHero = ({ handleScrollToDonate }) => {
                 essential and sustainable menstrual hygiene products.
               </p>
             </div>
+            <div className="w-1/2 flex justify-end">
+              <div className="rounded-[20px] w-full max-w-[450px] h-full flex items-center justify-center">
+                <img
+                  src="/images/career and donate-hero.png"
+                  alt="Titli Foundation providing menstrual products"
+                  className="object-contain w-auto h-full rounded-[20px]"
+                />
+              </div>
+            </div>
           </section>
         </main>
-        <div className="text-center text-xl text-black mt-20 mb-24">
+        <div className="text-center text-xl text-[#4A4A4A] mt-20 mb-24">
           <p>
             Scroll to make a donation{" "}
             <span className="inline-block animate-bounce">▼</span>
@@ -130,7 +130,7 @@ const DonateHero = ({ handleScrollToDonate }) => {
             </div>
           </section>
         </main>
-        <div className="text-center text-[24px] text-black mt-[10px] mb-[125px]">
+        <div className="text-center text-[24px] text-[#4A4A4A] mt-[10px] mb-[125px]">
           Scroll to make a donation{" "}
           <span className="inline-block animate-bounce">▼</span>
         </div>

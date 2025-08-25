@@ -30,7 +30,7 @@ export default function VisionMission() {
   return (
     // UPDATED: Added px-[50px] and pt-[25px] for mobile view.
     // The original responsive padding for sm, lg, etc., remains the same.
-    <section className="px-[50px] pt-[25px] pb-8 sm:px-6 sm:py-12 lg:px-20 bg-[#FFFBF7] font-inter">
+    <section className="px-[50px] pt-[25px] pb-8 sm:px-6 sm:py-12 lg:px-20 font-inter">
       {/* Mobile & Tablet Accordion View (< 1024px) */}
       <div className="lg:hidden flex flex-col gap-4 max-w-xl mx-auto">
         {cardData.map((item) => (

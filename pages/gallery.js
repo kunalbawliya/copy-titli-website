@@ -101,78 +101,73 @@ export default function GalleryPage() {
         }
       `}</style>
 
-      <Navbar />
+      {/* CHANGE: Added a wrapper div with background classes */}
+      <div className="bg-[url('/homepage-bg.png')] bg-cover bg-center bg-no-repeat bg-fixed">
+        <Navbar />
 
-      <main className="pt-[150px] md:pt-[200px]">
-        {/* --- Gallery Section Starts Here --- */}
-        <div className="container mx-auto px-4">
-          {/* Header */}
-          <header className="text-center mb-16 md:mb-[105px]">
-            <h1 className="text-4xl md:text-5xl lg:text-[52px] xl:text-[64px] max-w-[230px] md:max-w-[310px] lg:max-w-[890px] xl:max-w-[1070px] mx-auto font-bold font-inter text-black">
-              The Work. The Progress. The People.
-            </h1>
-            <p className="text-lg md:text-xl lg:text-[24px] mt-6 md:mt-[35px] max-w-xl mx-auto">
-              Explore the brief moments that reflect our mission, our community,
-              and the progress we've made together.
-            </p>
-          </header>
+        <main className="pt-[150px]  md:pt-[200px]">
+          {/* --- Gallery Section Starts Here --- */}
+          <div className="container mx-auto px-4">
+            {/* Header */}
+            <header className="text-center mb-16 md:mb-[105px]">
+              <h1 className="text-4xl md:text-5xl lg:text-[52px] xl:text-[64px] max-w-[230px] md:max-w-[310px] lg:max-w-[890px] xl:max-w-[1070px] mx-auto font-bold font-inter text-black">
+                The Work. The Progress. The People.
+              </h1>
+              <p className="text-lg md:text-xl lg:text-[24px] mt-6 md:mt-[35px] max-w-xl mx-auto">
+                Explore the brief moments that reflect our mission, our community,
+                and the progress we've made together.
+              </p>
+            </header>
 
-          {/* Collage Grid Layout */}
-          <div className="collage-grid">
-            <div className="grid-item item-1">
-              <img src="images/gallery/gal1.png" alt="Officials" />
-            </div>
-            <div className="grid-item item-2">
-              <img src="images/gallery/gal2.png" alt="Team" />
-            </div>
-            <div className="grid-item item-3">
-              <img src="images/gallery/gal3.png" alt="Workshop" />
-            </div>
-            <div className="grid-item item-4">
-              <img src="images/gallery/gal5.png" alt="Learning" />
-            </div>
-            <div className="grid-item item-5">
-              <img src="images/gallery/gal4.png" alt="Community Classroom" />
-            </div>
-            <div className="grid-item item-6">
-              <img src="images/gallery/gal6.png" alt="Awareness" />
-            </div>
-            <div className="grid-item item-7">
-              <img src="images/gallery/gal7.png" alt="Group Activity" />
-            </div>
-            <div className="grid-item item-8">
-              <img src="images/gallery/gal8.png" alt="Students" />
-            </div>
-            <div className="grid-item item-9">
-              <img src="images/gallery/gal9.png" alt="Empowerment" />
-            </div>
-            <div className="grid-item item-10">
-              <img src="images/gallery/gal10.png" alt="Session" />
+            {/* Collage Grid Layout */}
+            <div className="collage-grid">
+              <div className="grid-item item-1">
+                <img src="images/gallery/gal1.png" alt="Officials" />
+              </div>
+              <div className="grid-item item-2">
+                <img src="images/gallery/gal2.png" alt="Team" />
+              </div>
+              <div className="grid-item item-3">
+                <img src="images/gallery/gal3.png" alt="Workshop" />
+              </div>
+              <div className="grid-item item-4">
+                <img src="images/gallery/gal5.png" alt="Learning" />
+              </div>
+              <div className="grid-item item-5">
+                <img src="images/gallery/gal4.png" alt="Community Classroom" />
+              </div>
+              <div className="grid-item item-6">
+                <img src="images/gallery/gal6.png" alt="Awareness" />
+              </div>
+              <div className="grid-item item-7">
+                <img src="images/gallery/gal7.png" alt="Group Activity" />
+              </div>
+              <div className="grid-item item-8">
+                <img src="images/gallery/gal8.png" alt="Students" />
+              </div>
+              <div className="grid-item item-9">
+                <img src="images/gallery/gal9.png" alt="Empowerment" />
+              </div>
+              <div className="grid-item item-10">
+                <img src="images/gallery/gal10.png" alt="Session" />
+              </div>
             </div>
           </div>
-        </div>
-        {/* --- Gallery Section Ends Here --- */}
+          {/* --- Gallery Section Ends Here --- */}
 
-        {/* <div className="text-center px-4">
-          <p className="text-lg md:text-xl lg:text-[24px] text-black mt-16 md:mt-[75px] mb-6 max-w-[840px] mx-auto">
-            Join us in our efforts to{" "}
-            <span className="text-pink-600 font-bold">#BreakTheTaboo</span> and
-            positively impact the lives everywhere.
-          </p>
-        </div> */}
+          <section className="text-center px-4 mb-[50px] md:px-8 flex flex-col items-center">
+            <h2 className="text-[15px] md:text-2xl max-w-[236px] md:max-w-[450px] lg:max-w-4xl mx-auto text-black mt-16 md:mt-[75px]">
+              Join us in our efforts to{" "}
+              <span className="text-pink font-bold">#BreakTheTaboo</span> and
+              positively impact lives everywhere.
+            </h2>
+          </section>
 
-        <section className="text-center px-4 mb-[50px] md:px-8 flex flex-col items-center">
-          <h2 className="text-[15px] md:text-2xl max-w-[236px] md:max-w-[450px] lg:max-w-4xl mx-auto text-black mt-16 md:mt-[75px]">
-            Join us in our efforts to{" "}
-            <span className="text-pink font-bold">#BreakTheTaboo</span> and
-            positively impact lives everywhere.
-          </h2>
-        </section>
+          <Insta />
+        </main>
 
-        <Insta />
-      </main>
-
-      <Footer />
+        <Footer />
+      </div>
     </>
   );
 }

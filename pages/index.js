@@ -25,7 +25,8 @@ export default function Home({ allPostsData }) {
   const noTapHighlight = { WebkitTapHighlightColor: 'transparent' };
 
   return (
-    <div className="font-inter overflow-hidden bg-[#FFFBF7]">
+    // CHANGE: Updated the className here to apply the background image
+    <div className="font-inter overflow-hidden bg-[url('/homepage-bg.png')] bg-cover bg-center bg-no-repeat bg-fixed">
       <Head>
         <title>Titli Foundation</title>
       </Head>
@@ -48,7 +49,6 @@ export default function Home({ allPostsData }) {
           knowledge, confidence, and sustainability.{" "}
         </h3>
         
-        {/* --- ✨ THIS HEADING IS NOW UPDATED FOR MOBILE/TABLET ✨ --- */}
         <h2 className="text-[15px] md:text-[22px] lg:text-[24px] xl:text-[26px] max-w-[246px] md:max-w-[350px] lg:max-w-4xl mx-auto text-black mt-8 md:mt-[50px]">
           Join us in our efforts to{" "}
           <a
@@ -67,4 +67,4 @@ export default function Home({ allPostsData }) {
       <Footer />
     </div>
   );
-} 
+}

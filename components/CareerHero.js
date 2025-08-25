@@ -31,7 +31,7 @@ const CareerHero = () => {
   if (width > 0 && width < tabletBreakpoint) {
     return (
       <>
-        <main className="w-full max-w-[308px] mx-auto mt-24 px-4 pb-[30px] font-inter">
+        <main className="w-full max-w-[308px] mx-auto pt-24 px-4 pb-[30px] font-inter">
           <section className="flex flex-col items-center text-center">
             <div className="w-full mt-8 max-w-[341px]">
               <h1 className="text-[30px] font-semibold leading-tight mb-4">
@@ -50,7 +50,7 @@ const CareerHero = () => {
             </div>
           </section>
         </main>
-        <div className="text-center text-sm text-black mb-16">
+        <div className="text-center text-sm text-[#4A4A4A] mb-16">
           <p>
             Scroll to discover the role that fits you best{" "}
             <span className="inline-block animate-bounce">▼</span>
@@ -64,9 +64,20 @@ const CareerHero = () => {
   else if (width >= tabletBreakpoint && width < desktopBreakpoint) {
     return (
       <>
-        <main className="w-full max-w-[1024px] mx-auto mt-32 px-6 pb-16 font-inter">
+        <main className="w-full max-w-[1024px] mx-auto pt-32 px-6 pb-16 font-inter">
           <section className="flex flex-row items-center justify-between">
-            <div className="w-1/2 flex justify-start">
+            <div className="w-1/2 text-left pr-10">
+              <h1 className="text-4xl lg:text-5xl font-semibold leading-tight">
+                Why Volunteer with Titli Foundation?
+              </h1>
+              <p className="mt-5 text-[14px] max-w-md">
+                At Titli Foundation, we empathize with the challenges faced by
+                underprivileged menstruators. We aim to provide sustainable
+                menstrual products and raise awareness about menstrual hygiene
+                and its safe practices.
+              </p>
+            </div>
+            <div className="w-1/2 flex justify-end">
               <div className="rounded-[20px] w-full max-w-[450px] h-full flex items-center justify-center">
                 <img
                   src="/images/career and donate-hero.png"
@@ -75,20 +86,9 @@ const CareerHero = () => {
                 />
               </div>
             </div>
-            <div className="w-1/2 text-left pl-10">
-              <h1 className="text-4xl lg:text-5xl font-semibold leading-tight">
-                Why Volunteer with Titli Foundation?
-              </h1>
-              <p className="mt-5 text-lg max-w-md">
-                At Titli Foundation, we empathize with the challenges faced by
-                underprivileged menstruators. We aim to provide sustainable
-                menstrual products and raise awareness about menstrual hygiene
-                and its safe practices.
-              </p>
-            </div>
           </section>
         </main>
-        <div className="text-center text-xl text-black mt-20 mb-24">
+        <div className="text-center text-xl text-[#4A4A4A] mt-20 mb-24">
           <p>
             Scroll to find out what role you can play{" "}
             <span className="inline-block animate-bounce">▼</span>
@@ -102,7 +102,7 @@ const CareerHero = () => {
   else {
     return (
       <>
-        <main className="w-full max-w-[1222px] mx-auto mt-[170px] pb-20 px-4 md:px-8">
+        <main className="w-full max-w-[1222px] mx-auto pt-[170px] pb-20 px-4 md:px-8">
           <section className="w-full flex flex-row items-center justify-between">
             <div className="w-1/2 flex flex-col justify-center text-left lg:pr-10 font-inter">
               <h1 className="text-[60px]  font-semibold leading-tight">
@@ -126,7 +126,7 @@ const CareerHero = () => {
             </div>
           </section>
         </main>
-        <div className="text-center text-[24px] text-black mt-[10px] mb-[125px]">
+        <div className="text-center text-[24px] text-[#4A4A4A] mt-[10px] mb-[125px]">
           Scroll to find out what role you can play{" "}
           <span className="inline-block animate-bounce">▼</span>
         </div>

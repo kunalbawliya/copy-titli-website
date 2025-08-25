@@ -88,7 +88,7 @@ export default function Team() {
   };
 
   return (
-    <section className="mt-[90px] mb-[107px] bg-white">
+    <section className="mt-[90px] mb-[107px] ">
       <div className="text-center mb-10 px-4 justify-center items-center">
         <h2 className="text-[36px] max-w-[246px] lg:max-w-[600px] lg:text-[36px] md:text-4xl font-inter font-semibold mx-auto leading-none ">
           Meet our beautiful team
@@ -114,7 +114,7 @@ export default function Team() {
           {[...teamMembers, ...teamMembers].map((member, index) => (
             <div
               key={index}
-              className="md:w-[345px] w-[215px] flex-shrink-0 bg-white rounded-[10px] text-center pb-4"
+              className="md:w-[345px] w-[215px] flex-shrink-0 rounded-[10px] text-center pb-4"
             >
               <div className="w-[215px] h-[269px] md:w-[345px] md:h-[400px] bg-black rounded-[10px] overflow-hidden flex items-center justify-center">
                 <img

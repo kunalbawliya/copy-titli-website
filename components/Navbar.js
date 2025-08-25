@@ -51,7 +51,7 @@ export default function Navbar({ donatePage }) {
           <img
             src="/titli.png"
             alt="Titli Logo"
-            className={`transition-all duration-300 md:w-[200px] ${ scrolled ? "lg:w-[200px]" : "lg:w-[325px]" }`}
+            className={`transition-all duration-300 md:w-[200px] ${ scrolled ? "lg:w-[200px]" : "lg:w-[292.5px]" }`}
           />
         </Link>
         

@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
 import DonateHero from "@/components/DonateHero";
-import DonationCards from "@/components/DonationCards"; // This will now render the updated version
+import DonationCards from "@/components/DonationCards";
 
 const razorpayButtons = [
   {
@@ -76,7 +76,8 @@ export default function Donate() {
   };
 
   return (
-    <div className="font-inter overflow-hidden">
+    // CHANGE: Added background classes to this main container div
+    <div className="font-inter overflow-hidden bg-[url('/homepage-bg.png')] bg-cover bg-center bg-no-repeat bg-fixed">
       <Head>
         <title>Titli Foundation | Donate</title>
       </Head>

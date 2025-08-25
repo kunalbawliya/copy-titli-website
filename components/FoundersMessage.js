@@ -2,41 +2,44 @@ import React from "react";
 
 const FoundersMessage = () => {
   return (
-    <section className="bg-[#ffffff] mt-16 px-4 mb-[107px] md:px-10 lg:px-20">
-      {/* This container is a column on mobile (flex-col) and becomes a row on medium screens (md:flex-row).
-        'items-center' centers the content for both mobile and desktop layouts.
-      */}
-      <div className="max-w-6xl mx-auto flex flex-col xl:flex-row items-center gap-10">
+    <section className=" mt-16 px-4 mb-[107px] md:px-10 lg:px-20">
+      <div 
+        className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10"
+      >
         {/* Founder Image */}
-        <div className="flex justify-center md:w-1/2">
+        <div className="flex justify-center md:w-1/2 flex-shrink-0">
           <img
             src="/images/team/Alankrita-Pandey.png"
             alt="Alankrita Pandey - Founder Titli Foundation"
-            className="w-[247px] h-[279px] rounded-[20px] object-cover shadow-lg md:w-[400px] md:h-[500px]"
+            // The md:h-[480px] class makes the image taller on tablets
+            className="w-[247px] h-[279px] rounded-[20px] object-cover shadow-lg md:w-[320px] md:h-[480px] lg:w-[400px] lg:h-[500px]"
           />
         </div>
 
         {/* Message Content */}
-        <div className="w-full flex flex-col items-left p-4">
+        <div className="w-full flex flex-col items-center md:items-start p-4">
           {/* Name */}
-          <h3 className="text-center xl:text-left text-[24px] font-semibold text-black md:text-[36px] md:mb-1 ">
+          <h3 
+            className="text-center md:text-left text-[24px] lg:text-[36px] font-semibold text-black mb-1"
+          >
             Alankrita Pandey
           </h3>
 
           {/* Title */}
-          <p className="text-center xl:text-left text-[15px] text-black font-inter mt-1 md:text-[24px] md:mt-0">
+          <p 
+            className="text-center md:text-left text-[15px] lg:text-[24px] text-black font-inter mt-1"
+          >
             Founder, Titli Foundation
           </p>
 
           {/* Message Paragraph */}
           <p
-            className="text-[13px] max-w-[320px] md:max-w-[520px] lg:max-w-[660px] text-center xl:text-left mx-auto xl:mx-0 text-black font-inter leading-relaxed mt-4 md:text-lg md:mt-6"
+            className="text-[13px] md:text-[16px] lg:text-lg max-w-[320px] md:max-w-full text-center md:text-left mx-auto md:mx-0 text-black font-inter leading-relaxed mt-4 md:mt-6"
           >
             What started out as a will to help a few in need, turned out to be
             the biggest responsibility of my life. Sometimes I look back and
             wonder, it really did take just one step to change the lives of
-            many.
-            We often think about bringing the change, revolutionizing society,
+            many. We often think about bringing the change, revolutionizing society,
             but then all of it just comes down to – "I can't change the world."
             The fact is, we don't need to change the world, we need to change
             ourselves.
