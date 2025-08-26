@@ -80,7 +80,7 @@ export default function MoreArticles({ posts, showGoBackButton = false }) {
           {width < lgBreakpoint && !isExpanded && posts.length > 0 && (
             <button
               onClick={() => setIsExpanded(true)}
-              className="text-[24px] text-black underline hover:text-black transition"
+              className="text-[24px] font-bold text-black underline hover:text-black transition"
               style={noTapHighlight}
             >
               More blogs +
@@ -90,7 +90,7 @@ export default function MoreArticles({ posts, showGoBackButton = false }) {
           {width >= lgBreakpoint && showLoadMoreButton && (
             <button
               onClick={handleLoadMore}
-              className="text-[24px] text-black underline hover:text-black transition"
+              className="text-[24px] font-bold text-black underline hover:text-black transition"
               style={noTapHighlight}
             >
               Load more +
@@ -100,7 +100,7 @@ export default function MoreArticles({ posts, showGoBackButton = false }) {
           {showShowLessButton && (
             <button
               onClick={handleShowLess}
-              className="text-[24px] text-black underline hover:text-black transition"
+              className="text-[24px] font-bold text-black underline hover:text-black transition"
               style={noTapHighlight}
             >
               Show less
@@ -112,7 +112,7 @@ export default function MoreArticles({ posts, showGoBackButton = false }) {
           <div className="text-center mt-[50px]">
             <Link
               href="/blog"
-              className="text-[24px] text-black hover:text-black transition"
+              className="text-[24px]  text-black hover:text-black transition"
               style={noTapHighlight}
             >
               Go back to the article page

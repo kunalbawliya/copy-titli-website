@@ -42,7 +42,7 @@ const departments = [
 
 const DepartmentsGrid = () => {
   return (
-    <section className="max-w-6xl mx-auto px-4 mb-20">
+    <section className="max-w-[1180px] mx-auto px-4 mb-20">
       {/*
         Layout Strategy (same as Counting component):
         - MOBILE: Flex column to stack and center the cards.
@@ -55,7 +55,7 @@ const DepartmentsGrid = () => {
             key={slug}
             // MOBILE: Each card has a fixed width of 307px.
             // TABLET (md) & up: Width is reset to auto to fit the grid.
-            className="bg-[#FFDFED] p-6 rounded-[15px] hover:shadow-lg transition cursor-default w-[307px] md:w-auto"
+            className="bg-[#FFDFED] p-6 rounded-[15px] transition cursor-default w-[307px] md:w-auto"
           >
             <h3 className="text-[20px] md:text-[24px] font-semibold mb-2">
               {title}

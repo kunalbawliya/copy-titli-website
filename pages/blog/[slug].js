@@ -40,7 +40,7 @@ export default function Post({ postData, otherPosts }) {
     <>
       <Navbar />
       <main className="bg-white text-black pt-[192px]">
-        <div className="max-w-[1100px] mx-auto px-[16px]">
+        <div className="max-w-[1180px] mx-auto px-[16px]">
           {/* Blog Header */}
           <header className="text-center mb-[30px] lg:mb-[50px]">
             <h1 className="text-[36px] md:text-[52px] lg:text-[64px] font-bold mb-[30px] lg:mb-[50px] leading-tight">
@@ -66,7 +66,7 @@ export default function Post({ postData, otherPosts }) {
 
           <div className="flex flex-col lg:flex-row gap-[48px]">
             {/* Left Column: Blog Content */}
-            <div className="w-full lg:w-3/4 max-w-[305px] md:max-w-[520px] lg:max-w-none mx-auto ">
+            <div className="w-full lg:w-3/4 max-w-[360px] md:max-w-[670px] lg:max-w-none mx-auto ">
               <article
                 className="blog-content"
                 dangerouslySetInnerHTML={{ __html: postData.contentHtml }}

@@ -48,7 +48,7 @@ export default function Blog({ allPostsData }) {
           </section>
 
           {/* Section 1: Featured Blog Posts (Corrected for no cropping) */}
-          <div className="w-full max-w-4xl mx-auto flex flex-col items-center lg:items-stretch gap-8 lg:gap-12 px-4">
+          <div className="w-full max-w-4xl mx-auto flex flex-col items-center lg:items-stretch gap-8 lg:gap-12 px-4 xl:max-w-[1180px] ">
             <div className="w-full border-b border-gray-300"></div>
             {featuredPosts.map(
               ({ slug, title, date, description, coverImage, author }, index) => (

@@ -11,7 +11,7 @@ const statsData = [
 
 const Counting = () => {
   return (
-    <section className="max-w-6xl mx-auto mb-[90px] px-4">
+    <section className="max-w-[1180px] mx-auto mb-[90px] px-4">
       {/*
         Layout Strategy:
         - MOBILE: A flex column to stack and center the cards.

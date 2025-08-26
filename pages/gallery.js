@@ -90,12 +90,26 @@ export default function GalleryPage() {
           }
         }
 
+/* --- Tablet Styles (min-width: 1024px) --- */
+        @media (min-width: 1024px) {
+          .collage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 20px;
+            /* Reduced size for tablets */
+            max-width: 1180px;
+            height: 1780px; /* Proportional height */
+            margin: auto;
+            padding: 0;
+          }
+
         /* --- Desktop Styles (min-width: 1280px) --- */
         @media (min-width: 1280px) {
           .collage-grid {
             /* Full size for desktop */
-            max-width: 1222px;
-            height: 2182px;
+            max-width: 1180px;
+            height: 2140px;
             gap: 50px;
           }
         }
