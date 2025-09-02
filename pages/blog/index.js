@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Link from "next/link";
 import { getSortedPostsData } from "../../lib/blogs";
 import Navbar from "../../components/Navbar";
@@ -21,18 +20,11 @@ export default function Blog({ allPostsData }) {
   const featuredPosts = allPostsData.slice(0, 3);
   const remainingPosts = allPostsData.slice(3);
 
-  const POSTS_PER_GRID = 2;
-  const [gridVisibleCount, setGridVisibleCount] = useState(POSTS_PER_GRID);
-
-  const handleGridLoadMore = () => {
-    setGridVisibleCount((prevCount) => prevCount + POSTS_PER_GRID);
-  };
-
-  const gridPostsToShow = remainingPosts.slice(0, gridVisibleCount);
+  // CHANGE: All state management for loading more posts has been removed from this page.
+  // It now lives inside the MoreArticles component.
 
   return (
     <>
-      {/* CHANGE: Added a wrapper div with background classes */}
       <div className="bg-[url('/homepage-bg.png')] bg-cover bg-center bg-no-repeat bg-fixed">
         <Navbar />
         <main className="bg-transparent text-black min-h-screen pt-[160px] md:pt-[180px] lg:pt-[198px] pb-24">
@@ -47,7 +39,7 @@ export default function Blog({ allPostsData }) {
             </p>
           </section>
 
-          {/* Section 1: Featured Blog Posts (Corrected for no cropping) */}
+          {/* Section 1: Featured Blog Posts */}
           <div className="w-full max-w-4xl mx-auto flex flex-col items-center lg:items-stretch gap-8 lg:gap-12 px-4 xl:max-w-[1180px] ">
             <div className="w-full border-b border-gray-300"></div>
             {featuredPosts.map(
@@ -59,7 +51,6 @@ export default function Blog({ allPostsData }) {
                         index % 2 === 1 ? "lg:flex-row-reverse" : ""
                       } items-center w-full gap-8 lg:gap-[48px] cursor-pointer`}
                     >
-                      {/* Image Container */}
                       <div className="w-full max-w-[306px] md:max-w-[520px] md:w-full lg:w-[542px] lg:h-[434px] rounded-[24px] overflow-hidden flex-shrink-0">
                         <img
                           src={`/${coverImage}`}
@@ -67,8 +58,7 @@ export default function Blog({ allPostsData }) {
                           className="w-full h-full object-contain rounded-[24px]"
                         />
                       </div>
-                      {/* Text Content */}
-                      <div className="w-full max-w-[306px] md:max-w-[540px] xl: mx-auto md:w-full lg:w-1/2">
+                      <div className="w-full max-w-[306px] md:max-w-[540px] xl:mx-auto md:w-full lg:w-1/2">
                         <p className="text-[14px] lg:text-[18px] font-light font-inter text-black mb-2">
                           {date}
                         </p>
@@ -82,7 +72,7 @@ export default function Blog({ allPostsData }) {
                           {author}
                         </p>
                       </div>
-                    </div>
+                    </div> 
                   </Link>
                   <div className="w-full border-b border-gray-300"></div>
                 </React.Fragment>
@@ -91,21 +81,9 @@ export default function Blog({ allPostsData }) {
           </div>
 
           {/* Section 2: "More blogs" Grid */}
+          {/* CHANGE: Now just pass the full 'remainingPosts' array. The component handles the rest. */}
           {remainingPosts.length > 0 && (
-            <>
-              <MoreArticles posts={gridPostsToShow} />
-              {gridVisibleCount < remainingPosts.length && (
-                <div className="text-center mt-[-40px] hidden lg:block">
-                  <button
-                    onClick={handleGridLoadMore}
-                    className="text-[24px] text-black underline hover:text-black transition"
-                    style={noTapHighlight}
-                  >
-                    Load more +
-                  </button>
-                </div>
-              )}
-            </>
+            <MoreArticles posts={remainingPosts} />
           )}
         </main>
         <Footer />

@@ -47,7 +47,6 @@ export default function MoreArticles({ posts, showGoBackButton = false }) {
   return (
     <section className="mt-[96px] pb-[30px] lg:pb-[90px]">
       <div className="max-w-[817px] mx-auto px-[16px]">
-        {/* CHANGE: This heading is now hidden by default and only appears on lg screens and up. */}
         <h2 className="text-[30px] font-bold text-center mb-[48px] hidden lg:block">
           More Articles
         </h2>
@@ -80,7 +79,7 @@ export default function MoreArticles({ posts, showGoBackButton = false }) {
           {width < lgBreakpoint && !isExpanded && posts.length > 0 && (
             <button
               onClick={() => setIsExpanded(true)}
-              className="text-[24px] font-bold text-black underline hover:text-black transition"
+              className="text-[24px] font-bold text-black underline hover:text-pink transition"
               style={noTapHighlight}
             >
               More blogs +
@@ -90,7 +89,7 @@ export default function MoreArticles({ posts, showGoBackButton = false }) {
           {width >= lgBreakpoint && showLoadMoreButton && (
             <button
               onClick={handleLoadMore}
-              className="text-[24px] font-bold text-black underline hover:text-black transition"
+              className="text-[24px] font-bold text-black underline hover:text-pink transition"
               style={noTapHighlight}
             >
               Load more +
@@ -112,7 +111,7 @@ export default function MoreArticles({ posts, showGoBackButton = false }) {
           <div className="text-center mt-[50px]">
             <Link
               href="/blog"
-              className="text-[24px]  text-black hover:text-black transition"
+              className="text-[24px] text-black hover:text-black transition"
               style={noTapHighlight}
             >
               Go back to the article page
